@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DdocSkinControls.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Admin/StorageManagement.css")" />
+}
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">Administración de Almacenamiento</span>
+    </div>
+    <li id="newFileServer">Agregar nuevo servidor</li>
+    <li id="newWarehouse">Agregar nuevo almacén</li>
+</menu>
+
+<div id="grdServers"></div>
+<div id="grdWarehouses"></div>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/StorageManagement.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/WarehouseEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/WarehousePathsEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/FileServerEditor.js")"></script>
+}

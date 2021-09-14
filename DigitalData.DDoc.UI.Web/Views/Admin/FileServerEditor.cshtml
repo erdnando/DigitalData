@@ -1,0 +1,36 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocFileServer
+
+@{
+    var action = Model.IsNew ? "CreateFileServer" : "UpdateFileServer";
+}
+
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmFileServerEdit" }))
+{
+    @Html.HiddenFor(m => m.IsNew)
+    <fieldset>
+        <legend>Datos del servidor</legend>
+
+        @if (!Model.IsNew)
+        {
+            <div>
+                @Html.LabelFor(m => m.Id)
+                @Html.DisplayFor(m => m.Id)
+                @Html.HiddenFor(m => m.Id)
+            </div>
+        }
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Url)
+            @Html.TextBoxFor(m => m.Url)
+        </div>
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button id="cancel" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button id="saveFileServer" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

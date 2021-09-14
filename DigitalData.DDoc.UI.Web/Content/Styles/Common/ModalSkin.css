@@ -1,0 +1,71 @@
+.modal-dialog.no-close .ui-dialog-titlebar-close { display: none; }
+
+.modal-dialog {
+    background: rgb(33, 89, 144);
+    border: 0;
+    border-radius: 0;
+    color: white;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    background: rgb(158, 158, 158) url(../../Images/bar.png) repeat-x;
+    border: 0;
+    border-radius: 0;
+    color: white;
+    font-size: 14px;
+    height: 36px;
+    left: 0;
+    padding: 0;
+}
+
+.ui-dialog .ui-dialog-titlebar span {
+    height: 16px;
+    vertical-align: middle;
+}
+
+.ui-dialog-content {
+    color: white;
+    font-size: 13px;
+}
+
+button.dialog-button,
+button.panel-button,
+.button-like.dialog-button,
+.button-like.panel-button {
+    background: linear-gradient(rgb(143, 143, 143), rgb(84, 84, 84));
+}
+
+
+    button.dialog-button:hover,
+    button.dialog-button:active,
+    button.dialog-button.toggle-on,
+    .button-like.dialog-button:hover,
+    .button-like.dialog-button:active,
+    .button-like.dialog-button.toggle-on,
+    button.panel-button:hover,
+    button.panel-button:active,
+    button.panel-button.toggle-on,
+    .button-like.panel-button:hover,
+    .button-like.panel-button:active,
+    .button-like.panel-button.toggle-on {
+        background: linear-gradient(rgb(84, 84, 84), rgb(143, 143, 143));
+    }
+
+.modal-dialog .fields-container { border: solid 1px rgb(203, 203, 203); }
+
+.modal-dialog .fields-container input:disabled,
+.modal-dialog .fields-container select:disabled,
+.modal-dialog fieldset select:disabled {
+    background-color: lightgray;
+}
+
+.modal-dialog .listbox-action span,
+.modal-dialog .listbox-action label {
+    cursor: pointer;
+}
+
+.modal-dialog .listbox-field select[multiple] option.selected-option {
+    font-weight: bold;
+}
+
+.modal-dialog.alert .ui-dialog-buttonpane { background-color: rgb(33, 89, 144); }

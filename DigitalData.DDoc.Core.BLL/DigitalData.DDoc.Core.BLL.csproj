@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <!--Project was exported from assembly: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Core.BLL.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DigitalData.DDoc.Core.BLL</AssemblyName>
+    <ApplicationVersion>4.210.0.0</ApplicationVersion>
+    <RootNamespace>DigitalData.DDoc.Core.BLL</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DigitalData.Common">
+      <HintPath>lib\DigitalData.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cfdi">
+      <HintPath>lib\DigitalData.Common.Cfdi.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cryptography">
+      <HintPath>lib\DigitalData.Common.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.PdfUtils">
+      <HintPath>lib\DigitalData.Common.PdfUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.PdfUtils.Interop">
+      <HintPath>lib\DigitalData.Common.PdfUtils.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>lib\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>lib\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>lib\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common">
+      <HintPath>lib\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io">
+      <HintPath>lib\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel">
+      <HintPath>lib\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout">
+      <HintPath>lib\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\DigitalData.DDoc.UI.Web\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DDocService.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalData.Common.IoC\DigitalData.Common.IoC.csproj">
+      <Project>{0f2ae329-3819-48cc-a90d-db8737fd16e3}</Project>
+      <Name>DigitalData.Common.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.Common.Logging\DigitalData.Common.Logging.csproj">
+      <Project>{fd84fdeb-1a32-41fd-8ea2-d3dd1a6e798b}</Project>
+      <Name>DigitalData.Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.DDoc.Common.csproj">
+      <Project>{8a9fa058-2324-4c38-96f3-480246c19611}</Project>
+      <Name>DigitalData.DDoc.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

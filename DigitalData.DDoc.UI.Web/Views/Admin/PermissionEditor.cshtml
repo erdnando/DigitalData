@@ -1,0 +1,89 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DigitalData.DDoc.Common.Entities.Security.DdocPermission
+
+@{
+    var action = Model.IsNew ? "CreatePermission" : "EditPermission";
+    var isGroupPermission = (int)ViewBag.IsGroupPermission;
+    var groupType = (GroupType)ViewBag.GroupType;
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmPermissionEdit" }))
+{
+    @Html.HiddenFor(m => m.IsNew)
+    if (!Model.IsNew)
+    {
+        @Html.HiddenFor(m => m.Id)
+    }
+    <fieldset>
+        <legend>Propiedades del permiso</legend>
+        @if (isGroupPermission != 0)
+        {
+            switch (groupType)
+            {
+                case GroupType.UserGroup:
+                    <div>
+                        @Html.LabelFor(m => m.UserGroupId)
+                        @Html.HiddenFor(m => m.UserGroupId)
+                        @Html.DisplayFor(m => m.UserGroupName)
+                    </div>
+                    <div>
+                        @Html.LabelFor(m => m.SecurityGroupId)
+                        @Html.DropDownListFor(m => m.SecurityGroupId, new SelectList(ViewBag.SecurityGroups, "Id", "Name", Model.SecurityGroupId))
+                    </div>
+                    break;
+                case GroupType.SecurityGroup:
+                    <div>
+                        @Html.LabelFor(m => m.UserGroupId)
+                        @Html.DropDownListFor(m => m.UserGroupId, new SelectList(ViewBag.UserGroups, "Id", "Name", Model.UserGroupId))
+                    </div>
+                    <div>
+                        @Html.LabelFor(m => m.SecurityGroupId)
+                        @Html.HiddenFor(m => m.SecurityGroupId)
+                        @Html.DisplayFor(m => m.SecurityGroupName)
+                    </div>
+                    break;
+            }
+        }
+        else
+        {
+            <div>
+                @Html.LabelFor(m => m.UserGroupId)
+                @Html.DropDownListFor(m => m.UserGroupId, new SelectList(ViewBag.UserGroups, "Id", "Name", Model.UserGroupId))
+            </div>
+            <div>
+                @Html.LabelFor(m => m.SecurityGroupId)
+                @Html.DropDownListFor(m => m.SecurityGroupId, new SelectList(ViewBag.SecurityGroups, "Id", "Name", Model.SecurityGroupId))
+            </div>
+        }
+        <div>
+            @Html.LabelFor(m => m.ReadPermission)
+            @Html.CheckBox("ReadPermission", new { disabled = "disabled", @checked="checked" })
+            @Html.Hidden("ReadPermission", "True")
+        </div>
+        <div>
+            @Html.LabelFor(m => m.WritePermission)
+            @Html.CheckBoxFor(m => m.WritePermission)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CommentPermission)
+            @Html.CheckBoxFor(m => m.CommentPermission)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ExportPermission)
+            @Html.CheckBoxFor(m => m.ExportPermission)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.PrintPermission)
+            @Html.CheckBoxFor(m => m.PrintPermission)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.DeletePermission)
+            @Html.CheckBoxFor(m => m.DeletePermission)
+        </div>
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button id="cancelPermissionEdit" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button id="savePermission" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

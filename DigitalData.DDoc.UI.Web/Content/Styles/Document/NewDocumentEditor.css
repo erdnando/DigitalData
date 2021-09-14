@@ -1,0 +1,136 @@
+.calendar { left: 70% !important; }
+
+button.panel-button {
+    float: none;
+}
+
+#newDocumentEditor form {
+    margin-top: 10px;
+}
+
+#newDocumentEditor .add-page-icon {
+    background-position: -40px -16px;
+}
+
+#newDocumentEditor .replace-page-icon {
+    background-position: -40px -48px;
+}
+
+#newDocumentEditor .remove-page-icon {
+    background-position: -40px -32px;
+}
+
+#newDocumentEditor .sorting-icon {
+    background-position: -56px -144px;
+}
+
+#newDocumentEditor .undo-icon {
+    background-position: -40px -144px;
+}
+
+#newDocumentEditor .button-panel {
+    margin: 6px 0;
+    display: block;
+    width: 100%;
+    height: 4vh;
+}
+
+#newDocumentEditor .preview-container {
+    display: inline-block;
+    width: calc(35% - 10px);
+    height: calc(80vh - 160px);
+    box-shadow: rgba(0,0,0,0.5) 0 0 15px 5px inset;
+    background-color: gray;
+    text-align: center;
+    overflow-y: hidden;
+}
+
+#newDocumentEditor .fields-container {
+    display: inline-block;
+    width: calc(65% - 10px);
+    height: calc(75vh - 150px);
+    overflow-y: auto;
+    margin-left: 10px;
+    vertical-align: top;
+}
+
+.modal-dialog input[type="text"],
+.modal-dialog select {
+    width: 95%;
+}
+
+#newDocumentEditor .pages-scroller {
+    display: inline-block;
+    height: 14vh;
+    margin: 10px 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+    width: calc(100% - 80px);
+    border: solid 1px black;
+    box-shadow: rgba(0,0,0,0.5) 0 0 10px 5px inset;
+    background-color: lightgray;
+}
+
+#newDocumentEditor .pages-dragger {
+    height: 100%;
+    width: 100%;
+}
+
+    #newDocumentEditor .pages-dragger > li {
+        float: left;
+        margin: 2px 5px;
+        height: 90px;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+    }
+
+    #newDocumentEditor .pages-dragger > li.selected {
+        border: 3px solid orange;
+    }
+
+#newDocumentEditor .scroll-control {
+    background: transparent url('../../Images/ddoc_graphics.png') no-repeat scroll;
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    vertical-align: middle;
+    width: 26px;
+    margin: 0 4px;
+}
+
+#newDocumentEditor .left-scroll {
+    background-position: -24px -160px;
+}
+
+#newDocumentEditor .right-scroll {
+    background-position: -56px -160px;
+}
+
+#newFiles {
+    display: inline-block;
+    vertical-align: middle;
+    width: 19%;
+}
+
+#newFileDrop {
+    display: inline-block;
+    height: 34px;
+    vertical-align: middle;
+    border: dotted 1px rgb(203,203,203);
+    width: 79%;
+}
+
+#newFileDrop label {
+    line-height: 34px;
+    width: auto;
+}
+
+#newFileSelector {margin: 5px 0;}
+
+#newDocumentEditor .pages-scroller img {
+    width: 72px;
+    height: 90px;
+}

@@ -1,0 +1,81 @@
+.calendar {
+    display: none;
+    height: 198px;
+    overflow: hidden;
+    position: absolute;
+    width: 220px;
+    z-index: 1050;
+}
+
+.k-container {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.k-table-container {
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 1px;
+    top: 30px;
+}
+
+.k-table-days {
+    empty-cells: hide;
+    height: 100%;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.k-table-days th {
+    cursor: default;
+    padding: 3px 0;
+}
+
+.k-month-selector {
+    left: 24px;
+    margin: 0;
+    position: absolute;
+    top: 4px;
+    width: 84px;
+}
+
+.k-year-selector {
+    left: 134px;
+    margin: 0;
+    position: absolute;
+    top: 4px;
+    width: 60px;
+}
+
+.k-button {
+    cursor: pointer;
+    height: 18px;
+    position: absolute;
+    top: 5px;
+    width: 18px;
+}
+
+.k-prev { left: 4px; }
+
+.k-next { left: 114px; }
+
+.k-close { right: 0; }
+
+.k-day,
+.k-day-label {
+    cursor: default;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.k-day {
+    margin: 2px;
+    padding: 0 2px;
+}

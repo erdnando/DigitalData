@@ -1,0 +1,198 @@
+span.image-button,
+.tree-view-menu ul li span,
+.grid-action {
+    background: url("../../Images/ddocAdmin_graphics.png") no-repeat center scroll;
+}
+
+
+#collectionTree,
+.tree-view-datapanel,
+.tree-view-menu {
+    color: white;
+    display: inline-block;
+    margin: 25px 15px;
+    vertical-align: top;
+    width: 25%;
+}
+
+.tree-view-menu {
+    width: 28%;
+}
+
+#collectionTree {
+    background-color: rgba(0, 51, 102, 0.5);
+    box-shadow: inset 0 0 15px 0 black;
+    font: normal 11px "Segoe UI", Arial, Sans-serif;
+    height: calc(100% - 126px);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#collectionTree ul,
+#collectionTree li {
+    color: rgb(255, 255, 255);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#collectionTree ul {
+    display: block;
+    padding: 5px;
+    background: transparent;
+    border: 0;
+}
+
+#collectionTree label {
+    background: url("../../Images/ddoc_graphics.png") no-repeat center scroll;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    padding-left: 20px;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+#collectionTree label + ul { margin: 0 0 0 10px; }
+
+#collectionTree li[data-node-type="0"] label { background-position: -80px -96px; }
+
+#collectionTree li[data-node-type="1"] label { background-position: -80px -80px; }
+
+#collectionTree li[data-node-type="2"] label { background-position: -80px -16px; }
+
+#collectionTree li[data-node-type="3"] label { background-position: -80px -112px; }
+
+#collectionTree .selected-node > label { color: rgb(0, 210, 31) !important; }
+
+.tree-view-datapanel div { margin-top: 10px; }
+
+.tree-view-datapanel input { width: 100%; }
+
+.tree-view-menu {
+    font: bold 13px Verdana;
+    padding: 0 25px;
+}
+
+.tree-view-menu ul li {
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 black;
+    cursor: pointer;
+    margin: 15px 0;
+    padding: 6px 10px;
+}
+
+.tree-view-menu ul li label {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.tree-view-menu ul li span {
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+    width: 24px;
+}
+
+.tree-view-menu .rootCollection-edit { background-position: -120px -48px; }
+
+.tree-view-menu .documentCollection-edit { background-position: -120px 0; }
+
+.tree-view-menu .folderCollection-edit { background-position: -96px 0; }
+
+.tree-view-menu .rootCollection-delete { background-position: -24px -48px; }
+
+.tree-view-menu .documentCollection-delete { background-position: -120px -24px; }
+
+.tree-view-menu .folderCollection-delete { background-position: -96px -24px; }
+
+.tree-view-menu .collection-addFolderChild { background-position: -72px -48px; }
+
+.tree-view-menu .collection-addDocumentChild { background-position: -144px 0; }
+
+.tree-view-menu .collection-addField { background-position: -96px -48px; }
+
+.disabled-item {
+    box-shadow: none !important;
+    color: lightgray;
+    cursor: default !important;
+}
+
+#FileDownloadTemplate {
+    width: 50%;
+}
+
+#grdCollectionFields {
+    height: calc(50% - 65px) !important;
+    left: 34%;
+    position: absolute;
+    top: 340px;
+    width: 64%;
+}
+
+#TypeString,
+#TypeLength,
+#TypePrecision,
+label[for="TypeLength"],
+label[for="TypePrecision"] {
+    width: 10%;
+}
+
+label[for="TypeLength"],
+label[for="TypePrecision"] {
+    margin-left: 35px;
+}
+
+.imgEditRule {
+    background-position: -128px -104px;
+}
+
+.imgDeleteRule {
+    background-position: -32px -104px;
+}
+
+span.imgEditField {
+    background-position: -128px -104px;
+}
+
+.imgMoveUp {
+    background-position: -128px -88px;
+}
+
+.imgMoveDown {
+    background-position: -128px -72px;
+}
+
+.imgDeleteField {
+    background-position: -32px -104px;
+}
+
+span.image-button.add-icon {
+    background-position: -48px -104px;
+}
+
+span.image-button.remove-icon {
+    background-position: -32px -104px;
+}
+
+label[for="AllowedValues"] {
+    width: 100%;
+}
+
+#allowedValuesEditor input {
+    width: 100%;
+}
+
+#grdTemplateFields {
+    height: 200px !important;
+}
+
+.imgAddTemplateField {
+    background-position: -48px -104px;
+}

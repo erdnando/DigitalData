@@ -1,0 +1,44 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DigitalData.DDoc.Common.Entities.DdocRule
+
+@{
+    var action = Model.IsNew ? "CreateRule" : "UpdateRule";
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmRuleEdit" }))
+{
+    @Html.HiddenFor(m => m.IsNew)
+    if (!Model.IsNew)
+    {
+        @Html.HiddenFor(m => m.Id)
+    }
+    <fieldset>
+        <legend></legend>
+        <div>
+            @Html.LabelFor(m => m.ParentId)
+            @Html.DropDownListFor(m => m.ParentId, new SelectList(new List<DdocCollection>()))
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ChildId)
+            @Html.DropDownListFor(m => m.ChildId, new SelectList(new List<DdocCollection>()))
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ParentField)
+            @Html.DropDownListFor(m => m.ParentField, new SelectList(new List<DdocField>()))
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ChildField)
+            @Html.DropDownListFor(m => m.ChildField, new SelectList(new List<DdocField>()))
+        </div>
+    </fieldset>
+    <div class="dialog-button-panel">
+        <button class="dialog-button right-set" id="cancelRuleEdit"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button class="dialog-button right-set" id="saveRule"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+    if (!Model.IsNew)
+    {
+        <script type="text/javascript" language="javascript">
+             var ddocRule = @Html.Raw(Json.Encode(Model))
+        </script>
+    }
+}

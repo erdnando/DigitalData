@@ -1,0 +1,15 @@
+﻿@{
+    var fileType = (string)ViewBag.FileType;
+}
+
+<div>
+    <button id="fileDownload" class="action-button" tabindex="1"><span class="button-icon page-icon"></span>Descargar archivo</button>
+    @if (fileType.Trim().Equals("pdf", StringComparison.OrdinalIgnoreCase))
+    {
+        <button id="pagesDownload" class="action-button" tabindex="2"><span class="button-icon page-icon"></span>Descargar páginas</button>
+    }
+    <button id="documentDownload" class="action-button" tabindex="3"><span class="button-icon document-icon"></span>Descargar documento completo</button>
+</div>
+<div>
+    <button class="dialog-button" id="cancelDownload" tabindex="4"><span class="button-icon cancel-icon"></span>Cancelar</button>
+</div>

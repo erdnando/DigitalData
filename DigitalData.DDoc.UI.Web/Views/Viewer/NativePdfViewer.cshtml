@@ -1,0 +1,138 @@
+﻿@using System.Collections
+@using System.Globalization
+@using DigitalData.DDoc.Common.Extensions
+@using DigitalData.DDoc.UI.Web.Views.Viewer.Resources
+@model DigitalData.DDoc.Common.Entities.DdocDocument
+
+@{
+    var resourceSet = ViewerResources.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google" content="notranslate">
+    <title>@ViewBag.ProductName - Ver Documento</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/Viewer.css")" />
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+</head>
+<body>
+    @if (ViewBag.FileIndex != null)
+    {
+        @Html.Hidden("fileIndex", ViewData["FileIndex"])
+    }
+    @if (ViewBag.NoPermission != null && (bool)ViewBag.NoPermission)
+    {
+        @Html.Hidden("NoPermission", 1)
+    }
+
+    @Html.Hidden("CanRead", (bool)ViewBag.CanRead)
+    @Html.Hidden("CanWrite", (bool)ViewBag.CanWrite)
+    @Html.Hidden("CanComment", (bool)ViewBag.CanComment)
+    @Html.Hidden("CanExport", (bool)ViewBag.CanExport)
+    @Html.Hidden("CanPrint", (bool)ViewBag.CanPrint)
+    @Html.Hidden("CanDelete", (bool)ViewBag.CanDelete)
+
+    <div id="outerContainer" class="sidebarOpen">
+        <div class="toolbar">
+            <span class="logo"></span>
+            <div class="ddocSidebarToggle">
+                <button id="sidebarToggle" class="toolbarButton" title="Mostrar barra lateral"></button>
+            </div>
+            <div class="ddocDocumentNavigation">
+                @if (ViewBag.HideNavigation != null)
+                {
+                    <div class="splitToolbarButton">
+                        <button id="firstDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_first_title")"></button>
+                        <button id="prevDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_prev_title")"></button>
+                        <button id="nextDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_next_title")"></button>
+                        <button id="lastDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_last_title")"></button>
+                    </div>
+                    <label id="fileNumberLabel" class="toolbarLabel" for="fileNumber">@resourceSet.GetString("file_label")</label>
+                    <input id="fileNumber" type="number" class="toolbarField fileNumber" value="1" size="4" min="1">
+                    <span id="numFiles" class="toolbarLabel"></span>
+                }
+            </div>
+            <div class="toolbarViewerRight">
+                @if (ViewBag.ShowCustomPanel)
+                {
+                    <button id="customPanelActivator" class="toolbarButton custom" title="@resourceSet.GetString("customPanel_title")"></button>
+                }
+            </div>
+        </div>
+        @if (ViewBag.ShowCustomPanel)
+        {
+            <div class="customPanel hidden doorHangerRight" id="customPanel">
+                @if (ViewBag.CustomViewerActions != null)
+                {
+                    foreach (var customAction in (IEnumerable<DdocCustomAction>)ViewBag.CustomViewerActions)
+                    {
+                        if (customAction.CollectionId == ViewBag.CollectionId)
+                        {
+                            <a href="@Url.Action(customAction.Action, customAction.Controller, new
+                             {
+                                 documentId = ViewBag.DocumentId
+                             })" title="@customAction.Tooltip" class="custom-action @customAction.ImageClass">@customAction.Command</a>
+                        }
+                    }
+                }
+            </div>
+        }
+        <div id="sidebarContainer" class="native-sidebar">
+            <div id="toolbarSidebar">
+                <div class="splitToolbarButton toggled">
+                    <button id="viewData" class="toolbarButton group" title="Mostrar datos del documento">Datos</button>
+                </div>
+            </div>
+            <div id="dataView">
+                <table id="documentData">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </table>
+            </div>
+            <div id="thumbnailView" class="hidden">
+            </div>
+        </div>
+        <div id="mainContainer" class="native-main-container">
+            <div id="viewerContainer">
+                <iframe id="viewerFrame"></iframe>
+            </div>
+        </div>
+    </div>
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+    @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+    @if (ViewBag.Username != null)
+    {
+        @Html.Hidden("Username", (string)ViewBag.Username)
+    }
+    <script type="text/javascript">
+        var Resources = {};
+
+        @foreach (DictionaryEntry res in resourceSet)
+        {
+            @:Resources.@res.Key = '@Html.Raw(HttpUtility.JavaScriptStringEncode(res.Value.ToString()))';
+        }
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    <script type="text/javascript">
+        var ddocDocument = @Html.Raw(Json.Encode(Model));
+        var documentFiles = ddocDocument.Pages;
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Viewer/PDF/NativePdfViewer.js")"></script>
+    @if (ViewBag.ShowCustomPanel)
+    {
+        <script type="text/javascript" src=@Url.Content("~/Plugins/Scripts/NativeViewerPlugins.js")></script>
+    }
+</body>
+</html>

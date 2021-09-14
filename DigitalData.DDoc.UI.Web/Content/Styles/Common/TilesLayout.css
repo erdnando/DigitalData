@@ -1,0 +1,113 @@
+body { overflow-y: hidden; }
+
+#grdResults { background-color: transparent; }
+
+.grid-table-header { display: none; }
+
+.cell-label { display: inline }
+
+.grid td.hide-on-tiles { display: none }
+
+span.grid-cell-control { display: none; }
+
+.grid-content { padding-left: 15px; }
+
+.grid-table-content tr:nth-child(2) {
+    display: none;
+}
+
+.grid-table-content tr {
+    background-color: rgba(255, 255, 255, 0.5);
+    display: block;
+    float: left;
+    font-size: small;
+    height: 150px;
+    margin: 5px;
+    padding: 10px 15px 13px 10px;
+    position: relative;
+    width: 480px;
+}
+
+.grid-table-content tr:hover { background-size: 100% 100%; }
+
+.grid-table-content td {
+    border: 0;
+    display: block;
+    width: auto;
+}
+
+td.cell-data {
+    color: rgb(24, 78, 127);
+    padding-left: 10px;
+    text-align: inherit;
+}
+
+.grid-table-header tr:first-child,
+.grid-table-content tr:first-child { display: none; }
+
+.grid-table-content tr td:not(.cell-data) {
+    float: right;
+    left: 10px;
+    top: 130px;
+    width: 20px;
+}
+
+.grid-table-content tr td:first-child {
+    background-color: rgb(152, 152, 152);
+    border: 1px solid black;
+    cursor: pointer;
+    float: left;
+    height: 150px;
+    left: 0;
+    padding: 0;
+    top: 0;
+    width: 115px;
+}
+
+.grid-numeric-cell { text-align: left !important; }
+
+.item-thumbnail {
+    background-color: lightgray;
+    border: 1px solid black;
+    cursor: pointer;
+    float: left;
+    height: 100%;
+    width: 30%;
+}
+
+.item-data {
+    margin: 5px 0;
+    padding-left: 33%;
+    white-space: normal;
+    width: 60%;
+}
+
+.item-property {
+    margin: 5px 0;
+    padding-left: 33%;
+    white-space: normal;
+    width: 60%;
+}
+
+.grid-action {
+    bottom: 0;
+    position: absolute;
+    right: 4px;
+}
+
+.imgThumb { background: none; }
+
+.grid .grid-thumbnail-loading {
+    background: transparent url('../../Images/ajax-loader.gif') no-repeat center scroll;
+    background-size: 25%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+canvas {
+    left: 0;
+    top: 0;
+}

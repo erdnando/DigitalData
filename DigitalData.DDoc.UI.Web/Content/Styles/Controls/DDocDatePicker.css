@@ -1,0 +1,10 @@
+.datePicker { width: 165px; }
+
+.dtp-button {
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    margin-left: 5px;
+    vertical-align: middle;
+    width: 16px;
+}

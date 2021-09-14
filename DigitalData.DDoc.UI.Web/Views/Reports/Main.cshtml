@@ -1,0 +1,88 @@
+﻿@using DigitalData.DDoc.Common.Entities.Helpers
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Reset.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Layout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Skin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalLayout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalSkin.css")" />
+    <meta name="viewport" content="width=device-width" />
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+</head>
+<body>
+    <div class="outer-container">
+        <nav class="menu main-menu no-select">
+            <div class="logo"></div>
+            <ul>
+                <li>
+                    <a href="@Url.Action("Main", "Main")">Regresar a @ViewBag.ProductName</a>
+                </li>
+                <li class="current-user menu-right">
+                    <span class="current-user-icon"></span>@ViewBag.Username
+                </li>
+            </ul>
+        </nav>
+        <nav class="main-sub-menu">
+            <ul>
+                <li id="changeMyPassword">
+                    <span>Cambiar Contraseña</span>
+                </li>
+                <li>
+                    <a id="logoff" href="@Url.Action("LogOff", "Security")" target="_parent">Salir</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-container">
+            <iframe class="work-space" name="workspace" src="@Url.Action("Welcome")"></iframe>
+        </div>
+        <aside class="submenu no-select">
+            <ul>
+                @if (ViewBag.ShowDefaultReports)
+                {
+                    <li class="report">
+                        <a href="@Url.Action("DailyReport", "Reports")" target="workspace"><span class="submenu-icon collection-icon"></span>Reporte Diario</a>
+                    </li>
+                    <li class="report">
+                        <a href="@Url.Action("DateRangeReport", "Reports")" target="workspace"><span class="submenu-icon collection-icon"></span>Por Rango de Fechas</a>
+                    </li>
+                    <li class="report">
+                        <a href="@Url.Action("TotalReport", "Reports")" target="workspace"><span class="submenu-icon collection-icon"></span>Total en @ViewBag.ProductName</a>
+                    </li>
+                }
+                @if (ViewBag.CustomReportList != null)
+                {
+                    foreach (DdocReport report in ViewBag.CustomReportList)
+                    {
+                        <li class="report">
+                            <a href="@Url.Action(report.ActionName, report.ControllerName)" target="workspace"><span class="submenu-icon collection-icon"></span>@report.ReportName</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </aside>
+    </div>
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+    @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+    @if (ViewBag.Username != null)
+    {
+        @Html.Hidden("Username", (string)ViewBag.Username)
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/PasswordEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocNavigation.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript">
+        var ddoc = new DDocUi();
+    </script>
+</body>
+</html>

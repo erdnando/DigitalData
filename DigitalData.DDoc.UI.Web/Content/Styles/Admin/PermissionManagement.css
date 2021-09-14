@@ -1,0 +1,11 @@
+﻿.grid-action {
+    background: url("../../Images/ddocAdmin_graphics.png") no-repeat center scroll;
+}
+
+.imgPermissionEdit {
+    background-position: -112px -88px;
+}
+
+.imgPermissionDelete {
+    background-position: -32px -104px;
+}

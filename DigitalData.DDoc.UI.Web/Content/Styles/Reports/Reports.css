@@ -1,0 +1,80 @@
+label {
+    color: white;
+    font-size: 13px;
+}
+
+.report-container > div {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+}
+
+#report {
+    background-color: white;
+}
+
+#reportTitle {
+    color: white;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 8px;
+}
+
+.report-filters div {
+    text-align: center;
+    margin: 15px 0;
+    color: white;
+}
+
+.report-filters div * {
+    margin: 0 10px;
+}
+
+.report-loader {
+    background: rgba(0, 0, 0, 0.5) url('../../Images/grid-loader.gif') no-repeat center scroll;
+    height: 80vh;
+    position: relative;
+    width: 100%;
+}
+
+.legend-table {
+    background-color: #bbbbbb;
+    margin: 5px;
+}
+
+.legend-table td,
+.legend-table th {
+    padding: 5px;
+}
+
+.legend-label {
+    padding-left: 5px;
+    text-align: left;
+    max-width: 176px;
+    vertical-align: middle;
+}
+
+.legend-value {
+    width: 90px;
+    vertical-align: middle;
+}
+
+.legend-color {
+    width: 14px;
+}
+
+.legend-table tr:nth-child(2n+2) {
+    background-color: #9E9E9E;
+    color: #204c00;
+}
+
+.legend-table tr:nth-child(2n+3) {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.legend-table tr:first-child {
+    background-color: darkblue;
+    color: white;
+}

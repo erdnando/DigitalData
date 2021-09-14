@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Reset.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Layout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Skin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalLayout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalSkin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Reports/Reports.css")" />
+    <meta name="viewport" content="width=device-width" />
+    @RenderSection("Styles", false)
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+</head>
+<body style="padding: 10px">
+
+    @RenderBody()
+
+    <div class="report-filters">
+        @RenderSection("ReportFilters", false)
+    </div>
+
+    <div class="report-container" style="display: none">
+        @RenderSection("ReportContainer", false)
+    </div>
+
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+    @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+    @if (ViewBag.Username != null)
+    {
+        @Html.Hidden("Username", (string)ViewBag.Username)
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Reports/Chart.min.js")"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

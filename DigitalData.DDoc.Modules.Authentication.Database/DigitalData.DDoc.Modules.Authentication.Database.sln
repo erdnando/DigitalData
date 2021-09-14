@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.DDoc.Modules.Authentication.Database", "DigitalData.DDoc.Modules.Authentication.Database.csproj", "{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BA264C7-782A-428F-B460-0B9436E25FD0}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<meta charset="UTF-8"/>
+<meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Reset.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Layout.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Skin.css")"/>
+    <meta content="width=device-width" name="viewport"/>
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")"/>
+    }
+</head>
+<body>
+    <div class="outer-container">
+        @{ Html.RenderAction("AdminMenu", "Navigation"); }
+        <div class="main-container">
+            <iframe class="work-space" name="workspace" src="@Url.Action("Welcome")"></iframe>
+        </div>
+        <aside class="submenu no-select">
+            <ul>
+                <li>
+                    <a href="@Url.Action("UserManagement", "Admin")" target="workspace"><span class="submenu-icon user-icon"></span>Usuarios</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("StorageManagement", "Admin")" target="workspace"><span class="submenu-icon storage-icon"></span>Almacenamiento</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("CollectionManagment", "Admin")" target="workspace"><span class="submenu-icon collection-icon"></span>Colecciones</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SecurityManagment", "Admin")" target="workspace"><span class="submenu-icon security-icon"></span>Seguridad</a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @if (ViewBag.Username != null)
+    {
+        @Html.Hidden("Username", (string)ViewBag.Username)
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-3.3.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui-1.12.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    <script type="text/javascript">
+        var ddoc = new DDocUi();
+    </script>
+</body>
+</html>

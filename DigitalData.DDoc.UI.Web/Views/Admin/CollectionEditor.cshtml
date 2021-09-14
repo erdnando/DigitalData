@@ -1,0 +1,94 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DdocCollection
+
+@{
+    var action = Model.IsNew ? "CreateCollection" : "UpdateCollection";
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmEditCollection" }))
+{
+    @Html.Hidden("ParentCollectionId", (string)ViewBag.ParentCollectionId)
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.HiddenFor(m => m.Type)
+    <fieldset>
+        <legend>Datos de la colección</legend>
+        @if (Model.IsNew)
+        {
+            if (Model.Type != CollectionType.C)
+            {
+                <div>
+                    @Html.LabelFor(m => m.ParentId)
+                    @ViewBag.ParentCollectionName
+                    @Html.HiddenFor(m => m.ParentId)
+                </div>
+            }
+        }
+        else
+        {
+            <div>
+                @Html.LabelFor(m => m.Id)
+                @Html.DisplayFor(m => m.Id)
+                @Html.HiddenFor(m => m.Id)
+            </div>
+        }
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Description)
+            @Html.TextBoxFor(m => m.Description)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.SecurityGroupId)
+            @Html.DropDownListFor(m => m.SecurityGroupId, new SelectList(ViewBag.SecurityEntries, "Id", "Name", Model.SecurityGroupId), "Crear nuevo grupo de seguridad...")
+        </div>
+        @if (!Model.IsNew && Model.Type != CollectionType.C && Model.FieldCount > 0)
+        {
+            <div>
+                @Html.LabelFor(m => m.FileDownloadTemplate)
+                @Html.TextBoxFor(m => m.FileDownloadTemplate, new { @readonly = "readonly" })
+                <span class="image-button imgEditField" id="editFilenameTemplate"></span>
+            </div>
+        }
+        @if (Model.IsNew && Model.Type == CollectionType.D && (bool)ViewBag.EnableWarehouses)
+        {
+            <div>
+                @Html.LabelFor(m => m.WarehouseId)
+                @Html.DropDownListFor(m => m.WarehouseId, new SelectList(ViewBag.Warehouses, "Id", "Name", Model.WarehouseId), "Crear nuevo almacen...")
+            </div>
+            <div>
+                @Html.LabelFor(m => m.NewWarehousePath)
+                @Html.TextBoxFor(m => m.NewWarehousePath)
+            </div>
+        }
+        else
+        {
+            @Html.HiddenFor(m => m.WarehouseId)
+        }
+    </fieldset>
+
+    if (Model.IsNew && !string.IsNullOrEmpty(Model.ParentId))
+    {
+        <fieldset>
+            <legend>Campos de la colección</legend>
+            @if (ViewBag.ParentCollectionId != null)
+            {
+                <div>
+                    @Html.LabelFor(m => m.ParentFieldIds)
+                    <select id="ParentFields" multiple></select>
+                </div>
+            }
+            <div class="action-label" id="addNewField">
+                <span class="image-button add-icon"></span>
+                <label>Agregar Nuevo Campo</label>
+            </div>
+            <div id="grdNewCollectionFields"></div>
+        </fieldset>
+    }
+
+    <div class="dialog-button-panel">
+        <button class="dialog-button right-set" id="cancelCollectionEdit"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button class="dialog-button right-set" id="saveCollection"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

@@ -1,0 +1,332 @@
+.left-set { float: left !important;  }
+
+.right-set { float: right !important; }
+
+.no-margin { margin: 0 !important; }
+
+.no-padding { padding: 0 !important; }
+
+/* Menu principal */
+
+.main-menu {
+    display: block;
+    height: 36px;
+}
+
+.main-menu li {
+    display: inline-block;
+    float: left;
+    line-height: 36px;
+}
+
+.main-menu .logo {
+    float: left;
+    height: 36px;
+    min-width: 273px;
+    width: 273px;
+}
+
+.main-menu li.menu-right { float: right; }
+
+.main-menu li a {
+    display: block;
+    height: 100%;
+    padding: 0 30px;
+}
+
+.main-menu .current-user {
+    padding: 0 15px;
+}
+
+.main-menu .current-user-icon {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    margin: 0 15px 0 0;
+}
+
+.main-sub-menu {
+    width: 200px;
+    position: absolute;
+    top: 36px;
+    right: 0;
+    z-index: 99;
+    display: none;
+}
+
+.main-sub-menu li {
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+.main-sub-menu li a {
+    display: block;
+    width: 100%;
+}
+
+/* Arbol de navegacion */
+
+.tree-view {
+    float: left;
+    width: 275px;
+    margin-left: -100%;
+    position: relative;
+}
+
+.tree-view .fancytree-title {
+    margin-top: 2px;
+}
+
+span.loading {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Submenu */
+
+.submenu {
+    float: left;
+    width: 275px;
+    margin-left: -100%;
+    position: relative;
+}
+
+.submenu li {
+    line-height: 50px;
+    margin: 35px 0;
+    padding-left: 24px;
+}
+
+.submenu li.report {
+    margin: 10px 0;
+}
+
+.submenu .submenu-icon {
+    float: left;
+    height: 24px;
+    margin-right: 15px;
+    position: relative;
+    top: 12px;
+    width: 24px;
+}
+
+.submenu li a {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    width: 100%;
+}
+
+/* Area de trabajo */
+
+.outer-container {
+    width: 100%;
+    min-width: 600px;
+    margin: 0 auto;
+}
+
+.main-container {
+    float: left;
+    width: 100%;
+    height: calc(100vh - 36px);
+}
+
+.main-container .work-space
+ {
+    background: rgb(48, 106, 152);
+    margin-left: 275px;
+    height: calc(100vh - 36px);
+}
+
+.work-space {
+    display: block;
+    width: calc(100% - 275px);
+}
+
+/* Barra de menu */
+
+.menu-bar {
+    height: 36px;
+    min-width: 545px;
+}
+
+.menu-bar button {
+    float: right;
+    vertical-align: middle;
+}
+
+.menu-bar li {
+    display: inline-block;
+    line-height: 36px;
+    margin: 0 20px 0 0;
+    padding: 0 15px;
+}
+
+.menu-bar li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* Pie de pagina */
+
+.app-footer {
+    bottom: 3px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    left: 2px;
+    position: fixed;
+    z-index: 10;
+}
+
+/* Botones */
+
+button,
+.button-like {
+    display: inline-block;
+    line-height: normal;
+    margin: 5px;
+    padding: 4px 8px;
+}
+
+a.button-like {
+    line-height: 31px;
+    padding: 0 10px;
+    vertical-align: middle;
+}
+
+button span.button-icon,
+.button-like span.button-icon {
+    display: inline-block;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+span.image-button {
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+}
+
+/* Campos */
+
+input, select { padding: 2px; }
+
+input { padding: 3px; }
+
+.menu-bar .menu-title-content {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 205px;
+}
+
+.menu-bar .menu-title {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 0 0 15px;
+    width: 240px;
+}
+
+button.small-button {
+    font-size: 10px;
+    height: 24px;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+/* Labels de acci�n */
+
+.action-label {
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 16px;
+}
+
+.action-label span {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.action-label label {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 16px;
+}
+
+/*
+    SE agrega nuevos etilos para los Reportes
+*/
+
+.submenu-container-reports {
+    bottom: 0;
+    display: block;
+    left: 0;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 27px;
+    visibility: visible;
+    width: 273px;
+}
+
+.submenu-reports {
+    bottom: 0;
+    display: block;
+    left: 0;
+    line-height: normal;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    visibility: visible;
+    width: 100%;
+}
+
+.submenu-reports li {
+    line-height: 35px;
+    margin: 10px 0;
+    padding-left: 13px;
+}
+
+.submenu-reports .submenu-icon {
+    float: left;
+    height: 25px;
+    margin-right: 13px;
+    position: relative;
+    top: 1px;
+    width: 23px;
+    right: -8px;
+}
+
+.main-container main {
+    padding: 15px 0 0 15px;
+}
+
+/* Lists */
+
+.list-action {
+    cursor: pointer;
+    display: block !important;
+    height: 16px !important;
+    margin: 0 2px !important;
+    width: 16px !important;
+    padding: 0 !important;
+}

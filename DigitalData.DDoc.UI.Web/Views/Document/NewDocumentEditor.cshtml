@@ -1,0 +1,97 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DdocDocument
+
+<div id="newFileSelector">
+    <input id="newFiles" name="files[]" type="file" multiple />
+    <div id="newFileDrop">
+        <label>Arrastre y suelte los archivos</label>
+    </div>
+</div>
+
+<div class="button-panel">
+    @if ((bool)ViewBag.EnableWebTwain)
+    {
+        <button id="addFilesFromScanner" class="panel-button"><span class="button-icon add-page-icon"></span>Escanear Documento</button>
+    }
+    <button id="replaceFile" class="panel-button"><span class="button-icon replace-page-icon"></span>Reemplazar archivo</button>
+    <button id="removeFile" class="panel-button"><span class="button-icon remove-page-icon"></span>Eliminar archivo</button>
+    <button id="sortFiles" class="panel-button"><span class="button-icon sorting-icon"></span>Ordenar archivos</button>
+    <button id="undoSort" class="panel-button"><span class="button-icon undo-icon"></span>Deshacer</button>
+    <button id="saveSort" class="panel-button"><span class="button-icon save-icon"></span>Aplicar</button>
+</div>
+
+<div>
+    <span id="scrollBackward" class="scroll-control left-scroll"></span>
+    <div class="pages-scroller">
+        <ul class="pages-dragger" data-enabled="0"></ul>
+    </div>
+    <span id="scrollForward" class="scroll-control right-scroll"></span>
+</div>
+
+@{ var count = 0;}
+@using (Html.BeginForm("Save", "Document", FormMethod.Post, new { Id = "frmNewDocument" }))
+{
+    @Html.Hidden("DocumentId", (string)ViewBag.DocumentId)
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.CollectionId)
+    @Html.HiddenFor(m => m.Name)
+    <div class="preview-container">
+        <div class="viewer-viewport"></div>
+    </div>
+    <div class="fields-container">
+        @for (var i = 0; i < Model.Data.Count; i++)
+        {
+            var field = Model.Data[i];
+
+            if (field.Hidden || field.Computed)
+            {
+                continue;
+            }
+
+            <div>
+                @Html.Label("Data[" + count + "].Value", field.Name)
+            </div>
+            <div>
+                @Html.Hidden($"Data[{count}].Id", field.Id)
+                @Html.Hidden($"Data[{count}].InMask", field.InMask)
+                @Html.Hidden($"Data[{count}].OutMask", field.OutMask)
+                @Html.Hidden($"Data[{count}].Name", field.Name)
+                @Html.Hidden($"Data[{count}].Format", field.Format)
+                @Html.Hidden($"Data[{count}].Nullable", field.Nullable)
+                @Html.Hidden($"Data[{count}].TypeString", field.TypeString)
+                @switch ((int)field.Type)
+                {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 4:
+                        if (field.AllowedValues != null && field.AllowedValues.Any())
+                        {
+                            @Html.DropDownList($"Data[{count}].Value", new SelectList(field.AllowedValues, field.Value), new { @class = "editableField", disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.TextBox($"Data[{count}].Value", field.Value, new { @class = "editableField", disabled = "disabled" })
+                        }
+                        break;
+                    case 3:
+                        @Html.CheckBox($"Data[{count}].Value", !string.IsNullOrEmpty(field.Value) && bool.Parse(field.Value), new { @class = "editableField", disabled = "disabled" })
+                        break;
+                }
+            </div>
+
+            count++;
+        }
+        <div>
+            @Html.LabelFor(m => m.SecurityGroupId, "Seguridad")
+        </div>
+        <div>
+            @Html.DropDownListFor(m => m.SecurityGroupId, new SelectList(ViewBag.SecurityGroups, "Id", "Name", Model.SecurityGroupId), new { @class = "editableField", disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="dialog-button-panel">
+        <button class="dialog-button right-set" id="cancel"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button class="right-set" id="saveDocument"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

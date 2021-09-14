@@ -1,0 +1,30 @@
+﻿@{
+    var fileType = ((string)ViewBag.FileType).ToLowerInvariant().Trim();
+}
+
+<div class="file-type-selection">
+    @if (fileType == "xml")
+    {
+        <div id="xmlDownload" class="file-type-icon file-icon-lg" data-type="xml" tabindex="1"></div>
+    }
+    else if (fileType == "bmp")
+    {
+        <div id="bmpDownload" class="file-type-icon file-icon-lg" data-type="bmp" tabindex="2"></div>
+    }
+    else if (fileType == "png")
+    {
+        <div id="pngDownload" class="file-type-icon file-icon-lg" data-type="png" tabindex="3"></div>
+    }
+    else if (fileType == "jpg")
+    {
+        <div id="jpgDownload" class="file-type-icon file-icon-lg" data-type="jpg" tabindex="4"></div>
+    }
+    else
+    {
+        <div id="tifDownload" class="file-type-icon file-icon-lg" data-type="tif" tabindex="5"></div>
+    }
+    <div id="pdfDownload" class="file-type-icon file-icon-lg" data-type="pdf" tabindex="6"></div>
+</div>
+<div>
+    <button class="dialog-button" id="cancelFileDownload"><span class="button-icon cancel-icon"></span>Cancelar</button>
+</div>

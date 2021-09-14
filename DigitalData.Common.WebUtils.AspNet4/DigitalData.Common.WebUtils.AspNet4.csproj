@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.Common.WebUtils.AspNet4.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB72F7F1-270F-4640-A2D5-EEEC8513C43D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DigitalData.Common.WebUtils.AspNet4</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ApplicationVersion>6.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>DigitalData.Common.WebUtils.AspNet4</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DigitalData.Common.EnumUtils">
+      <HintPath>lib\DigitalData.Common.EnumUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.IoC">
+      <HintPath>lib\DigitalData.Common.IoC.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>lib\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration">
+      <HintPath>lib\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <HintPath>lib\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json">
+      <HintPath>lib\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>lib\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http">
+      <HintPath>lib\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>lib\System.Web.WebPages.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseController.cs" />
+    <Compile Include="CustomWebViewPage.cs" />
+    <Compile Include="BaseWebViewPage.cs" />
+    <Compile Include="ChunkedHandler.cs" />
+    <Compile Include="CustomEnumHelper.cs" />
+    <Compile Include="CustomViewEngine.cs" />
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="IHtml5Extensions.cs" />
+    <Compile Include="Html5Helper`1.cs" />
+    <Compile Include="Html5Helper.cs" />
+    <Compile Include="Html5CanvasHelper.cs" />
+    <Compile Include="Html5MediaHelper.cs" />
+    <Compile Include="Html5SvgHelper.cs" />
+    <Compile Include="SourceList.cs" />
+    <Compile Include="SourceListItem.cs" />
+    <Compile Include="ObjectType.cs" />
+    <Compile Include="DrawMode.cs" />
+    <Compile Include="HttpRequestExtensions.cs" />
+    <Compile Include="IoCControllerFactory.cs" />
+    <Compile Include="IoCHttpControllerActivator.cs" />
+    <Compile Include="IoCControllersSupport.cs" />
+    <Compile Include="IoCHubActivator.cs" />
+    <Compile Include="IoCSignalRSupport.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="MefControllerFactory.cs" />
+    <Compile Include="MefControllersSupport.cs" />
+    <Compile Include="NoCacheFilterAttribute.cs" />
+    <Compile Include="RemoveAspMvcHeadersModule.cs" />
+    <Compile Include="UrlExtendedHelper.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

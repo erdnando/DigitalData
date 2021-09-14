@@ -1,0 +1,13 @@
+﻿@using (Html.BeginForm("NewCollectionField", "Admin", FormMethod.Post, new { id = "frmAllowedValuesEdit" }))
+{
+    <fieldset>
+        <legend>Introduzca un nuevo valor</legend>
+        <div>
+            @Html.TextBox("AllowedValue")
+        </div>
+    </fieldset>
+    <div class="dialog-button-panel">
+        <button id="cancelAllowedValueEdit" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button id="saveAllowedValue" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

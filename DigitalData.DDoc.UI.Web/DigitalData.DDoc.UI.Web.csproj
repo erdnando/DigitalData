@@ -1,0 +1,1109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B907201E-40EC-444B-BF3C-8E5839CDA3B2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DigitalData.DDoc.WebUI</RootNamespace>
+    <AssemblyName>DigitalData.DDoc.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44316</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>lib\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>lib\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cfdi, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.Cfdi.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Configuration, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Configuration.IoC, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.Configuration.IoC.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cryptography, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.DataAccess, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.DataAccess.MySql">
+      <HintPath>lib\DigitalData.Common.DataAccess.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.DataAccess.Odbc">
+      <HintPath>lib\DigitalData.Common.DataAccess.Odbc.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.DataAccess.Oracle">
+      <HintPath>lib\DigitalData.Common.DataAccess.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.DataAccess.SqlServer, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.DataAccess.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.IO, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Logging.IoC, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.Logging.IoC.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.PdfUtils">
+      <HintPath>lib\DigitalData.Common.PdfUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.PdfUtils.Interop">
+      <HintPath>lib\DigitalData.Common.PdfUtils.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.PdfUtils.Ocr">
+      <HintPath>lib\DigitalData.Common.PdfUtils.Ocr.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Reflection, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.Common.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.DDoc.Common.WebExtensions, Version=4.210.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DigitalData.DDoc.Common.WebExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes">
+      <HintPath>lib\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms">
+      <HintPath>lib\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io">
+      <HintPath>lib\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel">
+      <HintPath>lib\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout">
+      <HintPath>lib\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa">
+      <HintPath>lib\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign">
+      <HintPath>lib\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser">
+      <HintPath>lib\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg">
+      <HintPath>lib\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Cryptography.Internal.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.DataProtection.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.DataProtection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.5.0.0\lib\net461\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Binder.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.FileExtensions.5.0.0\lib\net461\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Json.5.0.0\lib\net461\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.5.0.2\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Physical.5.0.0\lib\net461\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileSystemGlobbing.5.0.0\lib\net461\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Hosting.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.5.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.WebEncoders.2.2.0\lib\netstandard2.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.Security.4.2.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Registry.4.5.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common">
+      <HintPath>lib\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Xml.4.5.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="1Startup.WebApi.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\API\ActivityLogApiController.cs" />
+    <Compile Include="Controllers\API\CollectionApiController.cs" />
+    <Compile Include="Controllers\API\DocumentApiController.cs" />
+    <Compile Include="Controllers\API\FilesApiController.cs" />
+    <Compile Include="Controllers\API\FolderApiController.cs" />
+    <Compile Include="Controllers\API\SearchApiController.cs" />
+    <Compile Include="Controllers\API\SecurityApiController.cs" />
+    <Compile Include="Controllers\CatalogController.cs" />
+    <Compile Include="Controllers\CollectionController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FolderController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SearchTestApiController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Controllers\ViewerController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DdocHub.cs" />
+    <Compile Include="Modules\LicenseValidationMiddleware.cs" />
+    <Compile Include="Modules\LicenseValidator.cs" />
+    <Compile Include="NoGetterModelBinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="App_Start\Startup.WebApi.cs" />
+    <Compile Include="Views\Viewer\Resources\ViewerResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewerResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cadenaoriginal_3_3.xslt" />
+    <Content Include="Content\Images\accept.png" />
+    <Content Include="Content\Images\add.png" />
+    <Content Include="Content\Images\addDocument.png" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\bar.png" />
+    <Content Include="Content\Images\bar_inverted.png" />
+    <Content Include="Content\Images\calendar.png" />
+    <Content Include="Content\Images\calendar_disabled.png" />
+    <Content Include="Content\Images\cancel.png" />
+    <Content Include="Content\Images\collapse.png" />
+    <Content Include="Content\Images\colMgmt.png" />
+    <Content Include="Content\Images\columns.png" />
+    <Content Include="Content\Images\ddocAdmin_graphics.png" />
+    <Content Include="Content\Images\ddocLogo.png" />
+    <Content Include="Content\Images\ddoc_graphics.png" />
+    <Content Include="Content\Images\ddoc_viewer.png" />
+    <Content Include="Content\Images\delDocCol.png" />
+    <Content Include="Content\Images\deleteDocument.png" />
+    <Content Include="Content\Images\deleteFolder.png" />
+    <Content Include="Content\Images\deleteSecGroup.png" />
+    <Content Include="Content\Images\deleteServer.png" />
+    <Content Include="Content\Images\deleteUser.png" />
+    <Content Include="Content\Images\deleteUserGroup.png" />
+    <Content Include="Content\Images\deleteWarehouse.png" />
+    <Content Include="Content\Images\delFolCol.png" />
+    <Content Include="Content\Images\delRootCol.png" />
+    <Content Include="Content\Images\documents.png" />
+    <Content Include="Content\Images\documents2.png" />
+    <Content Include="Content\Images\down.png" />
+    <Content Include="Content\Images\dropDown.png" />
+    <Content Include="Content\Images\editDocCol.png" />
+    <Content Include="Content\Images\editDocument.png" />
+    <Content Include="Content\Images\editField.png" />
+    <Content Include="Content\Images\editFolCol.png" />
+    <Content Include="Content\Images\editFolder.png" />
+    <Content Include="Content\Images\editPermission.png" />
+    <Content Include="Content\Images\editRotCol.png" />
+    <Content Include="Content\Images\editSecGroupPermissions.png" />
+    <Content Include="Content\Images\editSecurityGroup.png" />
+    <Content Include="Content\Images\editServer.png" />
+    <Content Include="Content\Images\editUser.png" />
+    <Content Include="Content\Images\editUserGroup.png" />
+    <Content Include="Content\Images\editUserGroupPermissions.png" />
+    <Content Include="Content\Images\editWarehouse.png" />
+    <Content Include="Content\Images\expand.png" />
+    <Content Include="Content\Images\ff.png" />
+    <Content Include="Content\Images\FileTypes\doc.png" />
+    <Content Include="Content\Images\FileTypes\docx.png" />
+    <Content Include="Content\Images\FileTypes\jpg.png" />
+    <Content Include="Content\Images\FileTypes\pdf.png" />
+    <Content Include="Content\Images\FileTypes\ppt.png" />
+    <Content Include="Content\Images\FileTypes\pptx.png" />
+    <Content Include="Content\Images\FileTypes\tiff.png" />
+    <Content Include="Content\Images\FileTypes\xls.png" />
+    <Content Include="Content\Images\FileTypes\xlsx.png" />
+    <Content Include="Content\Images\firstPage.png" />
+    <Content Include="Content\Images\folder.png" />
+    <Content Include="Content\Images\folderOpen.png" />
+    <Content Include="Content\Images\grid-loader.gif" />
+    <Content Include="Content\Images\icons.gif" />
+    <Content Include="Content\Images\inputLoader.png" />
+    <Content Include="Content\Images\jqueryui\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Images\jqueryui\ui-icons_555555_256x240.png" />
+    <Content Include="Content\Images\jqueryui\ui-icons_777620_256x240.png" />
+    <Content Include="Content\Images\jqueryui\ui-icons_777777_256x240.png" />
+    <Content Include="Content\Images\jqueryui\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\Images\jqueryui\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Images\lastPage.png" />
+    <Content Include="Content\Images\listLayout.png" />
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\menu_header.png" />
+    <Content Include="Content\Images\moveDown.png" />
+    <Content Include="Content\Images\moveUp.png" />
+    <Content Include="Content\Images\newColField.png" />
+    <Content Include="Content\Images\newDocCol.png" />
+    <Content Include="Content\Images\newFolCol.png" />
+    <Content Include="Content\Images\next.png" />
+    <Content Include="Content\Images\nextPage.png" />
+    <Content Include="Content\Images\ok.png" />
+    <Content Include="Content\Images\openFolder.png" />
+    <Content Include="Content\Images\prev.png" />
+    <Content Include="Content\Images\prevPage.png" />
+    <Content Include="Content\Images\reject.png" />
+    <Content Include="Content\Images\removeCol.png" />
+    <Content Include="Content\Images\removeFilter.png" />
+    <Content Include="Content\Images\removeGroup.png" />
+    <Content Include="Content\Images\replacePage.png" />
+    <Content Include="Content\Images\rootCol.png" />
+    <Content Include="Content\Images\rootColOpen.png" />
+    <Content Include="Content\Images\rotateCcw.png" />
+    <Content Include="Content\Images\rotateCw.png" />
+    <Content Include="Content\Images\rw.png" />
+    <Content Include="Content\Images\scanner.png" />
+    <Content Include="Content\Images\Scanner\all_document_delete.png" />
+    <Content Include="Content\Images\Scanner\Crop.png" />
+    <Content Include="Content\Images\Scanner\Crop_gray.png" />
+    <Content Include="Content\Images\Scanner\document_delete.png" />
+    <Content Include="Content\Images\Scanner\Flip.png" />
+    <Content Include="Content\Images\Scanner\Mirror.png" />
+    <Content Include="Content\Images\Scanner\navigate_beginning.png" />
+    <Content Include="Content\Images\Scanner\navigate_end.png" />
+    <Content Include="Content\Images\Scanner\navigate_left.png" />
+    <Content Include="Content\Images\Scanner\navigate_right.png" />
+    <Content Include="Content\Images\Scanner\Rotate180.png" />
+    <Content Include="Content\Images\Scanner\RotateLeft.png" />
+    <Content Include="Content\Images\Scanner\RotateRight.png" />
+    <Content Include="Content\Images\Scanner\selection_view.png" />
+    <Content Include="Content\Images\securityMgmt.png" />
+    <Content Include="Content\Images\seek.png" />
+    <Content Include="Content\Images\send.png" />
+    <Content Include="Content\Images\setActive.png" />
+    <Content Include="Content\Images\sort.png" />
+    <Content Include="Content\Images\sortAscending.png" />
+    <Content Include="Content\Images\sortDescending.png" />
+    <Content Include="Content\Images\storageMgmt.png" />
+    <Content Include="Content\Images\tileLayout.png" />
+    <Content Include="Content\Images\toggleSidebar.png" />
+    <Content Include="Content\Images\treeRoot.png" />
+    <Content Include="Content\Images\undo.png" />
+    <Content Include="Content\Images\unlockPass.png" />
+    <Content Include="Content\Images\up.png" />
+    <Content Include="Content\Images\user.png" />
+    <Content Include="Content\Images\userGroup.png" />
+    <Content Include="Content\Images\userMgmt.png" />
+    <Content Include="Content\Images\viewDocument.png" />
+    <Content Include="Content\Images\Viewer\annotation-check.svg" />
+    <Content Include="Content\Images\Viewer\annotation-comment.svg" />
+    <Content Include="Content\Images\Viewer\annotation-help.svg" />
+    <Content Include="Content\Images\Viewer\annotation-insert.svg" />
+    <Content Include="Content\Images\Viewer\annotation-key.svg" />
+    <Content Include="Content\Images\Viewer\annotation-newparagraph.svg" />
+    <Content Include="Content\Images\Viewer\annotation-noicon.svg" />
+    <Content Include="Content\Images\Viewer\annotation-note.svg" />
+    <Content Include="Content\Images\Viewer\annotation-paragraph.svg" />
+    <Content Include="Content\Images\Viewer\findbarButton-next%402x.png" />
+    <Content Include="Content\Images\Viewer\findbarButton-next.png" />
+    <Content Include="Content\Images\Viewer\findbarButton-previous%402x.png" />
+    <Content Include="Content\Images\Viewer\findbarButton-previous.png" />
+    <Content Include="Content\Images\Viewer\grab.cur" />
+    <Content Include="Content\Images\Viewer\grabbing.cur" />
+    <Content Include="Content\Images\Viewer\loading-icon.gif" />
+    <Content Include="Content\Images\Viewer\loading-small%402x.png" />
+    <Content Include="Content\Images\Viewer\loading-small.png" />
+    <Content Include="Content\Images\Viewer\shadow.png" />
+    <Content Include="Content\Images\Viewer\texture.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-bookmark%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-bookmark.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-custom%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-custom.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-documentProperties%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-documentProperties.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-download%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-download.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-firstFile%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-firstFile.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-firstPage%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-firstPage.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-goBack%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-goBack.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-handTool%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-handTool.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-lastFile%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-lastFile.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-lastPage%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-lastPage.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-menuArrows%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-menuArrows.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-nextFile%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-nextFile.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-openFile%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-openFile.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-pageDown%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-pageDown.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-pageUp%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-pageUp.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-presentationMode%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-presentationMode.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-prevFile%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-prevFile.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-print%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-print.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-rotateCcw%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-rotateCcw.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-rotateCw%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-rotateCw.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-search%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-search.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-secondaryToolbarToggle%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-secondaryToolbarToggle.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-sidebarToggle%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-sidebarToggle.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-viewAttachments%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-viewAttachments.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-viewOutline%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-viewOutline.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-viewThumbnail%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-viewThumbnail.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-zoomIn%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-zoomIn.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-zoomOut%402x.png" />
+    <Content Include="Content\Images\Viewer\toolbarButton-zoomOut.png" />
+    <Content Include="Content\Images\viewer_nextFile.png" />
+    <Content Include="Content\Images\viewer_prevFile.png" />
+    <Content Include="Content\Images\viewPermissions.png" />
+    <Content Include="Content\Images\vline.gif" />
+    <Content Include="Content\Images\zoomIn.png" />
+    <Content Include="Content\Images\zoomOut.png" />
+    <Content Include="Content\Styles\Admin\CollectionManagement.css" />
+    <Content Include="Content\Styles\Admin\PermissionManagement.css" />
+    <Content Include="Content\Styles\Admin\SecurityManagement.css" />
+    <Content Include="Content\Styles\Admin\StorageManagement.css" />
+    <Content Include="Content\Styles\Admin\UserManagement.css" />
+    <Content Include="Content\Styles\Common\Layout.css" />
+    <Content Include="Content\Styles\Common\ListLayout.css" />
+    <Content Include="Content\Styles\Common\ModalLayout.css" />
+    <Content Include="Content\Styles\Common\ModalSkin.css" />
+    <Content Include="Content\Styles\Common\Reset.css" />
+    <Content Include="Content\Styles\Common\Skin.css" />
+    <Content Include="Content\Styles\Common\TilesLayout.css" />
+    <Content Include="Content\Styles\Controls\DDocAccordion.css" />
+    <Content Include="Content\Styles\Controls\DDocCalendar.css" />
+    <Content Include="Content\Styles\Controls\DDocDatePicker.css" />
+    <Content Include="Content\Styles\Controls\DDocGrid.css" />
+    <Content Include="Content\Styles\Controls\DDocSkinControls.css" />
+    <Content Include="Content\Styles\Controls\DDocTabs.css" />
+    <Content Include="Content\Styles\Document\DocumentEditor.css" />
+    <Content Include="Content\Styles\Document\DocumentPagesEditor.css" />
+    <Content Include="Content\Styles\Document\FileUpload.css" />
+    <Content Include="Content\Styles\Document\NewDocumentEditor.css" />
+    <Content Include="Content\Styles\Document\ScannerUpload.css" />
+    <Content Include="Content\Styles\Folder\FolderEditor.css" />
+    <Content Include="Content\Styles\jqueryui.min.css" />
+    <Content Include="Content\Styles\loader.css" />
+    <Content Include="Content\Styles\Main\Welcome.css" />
+    <Content Include="Content\Styles\Navigation\FolderContentResults.css" />
+    <Content Include="Content\Styles\Navigation\NavigationResults.css" />
+    <Content Include="Content\Styles\Reports\Reports.css" />
+    <Content Include="Content\Styles\Search\AdvancedSearch.css" />
+    <Content Include="Content\Styles\Search\GlobalSearchResults.css" />
+    <Content Include="Content\Styles\Security\Security.css" />
+    <Content Include="Content\Styles\ui.fancytree.min.css" />
+    <Content Include="Content\Styles\Viewer\CfdViewer.css" />
+    <Content Include="Content\Styles\Viewer\fileicon.css" />
+    <Content Include="Content\Styles\Viewer\imgareaselect-default.css" />
+    <Content Include="Content\Styles\Viewer\Viewer.css" />
+    <Content Include="Content\Styles\w3.css" />
+    <Content Include="Content\xmlThumb.gif" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="lib\DigitalData.Common.Cfdi.dll" />
+    <Content Include="lib\DigitalData.Common.Configuration.dll" />
+    <Content Include="lib\DigitalData.Common.Configuration.IoC.dll" />
+    <Content Include="lib\DigitalData.Common.Cryptography.dll" />
+    <Content Include="lib\DigitalData.Common.dll" />
+    <Content Include="lib\DigitalData.Common.IO.dll" />
+    <Content Include="lib\DigitalData.Common.IoC.dll" />
+    <Content Include="lib\DigitalData.Common.Logging.IoC.dll" />
+    <Content Include="lib\DigitalData.Common.Reflection.dll" />
+    <Content Include="lib\DigitalData.Common.WebUtils.AspNet4.dll" />
+    <Content Include="lib\DigitalData.DDoc.Common.dll" />
+    <Content Include="lib\DigitalData.DDoc.Common.WebExtensions.dll" />
+    <Content Include="lib\DigitalData.DDoc.Core.BLL.dll" />
+    <Content Include="lib\Microsoft.AspNet.SignalR.Core.dll" />
+    <Content Include="lib\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="lib\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="lib\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="lib\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="lib\Microsoft.Extensions.Options.dll" />
+    <Content Include="lib\Microsoft.Owin.dll" />
+    <Content Include="lib\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="lib\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="lib\Microsoft.Owin.Security.dll" />
+    <Content Include="lib\Newtonsoft.Json.dll" />
+    <Content Include="lib\Owin.dll" />
+    <Content Include="lib\System.Net.Http.Formatting.dll" />
+    <Content Include="lib\System.Text.Json.dll" />
+    <Content Include="lib\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="lib\System.Web.Http.dll" />
+    <Content Include="lib\System.Web.Http.Owin.dll" />
+    <Content Include="lib\System.Web.Mvc.dll" />
+    <Content Include="lib\WebActivatorEx.dll" />
+    <Content Include="Plugins\Scripts\Gallery.zip" />
+    <Content Include="Plugins\Styles\logoLong2.png" />
+    <Content Include="Plugins\Views\Gallery\Gallery.cshtml" />
+    <Content Include="Plugins\Views\web.config" />
+    <Content Include="app.config" />
+    <None Include="Content\catCFDI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Content\cfdv33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Content\tdCFDI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Content\TimbreFiscalDigitalv11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Resources\addon\dynamsoft.webtwain.addon.barcode.intellisense.js" />
+    <Content Include="Plugins\.DO_NOT_DELETE.txt" />
+    <Content Include="Plugins\Scripts\Gallery.js" />
+    <Content Include="Plugins\Styles\Custom.css" />
+    <Content Include="Plugins\Styles\Gallery.css" />
+    <Content Include="Plugins\Styles\logo.png" />
+    <Content Include="Plugins\Styles\logoLong.png" />
+    <Content Include="Plugins\Styles\logosmall.png" />
+    <Content Include="Plugins\Styles\ok.png" />
+    <Content Include="Resources\addon\dynamsoft.webtwain.addon.barcode.intellisense.nonvs.js" />
+    <Content Include="Resources\addon\dynamsoft.webtwain.addon.barcode.js" />
+    <None Include="Resources\addon\dynamsoft.webtwain.addon.webcam.intellisense.js" />
+    <Content Include="Resources\addon\dynamsoft.webtwain.addon.webcam.intellisense.nonvs.js" />
+    <Content Include="Resources\addon\dynamsoft.webtwain.addon.webcam.js" />
+    <Content Include="Resources\DynamicWebTWAIN.cab" />
+    <Content Include="Resources\DynamicWebTWAINHTML5Edition.exe" />
+    <Content Include="Resources\DynamicWebTWAINx64.cab" />
+    <Content Include="Resources\dynamsoft.webtwain.config.js" />
+    <Content Include="Resources\dynamsoft.webtwain.initiate.js" />
+    <Content Include="Resources\dynamsoft.webtwain.install.js" />
+    <None Include="Resources\dynamsoft.webtwain.intellisense.js" />
+    <Content Include="Resources\dynamsoft.webtwain.intellisense.nonvs.js" />
+    <Content Include="Resources\gsdll32.dll" />
+    <Content Include="Resources\gsdll64.dll" />
+    <Content Include="Resources\gswin32.exe" />
+    <Content Include="Resources\gswin32c.exe" />
+    <Content Include="Resources\gswin64.exe" />
+    <Content Include="Resources\gswin64c.exe" />
+    <Content Include="Resources\reference\hint.css" />
+    <Content Include="Resources\reference\html5_editor.css" />
+    <Content Include="Resources\reference\loading.gif" />
+    <Content Include="Resources\reference\logo.gif" />
+    <Content Include="Scripts\Admin\CollectionEditor.js" />
+    <Content Include="Scripts\Admin\CollectionFieldEditor.js" />
+    <Content Include="Scripts\Admin\CollectionFilenameTemplateEditor.js" />
+    <Content Include="Scripts\Admin\CollectionManagement.js" />
+    <Content Include="Scripts\Admin\FileServerEditor.js" />
+    <Content Include="Scripts\Admin\GroupEditor.js" />
+    <Content Include="Scripts\Admin\GroupPermissionManagement.js" />
+    <Content Include="Scripts\Admin\PasswordConfiguration.js" />
+    <Content Include="Scripts\Admin\PasswordEditor.js" />
+    <Content Include="Scripts\Admin\PermissionEditor.js" />
+    <Content Include="Scripts\Admin\PermissionManagement.js" />
+    <Content Include="Scripts\Admin\ProfileEditor.js" />
+    <Content Include="Scripts\Admin\RuleEditor.js" />
+    <Content Include="Scripts\Admin\RulesList.js" />
+    <Content Include="Scripts\Admin\SecurityManagement.js" />
+    <Content Include="Scripts\Admin\StorageManagement.js" />
+    <Content Include="Scripts\Admin\UserEditor.js" />
+    <Content Include="Scripts\Admin\UserManagement.js" />
+    <Content Include="Scripts\Admin\WarehouseEditor.js" />
+    <Content Include="Scripts\Admin\WarehousePathsEditor.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="config.json" />
+    <Content Include="DDocLic.xli" />
+    <Content Include="Resources\addon\Barcode.zip" />
+    <Content Include="Resources\addon\Barcodex64.zip" />
+    <Content Include="Resources\addon\Webcam.zip" />
+    <Content Include="Resources\addon\Webcamx64.zip" />
+    <Content Include="Resources\DynamicWebTWAINMacEdition.pkg" />
+    <Content Include="Resources\DynamicWebTWAINPlugIn.msi" />
+    <Content Include="Resources\gsdll32.lib" />
+    <Content Include="Resources\gsdll64.lib" />
+    <Content Include="Resources\reference\LICENSE" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Common\DDocMain.js" />
+    <Content Include="Scripts\Common\DDocNavigation.js" />
+    <Content Include="Scripts\Controls\DDocAccordion.js" />
+    <Content Include="Scripts\Controls\DDocCalendar.js" />
+    <Content Include="Scripts\Controls\DDocControls.js" />
+    <Content Include="Scripts\Controls\DDocDatePicker.js" />
+    <Content Include="Scripts\Controls\DDocGrid.js" />
+    <Content Include="Scripts\Controls\DDocTabs.js" />
+    <Content Include="Scripts\Document\DocumentEditor.js" />
+    <Content Include="Scripts\Document\DocumentPagesEditor.js" />
+    <Content Include="Scripts\Document\FileUpload.js" />
+    <Content Include="Scripts\Document\NewDocumentEditor.js" />
+    <Content Include="Scripts\Document\ScannerUpload.js" />
+    <Content Include="Scripts\Folder\FolderEditor.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery\html.sortable.js" />
+    <Content Include="Scripts\jquery\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery\jquery.ba-jqmq.js" />
+    <Content Include="Scripts\jquery\jquery.fancytree-all-deps.js" />
+    <Content Include="Scripts\jquery\jquery.fancytree-all-deps.min.js" />
+    <Content Include="Scripts\jquery\jquery.fancytree.filter.js" />
+    <Content Include="Scripts\jquery\jquery.imgareaselect.pack.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\jquery\jquery.scrollbox.js" />
+    <Content Include="Scripts\jquery\jquery.signalR.min.js" />
+    <Content Include="Scripts\jquery\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery\tinysort.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Navigation\FolderContentResults.js" />
+    <Content Include="Scripts\Navigation\NavigationResults.js" />
+    <Content Include="Scripts\oboe-browser.min.js" />
+    <Content Include="Scripts\Reports\Chart.js" />
+    <Content Include="Scripts\Reports\Chart.min.js" />
+    <Content Include="Scripts\Reports\DailyReport.js" />
+    <Content Include="Scripts\Reports\DateRangeReport.js" />
+    <Content Include="Scripts\Reports\TotalReport.js" />
+    <Content Include="Scripts\Search\AdvancedSearch.js" />
+    <Content Include="Scripts\Search\GlobalSearch2Results.js" />
+    <Content Include="Scripts\Search\GlobalSearchResults.js" />
+    <Content Include="Scripts\Security\Login.js" />
+    <Content Include="Scripts\Viewer\DDocViewer\compatibility.js" />
+    <Content Include="Scripts\Viewer\DDocViewer\DDocViewer.js" />
+    <Content Include="Scripts\Viewer\DDocViewer\pdf.js" />
+    <Content Include="Scripts\Viewer\DDocViewer\pdf.worker.js" />
+    <Content Include="Scripts\Viewer\DDocViewer\PdfViewerApplication.js" />
+    <Content Include="Scripts\Viewer\PDF\NativePdfViewer.js" />
+    <Content Include="Scripts\Viewer\XML\CfdiViewer.js" />
+    <Content Include="Scripts\Viewer\XML\XmlViewer.js" />
+    <Content Include="Views\Shared\LicenseError.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Admin\CollectionEditor.cshtml" />
+    <Content Include="Views\Admin\CollectionFieldEditor.cshtml" />
+    <Content Include="Views\Admin\CollectionFilenameTemplateEditor.cshtml" />
+    <Content Include="Views\Admin\CollectionManagment.cshtml" />
+    <Content Include="Views\Admin\FieldAllowedValuesEditor.cshtml" />
+    <Content Include="Views\Admin\FileServerEditor.cshtml" />
+    <Content Include="Views\Admin\GroupEditor.cshtml" />
+    <Content Include="Views\Admin\GroupPermissionList.cshtml" />
+    <Content Include="Views\Admin\Main.cshtml" />
+    <Content Include="Views\Admin\PasswordConfigurationEditor.cshtml" />
+    <Content Include="Views\Admin\PasswordEditor.cshtml" />
+    <Content Include="Views\Admin\PathEditor.cshtml" />
+    <Content Include="Views\Admin\PermissionEditor.cshtml" />
+    <Content Include="Views\Admin\PermissionManagement.cshtml" />
+    <Content Include="Views\Admin\ProfileEditor.cshtml" />
+    <Content Include="Views\Admin\RuleEditor.cshtml" />
+    <Content Include="Views\Admin\RulesList.cshtml" />
+    <Content Include="Views\Admin\SecurityManagment.cshtml" />
+    <Content Include="Views\Admin\StorageManagement.cshtml" />
+    <Content Include="Views\Admin\UserEditor.cshtml" />
+    <Content Include="Views\Admin\UserManagement.cshtml" />
+    <Content Include="Views\Admin\WarehouseEditor.cshtml" />
+    <Content Include="Views\Admin\WarehousePathsEditor.cshtml" />
+    <Content Include="Views\Admin\Welcome.cshtml" />
+    <Content Include="Views\Document\DocumentEditor.cshtml" />
+    <Content Include="Views\Document\DocumentPagesEditor.cshtml" />
+    <Content Include="Views\Document\FileUpload.cshtml" />
+    <Content Include="Views\Document\NewDocumentEditor.cshtml" />
+    <Content Include="Views\Document\ScannerUpload.cshtml" />
+    <Content Include="Views\Document\SNewDocumentEditor.cshtml" />
+    <Content Include="Views\Error\InternalError.cshtml" />
+    <Content Include="Views\Error\LicenseError.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\SessionExpired.cshtml" />
+    <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\Folder\FolderEditor.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\Main\Main.cshtml" />
+    <Content Include="Views\Main\Welcome.cshtml" />
+    <Content Include="Views\Navigation\AdminMenu.cshtml" />
+    <Content Include="Views\Navigation\FolderContentResults.cshtml" />
+    <Content Include="Views\Navigation\MainMenu.cshtml" />
+    <Content Include="Views\Navigation\NavigationResults.cshtml" />
+    <Content Include="Views\Reports\DailyReport.cshtml" />
+    <Content Include="Views\Reports\DateRangeReport.cshtml" />
+    <Content Include="Views\Reports\Main.cshtml" />
+    <Content Include="Views\Reports\TotalReport.cshtml" />
+    <Content Include="Views\Reports\Welcome.cshtml" />
+    <Content Include="Views\Search\AdvancedSearch.cshtml" />
+    <Content Include="Views\Search\GlobalSearch2Results.cshtml" />
+    <Content Include="Views\Search\GlobalSearchResults.cshtml" />
+    <Content Include="Views\Search\NewSearchClause.cshtml" />
+    <Content Include="Views\Search\SearchClauseGroup.cshtml" />
+    <Content Include="Views\Security\ChangePassword.cshtml" />
+    <Content Include="Views\Security\Login.cshtml" />
+    <Content Include="Views\Viewer\CfdiDownload.cshtml" />
+    <Content Include="Views\Viewer\CfdiViewer.cshtml" />
+    <Content Include="Views\Viewer\DDocViewer.cshtml" />
+    <Content Include="Views\Viewer\DocumentDownloadMode.cshtml" />
+    <Content Include="Views\Viewer\DownloadMode.cshtml" />
+    <Content Include="Views\Viewer\Error.cshtml" />
+    <Content Include="Views\Viewer\FileDownloadMode.cshtml" />
+    <Content Include="Views\Viewer\NativePdfViewer.cshtml" />
+    <Content Include="Views\Viewer\PagesDownloadMode.cshtml" />
+    <Content Include="Views\Viewer\Resources.cshtml" />
+    <Content Include="Views\Viewer\ViewerError.cshtml" />
+    <Content Include="Views\Viewer\Xml.cshtml" />
+    <Content Include="Views\Shared\DDocError.cshtml" />
+    <Content Include="Views\Shared\DdocModule.cshtml" />
+    <Content Include="Views\Shared\DDocReports.cshtml" />
+    <Content Include="Views\Shared\DDocSecurity.cshtml" />
+    <Content Include="Scripts\jquery\jquery.fancytree-all-deps.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalData.Common.IoC\DigitalData.Common.IoC.csproj">
+      <Project>{0f2ae329-3819-48cc-a90d-db8737fd16e3}</Project>
+      <Name>DigitalData.Common.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.Common.Logging\DigitalData.Common.Logging.csproj">
+      <Project>{fd84fdeb-1a32-41fd-8ea2-d3dd1a6e798b}</Project>
+      <Name>DigitalData.Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.Common.WebUtils.AspNet4\DigitalData.Common.WebUtils.AspNet4.csproj">
+      <Project>{fb72f7f1-270f-4640-a2d5-eeec8513c43d}</Project>
+      <Name>DigitalData.Common.WebUtils.AspNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.DDoc.Common.csproj">
+      <Project>{8a9fa058-2324-4c38-96f3-480246c19611}</Project>
+      <Name>DigitalData.DDoc.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Core.BLL\DigitalData.DDoc.Core.BLL.csproj">
+      <Project>{90a9e0f4-fe24-4477-a8e3-11ffa5a5b46b}</Project>
+      <Name>DigitalData.DDoc.Core.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Modules.Authentication.Database\DigitalData.DDoc.Modules.Authentication.Database.csproj">
+      <Project>{7cb53d02-2bbd-4994-81bd-5fe2c0984d78}</Project>
+      <Name>DigitalData.DDoc.Modules.Authentication.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Modules.DataAccess.SqlServer\DigitalData.DDoc.Modules.DataAccess.SqlServer.csproj">
+      <Project>{2816317a-17e2-4106-b144-3c9b2165632a}</Project>
+      <Name>DigitalData.DDoc.Modules.DataAccess.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Modules.Storage.FileSystem\DigitalData.DDoc.Modules.Storage.FileSystem.csproj">
+      <Project>{ec5eb01e-438c-4879-9f9e-1331e1616a26}</Project>
+      <Name>DigitalData.DDoc.Modules.Storage.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.Ddoc.Plugins.BRADESCARD\DigitalData.Ddoc.Plugins.BRADESCARD.csproj">
+      <Project>{b729b6ed-7b29-465c-b39b-1b02ce21e1fa}</Project>
+      <Name>DigitalData.Ddoc.Plugins.BRADESCARD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Viewer\Resources\ViewerResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ViewerResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44316/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

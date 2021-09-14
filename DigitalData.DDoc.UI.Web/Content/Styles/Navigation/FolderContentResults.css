@@ -1,0 +1,23 @@
+.grid .imgThumb { background: none; }
+
+.imgDocumentView { background-position: -24px -32px; }
+
+.imgDocumentEdit { background-position: -24px -64px; }
+
+.imgDocumentDelete { background-position: -40px -32px; }
+
+.imgFolderView { background-position: -56px -128px; }
+
+.imgFolderEdit { background-position: -72px -144px; }
+
+.imgFolderDelete { background-position: -72px -128px; }
+
+.imgSend { background-position: -24px -48px; }
+
+.button-icon.list-icon { background-position: -40px -96px; }
+
+.button-icon.tiles-icon { background-position: -40px -112px; }
+
+div#grdFolderResults { height: 175px !important; }
+
+div#grdDocumentResults { height: 322px !important; }

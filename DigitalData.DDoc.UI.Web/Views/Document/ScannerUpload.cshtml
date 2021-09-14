@@ -1,0 +1,128 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocDocument
+
+<div id="container" class="AddScannerContainer">
+    <div class="dtw">
+        <div id="dwtcontrolContainer"></div>
+        <div class="usercontrols">
+            <div class="sectioncontrols">
+                <div class="titlesection">
+                    <label>Origen</label>
+                </div>
+                <div class="sectionpartsALR">
+                    <label>Escáner:</label>
+                    <select size="1" id="source"></select>
+                </div>
+                <div class="sectionpartsALR">
+                    <label for="Duplex"><input type="checkbox" id="Duplex"/>Doble cara</label>
+                </div>
+                <div class="sectionpartsALR">
+                    <label for="colortype">Formato de color:</label>
+                    <select id="colortype" value="2" size="1">
+                        <option value="0">Blanco y negro</option>
+                        <option value="1">Escala de grises</option>
+                        <option value="2">Color</option>
+                    </select>
+                </div>
+                <div class="sectionpartsALR">
+                    <label for="resolution">Resolución:</label>
+                    <select size="1" id="resolution">
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                        <option value="400">400</option>
+                        <option value="600">600</option>
+                    </select>
+                </div>
+                <div class="sectionpartsALR">
+                    <button id="scan" class="action-button"><span class="button-icon scan-icon"></span>Escanear</button>
+                </div>
+            </div>
+            <div class="sectioncontrols">
+                <div class="titlesection">
+                    <label>Navegar</label>
+                </div>
+                <div class="sectionpartsALR">
+                    <label>Mostrar:</label>
+                    <select id="previewMode" size="1" style="">
+                        <option value="0">1X1</option>
+                    </select>
+                </div>
+                <div class="sectionpartsALL">
+                    <div class="navbuttonmorph pic">
+                        <img id="navigateFirstImage" title="Ir a la primera página" src="~/Content/Images/Scanner/navigate_beginning.png"/>
+                    </div>
+                    <div class="navbuttonmorph pic">
+                        <img id="navigatePreImage" title="Ir a la página anterior" src="~/Content/Images/Scanner/navigate_left.png"/>
+                    </div>
+                    <input type="text" size="2" style="margin-top: -25px; width: 30px;" id="DW_CurrentImage" readonly="readonly"/>
+                    <label style="margin-left: -5px; margin-top: 9px; position: absolute; width: 15px;">/</label>
+                    <input type="text" size="2" style="margin-left: 10px; margin-top: -25px; width: 30px;" id="DW_TotalImage" readonly="readonly"/>
+                    <div class="navbuttonmorph pic">
+                        <img id="navigateNextImage" title="Ir a la página siguiente" src="~/Content/Images/Scanner/navigate_right.png"/>
+                    </div>
+                    <div class="navbuttonmorph pic">
+                        <img id="navigateLastImage" title="Ir a la última página" src="~/Content/Images/Scanner/navigate_end.png"/>
+                    </div>
+                </div>
+            </div>
+            <div class="sectioncontrols">
+                <div class="titlesection">
+                    <label>Editar</label>
+                </div>
+                <div class="sectionpartsALL">
+                    <div class="morph pic">
+                        <img id="cropImage" src="~/Content/Images/Scanner/selection_view.png" title="Recortar al área seleccionada"/>
+                    </div>
+                    <div class="morph pic">
+                        <img id="rotateLeft" src="~/Content/Images/Viewer/toolbarButton-rotateCcw@2x.png" title="Girar a la izquierda"/>
+                    </div>
+                    <div class="morph pic">
+                        <img id="rotateRight" src="~/Content/Images/Viewer/toolbarButton-rotateCw@2x.png" title="Girar a la derecha"/>
+                    </div>
+                    <div class="morph pic">
+                        <img id="mirrorImage" src="~/Content/Images/Scanner/Mirror.png" title="Espejo"/>
+                    </div>
+                    <div class="morph pic">
+                        <img id="flipImage" src="~/Content/Images/Scanner/Flip.png" title="Voltear"/>
+                    </div>
+                    <div class="morph pic">
+                        <img id="removeCurrentImage" src="~/Content/Images/Scanner/document_delete.png" title="Eliminar página actual"/>
+                    </div>
+                    <div class="morph pic">
+                        <img id="removeAllImages" src="~/Content/Images/Scanner/all_document_delete.png"title="Eliminar todas las páginas"/>
+                    </div>
+                </div>
+            </div>
+            <div class="sectioncontrols">
+                <div class="titlesection">
+                    <label>Guardar</label>
+                </div>
+                <div class="sectionpartsALL">
+                    <label>Formato:</label>
+                    <label>
+                        <input type="radio" value="jpg" name="ImageType" class="imgTypeSelect" id="imgTypejpeg" checked="checked"/>JPEG
+                    </label>
+                    <label>
+                        <input type="radio" value="tif" name="ImageType" class="imgTypeSelect" id="imgTypetiff"/>TIFF
+                    </label>
+                    <label>
+                        <input type="radio" value="pdf" name="ImageType" class="imgTypeSelect" id="imgTypepdf"/>PDF
+                    </label>
+                </div>
+                <div class="sectionpartsALR">
+                    <label>Compresión:</label>
+                    <select id="OutComp" size="1">
+                        <option value="0">Automatico</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dialog-button-panel">
+    <button id="cancelAddPages" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+    <button id="uploadImages" class="action-button right-set"><span class="button-icon save-icon"></span>Agregar</button>
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/Resources/dynamsoft.webtwain.initiate.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Resources/dynamsoft.webtwain.config.js")"></script>

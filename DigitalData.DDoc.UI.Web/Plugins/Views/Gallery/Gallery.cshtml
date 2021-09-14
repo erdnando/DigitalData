@@ -1,0 +1,90 @@
+﻿@using Newtonsoft.Json
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/loader.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/ui.fancytree.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Reset.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Layout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Skin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalLayout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalSkin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/FileUpload.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/ScannerUpload.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Gallery.css")" />
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body style="padding: 10px">
+    @if ((bool)ViewBag.Editable)
+    {
+        <div id="newFileSelector">
+            <input id="newFiles" name="files[]" type="file" multiple />
+            @if ((bool)ViewBag.EnableWebTwain)
+            {
+                <button id="addFilesFromScanner" class="panel-button"><span class="button-icon add-page-icon"></span>Escanear Documento</button>
+            }
+			@if ((bool)ViewBag.CanDelete)
+            {			
+				<button id="replaceFile" class="panel-button"><span class="button-icon replace-page-icon"></span>Reemplazar archivo</button>
+				<button id="removeFile" class="panel-button"><span class="button-icon remove-page-icon"></span>Eliminar archivo</button>
+			}
+        </div>
+    }
+
+    <div>
+        <div class="pages-scroller">
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+    @Html.Hidden("DocumentId", (string)ViewBag.DocumentId)
+    <div class="preview-container">
+        <div class="viewer-viewport"></div>
+        <div class="nav-buttons" style="display:none">
+            <span id="prevPage" class="prevPage"></span>
+            <span id="nextPage" class="nextPage"></span>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="w3-overlay" style="z-index: 9999">
+        <div class="w3-display-container spinner-container">
+            <div class="w3-display-middle w3-spin loading"></div>
+        </div>
+    </div>
+
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+    @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+    @if (ViewBag.Username != null)
+    {
+        @Html.Hidden("Username", (string)ViewBag.Username)
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.scrollbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.ba-jqmq.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Plugins/Scripts/Gallery.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/ScannerUpload.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/FileUpload.js")"></script>
+    <script type="text/javascript">
+        var ddoc = new DDocUi();
+        ddoc.Mode = '@(ViewBag.Editable ? "Edit" : "View")';
+        ddoc.StandaloneWindow = true;
+        ddoc.ApiToken = '@Url.Encode(ViewBag.ApiToken)';
+        ddoc.expNumber = '@Html.Raw(ViewBag.ExpNumber)';
+        ddoc.InitializeGallery();
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocDocument
+
+<div id="outer">
+    <div id="fileSelector">
+        <input id="files" name="files[]" type="file" multiple />
+    </div>
+    <br/>
+    <div id="drop_zone">
+        <div id="caption">
+            <label>Arrastre y suelte</label>
+            <br/>
+            <label>los archivos</label>
+        </div>
+    </div>
+    <div id="out_zone">
+        <label>Archivos:</label>
+        <div>
+            <output id="list"></output>
+        </div>
+    </div>
+</div>
+<div class="dialog-button-panel">
+    <button id="cancelAddPages" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cerrar</button>
+    <button id="uploadImages" class="action-button right-set"><span class="button-icon save-icon"></span>Agregar</button>
+</div>

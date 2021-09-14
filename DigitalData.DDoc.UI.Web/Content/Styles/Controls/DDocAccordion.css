@@ -1,0 +1,27 @@
+.accordion {
+    clear: both;
+    position: relative;
+}
+
+.acc-item {
+    margin: 0 0 4px;
+    position: relative;
+    width: 99%;
+}
+
+.acc-title {
+    height: 24px;
+    height: 20px;
+    line-height: normal;
+    padding: 2px 14px;
+    padding: 5px;
+    position: relative;
+}
+
+.acc-item-handler {
+    height: 24px;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    width: 24px;
+}

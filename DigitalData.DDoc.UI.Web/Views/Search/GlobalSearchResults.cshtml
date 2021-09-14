@@ -1,0 +1,69 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocSearchParameters
+@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer { MaxJsonLength = Int32.MaxValue };
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocDatePicker.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocCalendar.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ListLayout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Folder/FolderEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Search/GlobalSearchResults.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/DocumentEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/DocumentPagesEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/ScannerUpload.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/FileUpload.css")" />
+}
+
+@Html.Hidden("ViewerAnchorTarget", ViewData["ViewerAnchorTarget"])
+@Html.Hidden("MaxHits", (int)ViewBag.GlobalSearchMaxHits)
+@Html.HiddenFor(p => p.TextQuery)
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">Búsqueda Global</span>
+    </div>
+    <li id="advancedSearch">
+        <a href="@Url.Action("AdvancedSearch", "Search")">Búsqueda Avanzada</a>
+    </li>
+</menu>
+
+<div class="result-grids">
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/tinysort.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.scrollbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/html.sortable.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.ba-jqmq.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocDatePicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocCalendar.js")"></script>
+    <script type="text/javascript" language="javascript">
+        var searchableCollections = @Html.Raw(serializer.Serialize(ViewBag.SearchableCollections))
+    </script>
+    @if (ViewBag.CustomGridActions != null)
+    {
+        <script type="text/javascript">
+            var customActions = @Html.Raw(serializer.Serialize(ViewBag.CustomGridActions))
+        </script>
+    }
+    @if (ViewBag.IncludeCustomListActions)
+    {
+        <script type="text/javascript" src="@Url.Content("~/Plugins/Scripts/CustomListActions.js")"></script>
+    }
+    @if (ViewBag.IncludeCustomGridEvents)
+    {
+        <script type="text/javascript" src="@Url.Content("~/Plugins/Scripts/CustomGridEvents.js")"></script>
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Search/GlobalSearchResults.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Folder/FolderEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/DocumentEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/DocumentPagesEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/ScannerUpload.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/FileUpload.js")"></script>
+}

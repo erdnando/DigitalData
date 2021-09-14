@@ -1,0 +1,53 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocWarehouse
+
+@{
+    var action = Model.IsNew ? "CreateWarehouse" : "UpdateWarehouse";
+}
+
+@if (!Model.IsNew)
+{
+    <menu class="menu-bar">
+        <li id="editPaths">Editar rutas</li>
+    </menu>
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmWarehouseEdit" }))
+{
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.IsNew)
+    <fieldset>
+        <legend>Datos del almacén</legend>
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+        @if (Model.IsNew)
+        {
+            <div>
+                @Html.LabelFor(m => m.ServerId)
+                @Html.DropDownListFor(m => m.ServerId, new SelectList(ViewBag.FileServers, "Id", "Name", Model.ServerId))
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ActivePath)
+                @Html.TextBoxFor(m => m.ActivePath)
+            </div>
+        }
+        else
+        {
+            <div>
+                @Html.LabelFor(m => m.ServerId)
+                @Html.DisplayFor(m => m.ServerId)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ActivePath)
+                @Html.DisplayFor(m => m.ActivePath)
+            </div>
+        }
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button id="cancel" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button id="saveWarehouse" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

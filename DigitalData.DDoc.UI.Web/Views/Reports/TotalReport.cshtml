@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/DDocReports.cshtml";
+}
+
+@section ReportFilters {
+<div>
+    <Label>Tipo de Reporte: </Label>
+    @Html.DropDownList("CollectionPage")
+    <button id="btnGetData">Buscar</button>
+</div>
+}
+
+@section ReportContainer {
+    <div style="vertical-align: top; width: 70%;">
+        <label id="reportTitle">Total Migrado a @ViewBag.ProductName</label>
+        <canvas id="report"></canvas>
+    </div>
+    <div style="margin-top: 26px;">
+        <table id="legendTable" class="legend-table"></table>
+        <table id="totalsTable" class="legend-table">
+            <tr><th colspan="2">Total en @ViewBag.ProductName</th></tr>
+            <tr><td><span id="totalsLabel"></span>:</td><td><span id="totalsValue"></span></td></tr>
+        </table>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Reports/TotalReport.js")"></script>
+}

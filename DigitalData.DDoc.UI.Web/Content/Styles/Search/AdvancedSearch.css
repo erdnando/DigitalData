@@ -1,0 +1,199 @@
+.search-section {
+    background-color: rgb(24, 78, 127);
+    color: white;
+    border: 0;
+    overflow: auto;
+}
+
+#TextQuery {
+    margin-bottom: 10px;
+    width: calc(100% - 94px);
+}
+
+.add-clause { background-position: -24px 0; }
+
+.remove-clause { background-position: -24px -16px; }
+
+.add-group { background-position: -24px 0; }
+
+.remove-group { background-position: -82px -192px; }
+
+.load-filters { background: transparent url('../../Images/openFolder.png') center center scroll no-repeat; }
+
+.save-filters { background-position: -40px -64px; }
+
+.group-clauses {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+    max-height: 70px;
+    overflow-y: auto;
+}
+
+.actions-column {
+    height: 20px;
+    width: 24px;
+}
+
+.operator-column { width: 24px; }
+
+.field-column { width: 200px; }
+
+.comparison-column { width: 200px; }
+
+.value-column { width: 200px; }
+
+.value-between-column { width: 24px; }
+
+.group-header > * { margin: 0 10px; }
+
+.group-clauses > div.clause {
+    border: solid rgb(0, 0, 0) 1px;
+    border-bottom: 0;
+    display: flex;
+    font-size: 0;
+}
+
+.group-clauses > div.clause:last-child { border-bottom: solid rgb(0, 0, 0) 1px; }
+
+.group-clauses > div.clause:nth-child(even) { background-color: rgba(255, 255, 255, 0.5); }
+
+.clause { background-color: rgba(122, 122, 122, 0.5); }
+
+.group-clauses > div.clause > div {
+    float: left;
+    font: normal 11px Verdana, Arial, Helvetica, sans-serif;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.group-clauses > div.clause > div:nth-last-child(-n + 5) { padding: 0 5px; }
+
+#SortResultsBy, #SortDirection, label[for="SortResultsBy"] {
+    float: right;
+}
+
+#btnSearch {
+    float: right;
+    margin-left: 25px;
+}
+
+.search-section-content {
+    min-width: 600px;
+    padding: 5px 10px;
+    width: 98%;
+}
+
+.search-section-content > form > div { margin: 14px 0; }
+
+.clauseField, .clauseComparison { width: 200px; }
+
+.clauseValue, .clauseValue2 { width: 194px; }
+
+div#filterSearchTitle {
+    background: gray url('../../Images/bar.png');
+    line-height: 36px;
+    padding-left: 15px;
+}
+
+.search-section-title {
+    background: gray url('../../Images/bar.png');
+    line-height: 36px;
+    padding-left: 10px;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+.group { margin: 10px 0; }
+
+span.ui-accordion-header-icon {
+    display: inline-block;
+}
+
+.imgDocumentView {
+    background-position: -24px -32px;
+}
+
+.imgDocumentEdit {
+    background-position: -24px -64px;
+}
+
+.imgDocumentDelete {
+    background-position: -40px -32px;
+}
+
+.imgSend {
+    background-position: -24px -48px;
+}
+
+.imgFolderView {
+    background-position: -56px -128px;
+}
+
+.imgFolderEdit {
+    background-position: -72px -144px;
+}
+
+.imgFolderDelete {
+    background-position: -72px -128px;
+}
+
+
+/* TextResults */
+
+.grid-table-content td {
+    white-space: normal;
+}
+
+.grid-table-content tr:nth-child(n+3) td:nth-child(6) {
+    text-align: left;
+}
+
+td.cell-data table {
+    width: 100%;
+    border: 0;
+}
+
+.grid-table-content .cell-data table td {
+    border: 0;
+}
+
+.grid-table-content tr:hover .cell-data table td {
+    color: white;
+    border: 0;
+}
+
+.grid-table-content .cell-data table tr {
+    background: transparent;
+}
+
+    .grid-table-content .cell-data table tr:nth-child(2) td {
+        background: transparent;
+    }
+
+    .grid-table-content .cell-data table tr:nth-child(2) {
+        font-weight: normal;
+    }
+
+    .grid-table-content .cell-data table tr:hover {
+        background: transparent;
+    }
+
+.grid-table-content .cell-data table td {
+    padding: 0;
+}
+
+label[for="SortResultsBy"] {
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+#SortResultsBy {
+    width: 200px;
+    margin-right: 10px;
+}
+
+#CollectionId {
+    max-width: 300px;
+}

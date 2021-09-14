@@ -1,0 +1,39 @@
+﻿.grid-action {
+    background: url("../../Images/ddocAdmin_graphics.png") no-repeat center scroll;
+}
+
+div#grdUserGroups { height: 270px !important; }
+
+div#grdSecurityGroups { height: 270px !important; }
+
+.imgUserGroupEdit {
+    background-position: -64px -72px;
+}
+
+.imgUserGroupPermissions {
+    background-position: -96px -104px;
+}
+
+.imgUserGroupDelete {
+    background-position: -64px -88px;
+}
+
+.imgSecurityGroupEdit {
+    background-position: -96px -72px;
+}
+
+.imgSecurityGroupPermissions {
+    background-position: -112px -72px;
+}                            
+                         
+.imgSecurityGroupDelete {    
+    background-position: -96px -88px;
+}
+
+.imgPermissionEdit {
+    background-position: -112px -88px;
+}
+
+.imgPermissionDelete {
+    background-position: -32px -104px;
+}

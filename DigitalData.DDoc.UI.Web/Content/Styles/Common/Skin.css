@@ -1,0 +1,395 @@
+body {
+	background-attachment: fixed;
+	background-color: rgb(48, 106, 152);
+	background-repeat: no-repeat;
+	color: rgb(48, 106, 152);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+* { outline: 0; }
+
+.ddoc-version {
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    width: 100%;
+    font-size: x-small;
+    text-align: right
+}
+
+form label {
+	color: white;
+	font-size: 13px;
+}
+
+form input.field-error,
+form select.field-error {
+	background-color: rgb(255, 77, 77);
+	color: white;
+}
+
+.ui-widget-overlay.ui-front { opacity: 0.9; }
+
+.main-menu,
+.menu-bar,
+.grid-title,
+.no-select {
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Elementos con imagen de fondo */
+
+button span.button-icon,
+.image-button { background: url("../../Images/ddoc_graphics.png") no-repeat center scroll; }
+
+.main-menu,
+.menu-bar,
+.main-sub-menu {background: url('../../Images/bar.png') repeat-x;}
+
+/* Menu prinicpal */
+
+.main-menu {
+	background: rgb(26, 82, 136) url(../../Images/bar.png);
+	cursor: default;
+	list-style-type: none;
+}
+
+.main-menu .logo {
+	background: white url("../../Images/ddocLogo.png") no-repeat scroll center;
+	background-size: 75px;
+}
+
+.main-menu li {
+	font-size: 13px;
+	font-weight: bold;
+	list-style: none;
+	outline: 0;
+}
+
+.main-menu li:hover {
+	background-color: rgb(206, 219, 255);
+	border-radius: 3px;
+}
+
+.main-menu,
+.main-menu a {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	transition: color .4s ease;
+}
+
+.main-menu li:hover,
+.main-menu a:hover { color: rgb(48, 106, 152); }
+
+.main-menu .current-user {
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	transition: color .4s ease;
+}
+
+.main-menu .current-user-icon  {
+	background: transparent url("../../Images/user.png") no-repeat scroll center;
+}
+
+.main-sub-menu li {
+	background: rgb(26, 82, 136) url(../../Images/bar.png);
+	border-radius: 5px;
+}
+
+.main-sub-menu li {
+	font-size: 13px;
+	font-weight: bold;
+	list-style: none;
+	outline: 0;
+	color: white;
+	transition: color .4s ease;
+}
+
+.main-sub-menu li a {
+	color: white;
+	text-decoration: none;
+	transition: color .4s ease;
+}
+
+.main-sub-menu li:hover {
+	background-color: rgb(255, 255, 255);
+	border-radius: 3px;
+}
+
+.main-sub-menu li:hover,
+.main-sub-menu a:hover { color: rgb(48, 106, 152); }
+
+/* Arbol de Navegacion */
+
+ul.fancytree-container {
+	background-color: rgb(26, 77, 127);
+	border: 0;
+}
+
+.fancytree-plain span.fancytree-title {
+	color: white;
+	font-weight: bold;
+}
+
+.fancytree-plain span.fancytree-active span.fancytree-title,
+.fancytree-plain span.fancytree-selected span.fancytree-title {
+	color: rgb(0, 255, 0);
+	background-color: transparent;
+	border: 0;
+}
+
+.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-active span.fancytree-title,
+.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-selected span.fancytree-title {
+	background-color: transparent;
+	border: 0;
+}
+
+.fancytree-plain span.fancytree-node:hover span.fancytree-title {
+	background-color: transparent;
+	border: 0;
+	color: lightgreen;
+}
+
+.fancytree-exp-cdl span.fancytree-expander,
+.fancytree-exp-cdl span.fancytree-expander:hover,
+.fancytree-exp-cl span.fancytree-expander,
+.fancytree-exp-cl span.fancytree-expander:hover,
+.fancytree-exp-cd span.fancytree-expander,
+.fancytree-exp-cd span.fancytree-expander:hover,
+.fancytree-exp-c span.fancytree-expander,
+.fancytree-exp-c span.fancytree-expander:hover {
+	background: url('../../Images/expand.png') no-repeat scroll center center;
+}
+
+.fancytree-exp-edl span.fancytree-expander,
+.fancytree-exp-edl span.fancytree-expander:hover,
+.fancytree-exp-el span.fancytree-expander,
+.fancytree-exp-el span.fancytree-expander:hover,
+.fancytree-exp-e span.fancytree-expander,
+.fancytree-exp-e span.fancytree-expander:hover {
+	background: url('../../Images/collapse.png') no-repeat scroll center center;
+}
+
+span.fancytree-custom-icon.root {
+	background: url('../../Images/rootCol.png') no-repeat scroll center center;
+}
+
+.fancytree-exp-edl span.fancytree-custom-icon.root,
+.fancytree-exp-el span.fancytree-custom-icon.root {
+	background: url('../../Images/rootColOpen.png') no-repeat scroll center center;
+}
+
+span.fancytree-custom-icon.folder {
+	background: url('../../Images/folder.png') no-repeat scroll center center;
+}
+
+
+.fancytree-exp-edl span.fancytree-custom-icon.folder,
+.fancytree-exp-el span.fancytree-custom-icon.folder {
+	background: url('../../Images/folderOpen.png') no-repeat scroll center center;
+}
+
+span.fancytree-custom-icon.document {
+	background: url('../../Images/documents.png') no-repeat scroll center center;
+}
+
+.fancytree-ext-filter-hide span.fancytree-node.fancytree-match span.fancytree-title,
+.fancytree-ext-filter-hide tr.fancytree-match span.fancytree-title {
+	color: lightblue;
+}
+
+.fancytree-ext-filter-hide span.fancytree-node.fancytree-match.fancytree-active span.fancytree-title,
+.fancytree-ext-filter-hide tr.fancytree-match.fancytree-active span.fancytree-title {
+	font-weight: bold;
+}
+
+.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-focused span.fancytree-title {
+	border: 0;
+}
+
+/* Submenu */
+.submenu {
+	font: normal 11px "Segoe UI", Arial, Sans-serif;
+}
+
+.submenu a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.submenu a:hover { text-decoration: none; }
+
+.submenu li {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.submenu-icon { background: transparent url('../../Images/ddocAdmin_graphics.png') no-repeat scroll center center; }
+
+.submenu-icon.user-icon { background-position: -48px -24px; }
+
+.submenu-icon.storage-icon { background-position: -72px 0; }
+
+.submenu-icon.collection-icon { background-position: -72px -24px; }
+
+.submenu-icon.security-icon { background-position: 0 -48px; }
+
+span.password-icon,
+span.password-confirmation-icon { display: inline-block; }
+
+.ok-icon { background-position: -40px -128px }
+
+/* Pie de pagina */
+
+.app-footer {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 10px;
+}
+
+/* Barra de menu */
+
+.menu-bar {
+	background-color: rgb(103, 191, 27);
+	color: white;
+	font-size: 9px;
+	text-shadow: 1px 1px black;
+}
+
+.menu-bar li {
+	cursor: pointer;
+	font-size: 11px;
+	list-style: none;
+}
+
+.menu-bar li a {
+	color: white;
+	text-decoration: none;
+}
+
+.menu-bar li:hover {
+	background: rgb(103, 191, 27) url('../../Images/bar_inverted.png');
+	border-radius: 4px;
+}
+
+.menu-bar li.red-item { background-color: rgb(191, 27, 27); }
+
+.menu-bar li.red-item:hover { background: rgb(191, 27, 27) url('../../Images/bar_inverted.png'); }
+
+.menu-bar button { font-size: 14px; }
+
+/* Botones */
+
+button,
+.button-like {
+	background: linear-gradient(rgb(140, 203, 86), rgb(70, 161, 8));
+	border: solid 1px black;
+	border-radius: 2px;
+	box-shadow: inset 1px 1px 2px 0 white, 1px 1px 1px 0 black;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	font: bold 16px Arial;
+	text-decoration: none;
+	text-shadow: 1px 1px black;
+}
+
+button:hover,
+.button-like:hover { background: linear-gradient(rgb(70, 161, 8), rgb(140, 203, 86)); }
+
+button:active,
+.button-like:active,
+button.toggle-on,
+.button-like.toggle-on { box-shadow: inset 1px 1px 1px 0 black, inset -1px -1px 1px 0 white; }
+
+button:active,
+.button-like:active,
+button.toggle-on,
+.button-like.toggle-on { background: linear-gradient(rgb(70, 161, 8), rgb(140, 203, 86)); }
+
+button span.button-icon.save-icon { background-position: -40px -64px; }
+
+button span.button-icon.cancel-icon { background-position: -40px -80px; }
+
+button span.button-icon.next-icon { background-position: -34px -192px; }
+
+button span.button-icon.prev-icon { background-position: -18px -192px; }
+
+button span.button-icon.custom-icon { background: transparent url('../../Images/Viewer/toolbarButton-custom.png') no-repeat center scroll }
+
+span.image-button { cursor: pointer; }
+
+/* Campos */
+
+input,
+select {
+	border: 0;
+	color: rgb(22, 78, 132);
+	font: 13px Verdana;
+	vertical-align: middle;
+}
+
+select[disabled] {
+	background-color: rgb(113, 113, 113);
+	border: 0;
+}
+
+input.loading,
+select.loading {
+	background: white url('../../Images/ajax-loader.gif') no-repeat scroll left center;
+	color: white;
+}
+
+span.loading {
+    background: transparent url('../../Images/ajax-loader.gif') no-repeat scroll left center;
+}
+
+.menu-bar .menu-title {background: transparent url('../../Images/menu_header.png') no-repeat left center scroll;}
+
+.menu-bar .menu-title .menu-title-content {
+	font-size: 12px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.PageNumberInfo {
+	font-size:12px;
+	color: white;
+	display:block;
+}
+
+/**
+	Estilos para el cotenedor de reportes.
+*/
+
+.submenu-reports {
+	background-color: #003366;
+	background-color: rgba(0, 51, 102, 0.5);
+	font: normal 11px "Segoe UI", Arial, Sans-serif;
+}
+
+.submenu-reports a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.submenu-reports li {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.main-container {
+	background-color: rgb(26, 77, 127);
+}
+
+.main-container main {
+	background-color: #306998;
+}
+
+/* Lists */
+
+.list-action {
+    background: transparent url(../../Images/ddoc_graphics.png) no-repeat scroll 0 0;
+}

@@ -1,0 +1,29 @@
+﻿@model DigitalData.DDoc.Common.Entities.Security.User
+
+@{
+    Layout = "~/Views/Shared/DDocSecurity.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Security", FormMethod.Post, new { Id = "frmLogin" }))
+{
+    <div class="login-panel">
+        <div class="logo"></div>
+        <div>
+            <img style="visibility:hidden; position: absolute; margin-top: -175px; margin-left: 100px; width: 175px;" src="https://www.onlygfx.com/wp-content/uploads/2020/05/hacked-stamp-2.png">
+
+        </div>
+        @Html.TextBoxFor(user => user.Username, new { placeholder = "Usuario" })
+        @Html.PasswordFor(user => user.Password, new { placeholder = "Contraseña", autocomplete = "off" })
+        <button id="btnLogin">Iniciar Sesión</button>
+    </div>
+    <label class="ddoc-version">@ViewBag.DdocVersion</label>
+}
+
+<footer id="app-footer">
+    &copy; @DateTime.Now.Year Todos los derechos reservados.
+</footer>
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Security/Login.js")"></script>
+}

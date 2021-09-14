@@ -1,0 +1,131 @@
+#documentPagesEditor .pages-scroller {
+    display: inline-block;
+    height: 220px;
+    margin: 10px 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+    width: calc(100% - 80px);
+}
+
+#documentPagesEditor .scroll-control {
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    vertical-align: middle;
+    width: 26px;
+    margin: 0 4px;
+}
+
+#documentPagesEditor .scroll-control {
+    background: transparent url('../../Images/ddoc_graphics.png') no-repeat scroll;
+}
+
+#documentPagesEditor .left-scroll {
+    background-position: -24px -160px;
+}
+
+#documentPagesEditor .right-scroll {
+    background-position: -56px -160px;
+}
+
+#documentPagesEditor .page-thumbnail {
+    background: rgb(184, 184, 184);
+    height: 220px;
+    width: 155px;
+}
+
+#documentPagesEditor .indicators-numbers {
+    bottom: 0;
+    color: #000;
+    height: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#documentPagesEditor .page-thumbnail.selected {
+    border: solid 1px red;
+}
+
+#documentPagesEditor .pages-dragger {
+    height: 210px;
+    width: 150%;
+}
+
+    #documentPagesEditor .pages-dragger > li {
+        float: left;
+        margin: 2px 5px;
+    }
+
+#documentPagesEditor .page-placeholder {
+    background: transparent;
+    border: dashed 1px rgb(255, 0, 0);
+    height: 198px;
+    margin: 5px;
+    width: 148px;
+}
+
+#documentPagesEditor .thumbnail-loading {
+    background: transparent url('../../Images/ajax-loader.gif') no-repeat center scroll;
+    background-size: 25%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+#documentPagesEditor canvas {
+    left: 0;
+    top: 0;
+}
+
+#documentPagesEditor .add-page-icon {
+    background-position: -40px -16px;
+}
+
+#documentPagesEditor .replace-page-icon {
+    background-position: -40px -48px;
+}
+
+#documentPagesEditor .remove-page-icon {
+    background-position: -40px -32px;
+}
+
+#documentPagesEditor .sorting-icon {
+    background-position: -56px -144px;
+}
+
+#documentPagesEditor .undo-icon {
+    background-position: -40px -144px;
+}
+
+#documentPagesEditor .confirm-icon {
+    background-position: -40px -128px;
+}
+
+input[type=number] {
+    text-align: center;
+    width: 77px;
+}
+
+#newPagePrompt div,
+#replacePagePrompt div {
+    margin: 23px 0;
+    text-align: center;
+}
+
+    #newPagePrompt div button,
+    #replacePagePrompt div button {
+        margin: 0 20px;
+    }
+
+#newPagePrompt .scan-icon,
+#replacePagePrompt .scan-icon {
+    background-position: -2px -192px;
+}
+
+#newPagePrompt .file-icon,
+#replacePagePrompt .file-icon {
+    background-position: -56px -128px;
+}

@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Admin/PermissionManagement.css")" rel="stylesheet" />
+}
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">Administración de permisos</span>
+    </div>
+    <li id="addPermission">Nuevo Permiso</li>
+    <li><a href="@Url.Action("SecurityManagment", "Admin")">Editar Grupos</a></li>
+</menu>
+
+<div id="grdPermissions"></div>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" language="javascript" src="@Url.Content("~/Scripts/Admin/PermissionManagement.js")"></script>
+    <script type="text/javascript" language="javascript" src="@Url.Content("~/Scripts/Admin/PermissionEditor.js")"></script>
+}

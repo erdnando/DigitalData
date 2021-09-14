@@ -1,0 +1,325 @@
+.grid {
+    background-color: transparent;
+    clear: both;
+    margin: 10px 0 5px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.grid-title + .grid {
+    margin-top: 0;
+}
+
+.grid-title {
+    line-height: 27px;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.grid-title-label {
+    position: relative;
+}
+
+.cell-label { display: none; }
+
+.grid-header,
+.grid-content,
+.grid-footer,
+.grid-table-detail thead tr:first-child {
+    overflow: hidden;
+    position: relative;
+}
+
+.grid-loader {
+    background: rgba(0, 0, 0, 0.5) url('../../Images/grid-loader.gif') no-repeat center scroll;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.grid-content {
+    overflow-y: auto;
+    overflow-x: auto;
+    position: relative;
+}
+
+.grid-table-header,
+.grid-table-content,
+.grid-table-detail {
+    border-collapse: separate;
+    position: relative;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.grid-table-header {
+    height: 100%;
+    margin: 0 20px 0 0;
+}
+
+.grid-table-content {
+    empty-cells: show;
+    font-size: 12px;
+}
+
+.grid-table-content tbody {position: relative;}
+
+.no-data { height: 50px; }
+
+.no-data:after {
+    content: 'No hay resultados';
+    height: 30px;
+    left: 50%;
+    margin: 0 0 0 100px;
+    position: absolute;
+    top: 25px;
+    width: 150px;
+}
+
+.grid-table-header tr:first-child,
+.grid-table-content tr:first-child {
+    height: auto;
+    visibility: collapse;
+}
+
+.grid-table-content tbody.no-data tr {
+    display: none;
+}
+
+.grid-table-header tr:first-child th,
+.grid-table-content tr:first-child th { height: 0; }
+
+.grid-table-header td,
+.grid-table-content td,
+.grid-table-detail th,
+.grid-table-detail td {
+    cursor: default;
+    padding: 2px 0 2px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.grid-table-content tr td:nth-child(2),
+.grid-table-content tr td:nth-child(3) {
+    z-index: 100;
+}
+
+
+.grid-table-header td,
+.grid-table-detail th { padding: 0; }
+
+.grid-table-content td,
+.grid-table-detail td {
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 20px;
+}
+
+.grid-table-content tr:nth-child(2) td {
+    background: linear-gradient(to bottom, #f1f1f1 0, #dedede 100%);
+}
+
+.grid-table-content tr:nth-child(2) td:hover {
+    background: linear-gradient(to top, rgb(241, 241, 241) 0, rgb(222, 222, 222) 100%);
+}
+
+.grid-table-content th,
+.grid-table-detail th,
+.grid-table-content td,
+.grid-table-detail td {
+    /*max-width: 200px;*/
+    padding: 0 5px;
+}
+
+.grid-table-header label {
+    float: left;
+    margin: 0 7px 0 0;
+    padding: 4px 0 0;
+    width: 4em;
+}
+
+.header-space-scroll { padding: 0 16px 0 0; }
+
+.grid-detail-cell { padding: 3px 5px 4px 50px !important; }
+
+.grid-handler-detail {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 16px;
+}
+
+.grid-tools {
+    height: 28px;
+    left: 0;
+    padding: 4px;
+    right: 0;
+    top: 0;
+}
+
+.grid-tools label {
+    background: url("../../Images/ddoc_graphics.png") no-repeat -16px 0;
+    color: white;
+    height: 24px;
+    margin-right: 5px;
+    width: 4em !important;
+}
+
+.grid-seek-icon {
+    display: inline-block;
+    height: 24px;
+    left: 212px;
+    position: absolute;
+    top: 6px;
+    width: 24px;
+    z-index: 10;
+}
+
+.grid-tools .text-seeker {
+    height: 22px;
+    padding-right: 27px;
+    width: 205px !important;
+}
+
+.grid-tools .text-seeker + .grid-title-label {
+    padding-left: 15px;
+}
+
+.cell-content {
+    height: 14px;
+    overflow: hidden;
+    padding: 4px 17px;
+    position: relative;
+}
+
+.cell-without-order { padding: 4px 17px 4px 2px; }
+
+.text-cell {
+    font-size: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cell-hider,
+.sort-cell-flag {
+    cursor: pointer !important;
+    height: 16px;
+    margin: -8px 0 0;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+
+.sort-cell-flag { left: 1px; }
+
+.cell-hider { right: 1px; }
+
+.grid-hidden-col { display: none; }
+
+.grid-hidden-row { display: none !important; }
+
+.grid-action {
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    margin: 0 auto;
+    width: 16px;
+}
+
+.grid-data-combo {
+    margin: 0;
+    width: 99%;
+}
+
+.columns-menu {
+    height: 24px;
+    position: absolute;
+    right: 24px;
+    top: 5px;
+    width: 24px;
+    z-index: 10;
+}
+
+.menu-columns {
+    left: -4000px;
+    max-height: 500px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: -4000px;
+    z-index: 11;
+    z-index: 100;
+}
+
+.menu-columns li {
+    background: rgb(21, 166, 255) url('../../Images/bar.png');
+    background-size: contain;
+    line-height: 28px;
+    padding: 0 15px;
+}
+
+.label-option-menu {
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    width: auto !important;
+}
+
+.label-option-menu input[type='checkbox'] { margin: 0 4px 0 0; }
+
+.grid-pager {
+    height: 36px;
+    width: 100%;
+}
+
+.grid-pager-controls {
+    font-size: 14px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 480px;
+}
+
+.grid-button-pager {
+    display: block;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    margin: 7px;
+    text-align: center;
+    width: 24px;
+}
+
+.grid-pager-page {
+    margin: 7px 7px !important;
+    text-align: center;
+    width: 4em !important;
+}
+
+.grid-page-label {
+    color: rgb(255, 255, 255);
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.grid-pager-sizer {
+    float: left;
+    margin: 7px 0 !important;
+    width: 6em !important;
+}
+
+.grid-text-field { width: 90% !important; }
+
+.grid-numeric-cell { text-align: right !important; }
+
+.grid-table-content tr:nth-child(2) {
+    font-size: 10pt;
+    font-weight: bold;
+}

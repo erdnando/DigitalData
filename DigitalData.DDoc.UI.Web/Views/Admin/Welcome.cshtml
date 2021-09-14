@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Main/Welcome.css")" />
+}
+
+<div class="welcome-panel no-select">
+    <div class="logo"></div>
+    <label>Modulo de Administración de @ViewBag.ProductName</label>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        var ddoc = new DDocUi();
+    </script>
+}

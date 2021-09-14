@@ -1,0 +1,19 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@using (Html.BeginForm("ViewDdocGroupPermissions", "Admin", FormMethod.Post, new { id = "frmGroupPermissionList " }))
+{
+    <menu class="menu-bar">
+        <div class="menu-title">
+            <span class="menu-title-content">@ViewBag.GroupName</span>
+        </div>
+        <li id="addPermission">Agregar Permiso</li>
+    </menu>
+
+    <fieldset>
+        <legend>Permisos del grupo de @(ViewBag.GroupType == GroupType.UserGroup ? "usuarios" : "seguridad")</legend>
+        <div id="grdGroupPermissions"></div>
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button id="closeGroupPermissionsList" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cerrar</button>
+    </div>
+}

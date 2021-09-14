@@ -1,0 +1,103 @@
+.modal-dialog,
+.ui-dialog .modal-dialog { padding: 0; }
+
+.modal-dialog.whole-screen {
+    height: calc(100vh - 2px) !important;
+    width: 98vw !important;
+}
+
+.ui-dialog .ui-dialog-title {
+    left: 10px;
+    position: relative;
+    top: 10px;
+}
+
+.modal-dialog label {
+    display: inline-block;
+    width: 30%;
+}
+
+.modal-dialog fieldset { margin-bottom: 10px; }
+
+.modal-dialog .fields-container {
+    height: calc(100vh - 150px);
+    margin: 10px 0;
+    overflow-y: auto;
+}
+
+.modal-dialog .fields-container > div,
+.modal-dialog fieldset > div { margin: 10px 10px; }
+
+.modal-dialog input[type="text"],
+.modal-dialog select {
+    line-height: normal;
+    width: 68%;
+}
+
+.modal-dialog .listbox-field {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.modal-dialog .listbox-actions {
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.modal-dialog .listbox-field select[multiple] {
+    width: 100%;
+}
+
+.modal-dialog .listbox-actions > div {
+    margin: 5px 0 5px 10px;
+}
+
+.modal-dialog .listbox-actions label {
+    display: inline;
+    width: 100%;
+}
+
+.modal-dialog .side-panel ~ fieldset {
+    width: 60%
+}
+
+.modal-dialog .side-panel {
+    width: 30%;
+}
+
+button.dialog-button { float: right; }
+
+/* Formulario */
+
+.modal-dialog form {margin-bottom: 0;}
+
+.ui-dialog .ui-dialog-content {padding: 0 1em .5em;}
+
+.modal-dialog.alert #alertDialog,
+.modal-dialog.alert #okCancelDialog {
+    padding: 10px;
+    text-align: center;
+}
+
+.ui-dialog-content > form {
+    margin-top: 15px;
+}
+
+/* Menu modal */
+
+.modal-dialog .menu-bar {
+    margin: 10px 0;
+    width: inherit;
+}
+
+.modal-dialog .menu-bar button { float: left; }
+
+.dialog-button-panel { clear: both; }
+
+.modal-dialog.alert .ui-dialog-buttonpane { padding: 3px; }
+
+.alert-contents { padding: 10px; }
+
+.alert-button-panel { padding: 10px; }

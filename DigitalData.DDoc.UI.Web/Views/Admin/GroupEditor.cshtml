@@ -1,0 +1,34 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DigitalData.DDoc.Common.Entities.Security.DdocGroup
+
+@{
+    var action = Model.IsNew ? Model.Type == GroupType.UserGroup ? "CreateUserGroup" : "CreateSecurityGroup" :
+        Model.Type == GroupType.UserGroup ? "UpdateUserGroup" : "UpdateSecurityGroup";
+    var type = (int)Model.Type;
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmGroupEdit" }))
+{
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.Hidden("Type", type)
+    <fieldset>
+        <legend>Datos del grupo de @(Model.Type == GroupType.UserGroup ? "usuarios" : "seguridad")</legend>
+        @if (!Model.IsNew)
+        {
+            <div>
+                @Html.LabelFor(m => m.Id)
+                @Html.DisplayFor(m => m.Id)
+                @Html.HiddenFor(m => m.Id)
+            </div>
+        }
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button class="dialog-button right-set" id="cancelEditGroup"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button class="dialog-button right-set" id="saveGroup"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

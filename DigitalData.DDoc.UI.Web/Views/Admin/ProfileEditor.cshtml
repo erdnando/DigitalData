@@ -1,0 +1,26 @@
+﻿@model DigitalData.DDoc.Common.Entities.Security.User
+
+@using (Html.BeginForm("UpdateUserProfile", "Admin", FormMethod.Post, new { id = "frmUserProfile" }))
+{
+    <div class="group-box-titles">
+        <label>Perfil del usuario</label>
+        <label>Grupos disponibles</label>
+    </div>
+    <div>
+        <ul id="userProfile" class="group-selector profile"></ul>
+        <ul id="groupList" class="group-selector gray-items"></ul>
+    </div>
+
+    <div class="dialog-button-panel">
+        @if (Model.IsNew)
+        {
+            <button id="saveUser" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+            <button id="prevScreen" class="dialog-button right-set"><span class="button-icon prev-icon"></span>Anterior</button>
+        }
+        else
+        {
+            <button id="cancel" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+            <button id="saveProfile" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+        }
+    </div>
+}

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <!--Project was exported from assembly: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A9FA058-2324-4C38-96F3-480246C19611}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DigitalData.DDoc.Common</AssemblyName>
+    <ApplicationVersion>4.210.0.0</ApplicationVersion>
+    <RootNamespace>DigitalData.DDoc.Common</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DigitalData.Common">
+      <HintPath>lib\DigitalData.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cfdi">
+      <HintPath>lib\DigitalData.Common.Cfdi.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cryptography">
+      <HintPath>lib\DigitalData.Common.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlKata">
+      <HintPath>lib\SqlKata.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\DigitalData.DDoc.UI.Web\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\DigitalData.DDoc.UI.Web\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\DigitalData.DDoc.UI.Web\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\DigitalData.DDoc.UI.Web\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Json">
+      <HintPath>lib\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Extensions\CustomActionType.cs" />
+    <Compile Include="Extensions\DdocCustomAction.cs" />
+    <Compile Include="Extensions\ICustomActions.cs" />
+    <Compile Include="Extensions\ICustomReports.cs" />
+    <Compile Include="Extensions\ICustomSearch.cs" />
+    <Compile Include="Extensions\IDocumentCreation.cs" />
+    <Compile Include="Extensions\IDocumentPreProcessor.cs" />
+    <Compile Include="Extensions\IFolderPreProcessor.cs" />
+    <Compile Include="Extensions\DdocLoader\ICustomValidator.cs" />
+    <Compile Include="Entities\DdocChildEntity.cs" />
+    <Compile Include="Entities\DdocChildEntityComparer.cs" />
+    <Compile Include="Entities\DdocCollection.cs" />
+    <Compile Include="Entities\DdocConfiguration.cs" />
+    <Compile Include="Entities\DdocDocument.cs" />
+    <Compile Include="Entities\DDocEntity.cs" />
+    <Compile Include="Entities\CollectionType.cs" />
+    <Compile Include="Entities\DdocInstanceType.cs" />
+    <Compile Include="Entities\LogonType.cs" />
+    <Compile Include="Entities\FieldType.cs" />
+    <Compile Include="Entities\PageType.cs" />
+    <Compile Include="Entities\GroupType.cs" />
+    <Compile Include="Entities\Permissions.cs" />
+    <Compile Include="Entities\TextSearchType.cs" />
+    <Compile Include="Entities\CellType.cs" />
+    <Compile Include="Entities\DdocField.cs" />
+    <Compile Include="Entities\DDocFile.cs" />
+    <Compile Include="Entities\DdocFileServer.cs" />
+    <Compile Include="Entities\DdocFolder.cs" />
+    <Compile Include="Entities\DdocPage.cs" />
+    <Compile Include="Entities\DdocPath.cs" />
+    <Compile Include="Entities\DdocReportRecord.cs" />
+    <Compile Include="Entities\DdocRule.cs" />
+    <Compile Include="Entities\DDocSearchFilter.cs" />
+    <Compile Include="Entities\1DDocSearchFilter.cs" />
+    <Compile Include="Entities\DDocSearchParameters.cs" />
+    <Compile Include="Entities\DDocTextSearchResult.cs" />
+    <Compile Include="Entities\DdocWarehouse.cs" />
+    <Compile Include="Entities\SourceData.cs" />
+    <Compile Include="Entities\UI\UiCfd.cs" />
+    <Compile Include="Entities\UI\Issuer.cs" />
+    <Compile Include="Entities\UI\FiscalLocation.cs" />
+    <Compile Include="Entities\UI\CustomsInformation.cs" />
+    <Compile Include="Entities\UI\Location.cs" />
+    <Compile Include="Entities\UI\IssuerFiscalRegime.cs" />
+    <Compile Include="Entities\UI\Receiver.cs" />
+    <Compile Include="Entities\UI\Concept.cs" />
+    <Compile Include="Entities\UI\ConceptComplement.cs" />
+    <Compile Include="Entities\UI\PropertyAccount.cs" />
+    <Compile Include="Entities\UI\Part.cs" />
+    <Compile Include="Entities\UI\Taxes.cs" />
+    <Compile Include="Entities\UI\WithheldTaxes.cs" />
+    <Compile Include="Entities\UI\WithheldTax.cs" />
+    <Compile Include="Entities\UI\TransferredTaxes.cs" />
+    <Compile Include="Entities\UI\TransferredTax.cs" />
+    <Compile Include="Entities\UI\Complement.cs" />
+    <Compile Include="Entities\UI\DigitalFiscalStamp.cs" />
+    <Compile Include="Entities\UI\Addenda.cs" />
+    <Compile Include="Entities\UI\CFDType.cs" />
+    <Compile Include="Entities\UI\UiTreeNode.cs" />
+    <Compile Include="Entities\Security\DDocGroup.cs" />
+    <Compile Include="Entities\Security\DdocLoginConfig.cs" />
+    <Compile Include="Entities\Security\DdocLoginData.cs" />
+    <Compile Include="Entities\Security\DdocPermission.cs" />
+    <Compile Include="Entities\Security\DdocServer.cs" />
+    <Compile Include="Entities\Security\LoginError.cs" />
+    <Compile Include="Entities\Security\User.cs" />
+    <Compile Include="Entities\Security\UserSession.cs" />
+    <Compile Include="Entities\Helpers\CollectionChangeRequest.cs" />
+    <Compile Include="Entities\Helpers\DdocActionLogEntry.cs" />
+    <Compile Include="Entities\Helpers\DdocException.cs" />
+    <Compile Include="Entities\Helpers\DdocReport.cs" />
+    <Compile Include="Entities\Helpers\FieldCorrespondence.cs" />
+    <Compile Include="Entities\Helpers\GroupFilters.cs" />
+    <Compile Include="Entities\Config\DDocFeatures.cs" />
+    <Compile Include="Entities\Config\DdocLicense.cs" />
+    <Compile Include="Entities\Api\ApiResponse.cs" />
+    <Compile Include="Entities\Api\ApiResponse`1.cs" />
+    <Compile Include="Catalogs\DdocCatalogs.cs" />
+    <Compile Include="Api\NullAuthenticationModule.cs" />
+    <Compile Include="Api\DALHelpers.cs" />
+    <Compile Include="Api\NullOcrModule.cs" />
+    <Compile Include="Api\IDdocService.cs" />
+    <Compile Include="Api\NullStorageModule.cs" />
+    <Compile Include="Api\NullTextSearchModule.cs" />
+    <Compile Include="Api\DataAccess\IActivityLogDAL.cs" />
+    <Compile Include="Api\DataAccess\IAdminDAL.cs" />
+    <Compile Include="Api\DataAccess\ICollectionDAL.cs" />
+    <Compile Include="Api\DataAccess\ICommonDAL.cs" />
+    <Compile Include="Api\DataAccess\IDocumentDAL.cs" />
+    <Compile Include="Api\DataAccess\IFolderDAL.cs" />
+    <Compile Include="Api\DataAccess\IReportsDAL.cs" />
+    <Compile Include="Api\DataAccess\ISearchDAL.cs" />
+    <Compile Include="Api\DataAccess\ISecurityDAL.cs" />
+    <Compile Include="Api\DataAccess\IViewerDAL.cs" />
+    <Compile Include="Extensions\1ICustomActions.cs" />
+    <Compile Include="Extensions\1ICustomReports.cs" />
+    <Compile Include="Extensions\1ICustomSearch.cs" />
+    <Compile Include="Extensions\1IDocumentCreation.cs" />
+    <Compile Include="Extensions\1IDocumentPreProcessor.cs" />
+    <Compile Include="Extensions\1IFolderPreProcessor.cs" />
+    <Compile Include="Extensions\DdocLoader\1ICustomValidator.cs" />
+    <Compile Include="Api\IDdocAuthentication.cs" />
+    <Compile Include="Api\IDdocDAL.cs" />
+    <Compile Include="Api\IDdocOcr.cs" />
+    <Compile Include="Api\IDdocStorage.cs" />
+    <Compile Include="Api\IDdocTextSearch.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

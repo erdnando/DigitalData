@@ -1,0 +1,46 @@
+﻿@using DigitalData.DDoc.Common.Extensions
+<header class="menu main-menu">
+    <div class="logo"></div>
+    <ul>
+        <li>
+            <a href="@Url.Action("Welcome", "Main")" target="workspace">Principal</a>
+        </li>
+        @if (ViewBag.ReportsEnabled)
+        {
+            <li>
+                <a href="@Url.Action("Main", "Reports")" target="_top">Reportes</a>
+            </li>
+        }
+        @if (ViewBag.EnableAdminMenu)
+        {
+            <li>
+                <a href="@Url.Action("Main", "Admin")" target="_top">Administración</a>
+            </li>
+        }
+        
+        @if (ViewBag.CustomMainMenuItems != null)
+        {
+            foreach (var customItem in (IEnumerable<DdocCustomAction>)ViewBag.CustomMainMenuItems)
+            {
+                <li>
+                    <a href="@Url.Action(customItem.Action, customItem.Controller)" target="@customItem.Target">@customItem.Label</a>
+                </li>
+            }
+        }
+
+        <li class="current-user menu-right">
+            <span class="current-user-icon"></span>@ViewBag.Username
+        </li>
+    </ul>
+</header>
+
+<nav class="main-sub-menu">
+    <ul>
+        <li id="changeMyPassword">
+            <span>Cambiar Contraseña</span>
+        </li>
+        <li>
+            <a id="logoff" href="@Url.Action("LogOff", "Security")" target="_parent">Salir</a>
+        </li>
+    </ul>
+</nav>

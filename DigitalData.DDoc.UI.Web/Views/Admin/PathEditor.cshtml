@@ -1,0 +1,20 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocPath
+
+@using (Html.BeginForm("NewPath", "Admin", FormMethod.Post, new { id = "frmPathEdit" }))
+{
+    @Html.HiddenFor(m => m.IsNew)
+    <fieldset>
+        <legend>Introduzca la nueva ruta</legend>
+        @if (!Model.IsNew)
+        {
+            @Html.HiddenFor(m => m.Id)
+        }
+        <div>
+            @Html.TextBoxFor(m => m.RootPath)
+        </div>
+    </fieldset>
+    <div class="dialog-button-panel">
+        <button class="dialog-button right-set" id="cancelPathEdit"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button class="dialog-button right-set" id="savePath"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

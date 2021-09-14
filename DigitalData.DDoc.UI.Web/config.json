@@ -1,0 +1,37 @@
+{
+    "AppSettings": {
+        "UseNativePdfViewer": false,
+        "ViewerCustomPanel": false,
+        "VersionedContent": false,
+        "ViewerAnchorTarget": "_blank",
+        "ActivityLog": true,
+        "UpdateDateOnWeb": true,
+        "ShowDefaultReports": true,
+        "GlobalSearchMaxHits": 150,
+        "GlobalSearchFieldLimit": 6,
+        "FolderViewFieldLimit": 6,
+        "AppKey": "cg+RFYZ4o28nxaVA2jIIOfyBseS9vjDLWh3JBPEKggtVlsoCc2QTRJvUSlkFwmdB",
+		"FrameOrigin" : "http://localhost/"
+    },
+    "AppConfig": {
+		"DdocServiceUrl": "https://localhost:44316",
+        "UseNewJsonSerializer": false
+    },
+    "DbConnections": [
+      {
+        "Name": "DDocConnection",
+        "DataSource": "DESKTOP-HE0F8AD",
+        "Database": "ddoc_BradesCard",
+        "DbUsername": "usu_ddoc",
+        "DbPassword": "usu_ddoc",
+        "Type": "SqlServer",
+        "WindowsAuth": false
+      }
+    ],
+    "LoggingOptions": {
+        "AppName": "DDOC V4.0",
+        "LogName": "ddoc_BradesCard-.log",
+        "LogsPath": "C:\\Logs",
+        "FileFormat": "Json"
+    }
+}

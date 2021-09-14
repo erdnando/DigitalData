@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/DDocSecurity.cshtml";
+}
+
+<div class="security-title">Sesión expirada</div>
+<div>Será redirigido a la página de inicio en unos momentos... </div>
+<div>
+    @Html.ActionLink("Volver a acceder", "Login", "Security", null, new { @class = "button-like"})
+</div>
+
+@section Scripts
+{
+    <script>
+        var ddoc = new DDocUi();
+        setTimeout(function () {
+            window.top.location.href = ddoc.GetUrl('/Security/Login');
+        }, 5000);
+    </script>
+}

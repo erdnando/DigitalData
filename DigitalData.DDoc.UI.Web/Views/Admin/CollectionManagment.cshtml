@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Administración de Colecciones";
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Admin/CollectionManagement.css")" rel="stylesheet" />
+}
+
+@Html.Hidden("CollectionLock", (bool)ViewBag.CollectionLock)
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">Administración de Colecciones</span>
+    </div>
+    <li id="newCollection">Agregar Nueva Colección Raíz</li>
+    <li id="editRules">Editar relaciones entre colecciones</li>
+    @if (!ViewBag.CollectionLock)
+    {
+        <li id="finalizeCollections" class="right-set">Finalizar estructura de colecciones</li>
+    }
+</menu>
+
+<div id="collectionTree"></div>
+
+<div class="tree-view-datapanel no-select">
+    <div>Id de colección:</div>
+    <div>@Html.TextBox("scId", string.Empty, new { @readonly = "readonly" })</div>
+    <div>Nombre:</div>
+    <div>@Html.TextBox("scName", string.Empty, new { @readonly = "readonly" })</div>
+    <div>Descripción:</div>
+    <div>@Html.TextBox("scDescription", string.Empty, new { @readonly = "readonly" })</div>
+    <div>Grupo de seguridad:</div>
+    <div>@Html.TextBox("scSecurityGroupId", string.Empty, new { @readonly = "readonly" })</div>
+</div>
+
+<div class="tree-view-menu no-select">
+    <ul>
+        <li id="editCollection"><span class="rootCollection-edit"></span><label>Editar colección</label></li>
+        <li id="addField"><span class="collection-addField"></span><label>Nuevo campo de colección</label></li>
+        <li id="addFolderChild"><span class="collection-addFolderChild"></span><label>Nueva colección de folders</label></li>
+        <li id="addDocumentChild"><span class="collection-addDocumentChild"></span><label>Nueva colección de documentos</label></li>
+        <li id="deleteCollection"><span class="rootCollection-delete"></span><label>Eliminar colección</label></li>
+    </ul>
+</div>
+
+<div id="grdCollectionFields"></div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.fancytree-all-deps.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/CollectionManagement.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/CollectionEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/GroupEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/CollectionFilenameTemplateEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/CollectionFieldEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/RulesList.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/RuleEditor.js")"></script>
+}

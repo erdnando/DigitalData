@@ -1,0 +1,301 @@
+﻿@using System.Collections
+@using System.Globalization
+@using DigitalData.DDoc.Common.Extensions
+@using DigitalData.DDoc.UI.Web.Views.Viewer.Resources
+@model DigitalData.Common.Cfdi.CfdiData
+
+@{
+    var resourceSet = ViewerResources.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+}
+
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+
+<html mozDisallowSelectionPrint mozNoMarginBoxes>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="notranslate" name="google">
+    <title>@ViewBag.ProductName - Ver Documento</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/Viewer.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/CfdViewer.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/fileicon.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/imgareaselect-default.css")" />
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+</head>
+<body class="loadingInProgress">
+    @if (ViewBag.ShowCustomPanel)
+    {
+        @Html.Hidden("ShowCustomPanel", ViewData["ShowCustomPanel"])
+    }
+
+    @if (ViewBag.NoPermission != null && (bool)ViewBag.NoPermission)
+    {
+        @Html.Hidden("NoPermission", 1)
+    }
+
+    @Html.Hidden("CanRead", (bool)ViewBag.CanRead)
+    @Html.Hidden("CanWrite", (bool)ViewBag.CanWrite)
+    @Html.Hidden("CanComment", (bool)ViewBag.CanComment)
+    @Html.Hidden("CanExport", (bool)ViewBag.CanExport)
+    @Html.Hidden("CanPrint", (bool)ViewBag.CanPrint)
+    @Html.Hidden("CanDelete", (bool)ViewBag.CanDelete)
+
+    <div id="outerContainer">
+        <div class="toolbar">
+            <span class="logo"></span>
+            <div class="toolbarViewerLeft">
+                <button id="goBack" class="toolbarButton goBack" title="@resourceSet.GetString("goBack_title")"></button>
+                <button id="viewPdf" class="toolbarButton download" title="@resourceSet.GetString("download_title")"></button>
+            </div>
+            <div class="toolbarViewerRight">
+                @if (ViewBag.ShowCustomPanel)
+                {
+                    <button id="customPanelActivator" class="toolbarButton custom" title="@resourceSet.GetString("customPanel_title")"></button>
+                }
+            </div>
+        </div>
+        @if (ViewBag.ShowCustomPanel)
+        {
+            <div class="customPanel hidden doorHangerRight" id="customPanel">
+                @if (ViewBag.CustomViewerActions != null)
+                {
+                    foreach (var customAction in (IEnumerable<DdocCustomAction>)ViewBag.CustomViewerActions)
+                    {
+                        if (customAction.CollectionId == ViewBag.CollectionId)
+                        {
+                            <a href="@Url.Action(customAction.Action, customAction.Controller, new
+                             {
+                                 documentId = ViewBag.DocumentId
+                             })" title="@customAction.Tooltip" class="custom-action @customAction.ImageClass">@customAction.Command</a>
+                        }
+                    }
+                }
+            </div>
+        }
+        <div id="mainContainer">
+            <div id="viewerContainer">
+                <div id="viewer">
+                    <div id="xmlViewer">
+                        <div class="cfd-title">
+                            CFDi -
+                            @if (!string.IsNullOrEmpty(Model.Folio))
+                            {
+                                if (!string.IsNullOrEmpty(Model.Serie))
+                                {
+                                    @:Serie: @Model.Serie
+                                }
+                                @:Folio: @Model.Folio
+                            }
+                            else
+                            {
+                                @:Folio Fiscal: @Model.TimbreFiscalDigital.UUID
+                            }
+                        </div>
+                        <div class="cfd-data issuer">
+                            <div class="section-title">
+                                Emisor
+                            </div>
+                            <div>
+                                <label>Nombre o Razón Social:</label>
+                                @Html.TextBoxFor(m => m.Emisor.Nombre, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>RFC:</label>
+                                @Html.TextBoxFor(m => m.Emisor.Rfc, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="cfd-data receiver">
+                            <div class="section-title">
+                                Receptor
+                            </div>
+                            <div>
+                                <label>Nombre o Razón Social:</label>
+                                @Html.TextBoxFor(m => m.Receptor.Nombre, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>RFC:</label>
+                                @Html.TextBoxFor(m => m.Receptor.Rfc, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="cfd-data payment">
+                            <div class="section-title">
+                                Totales y Forma de Pago
+                            </div>
+                            <div>
+                                <label>SubTotal:</label>
+                                @Html.TextBoxFor(m => m.SubTotal, new { @readonly = "readonly", Value = $"{Model.SubTotal:C}" })
+                            </div>
+                            <div>
+                                <label>Total:</label>
+                                @Html.TextBoxFor(m => m.Total, new { @readonly = "readonly", Value = $"{Model.Total:C}" })
+                            </div>
+                            <div>
+                                <label>Moneda:</label>
+                                @Html.TextBoxFor(m => m.Moneda, new { @readonly = "readonly" })
+                            </div>
+                            @*<div>
+                                    <label>Lugar de Expedición:</label>
+                                    @Html.TextBoxFor(m => m.LugarExpedicion, new { @readonly = "readonly" })
+                                </div>*@
+                            <div>
+                                <label>Fecha y Hora:</label>
+                                @Html.TextBoxFor(m => m.Fecha, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Método de pago:</label>
+                                @Html.TextBoxFor(m => m.MetodoPago, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Forma de Pago:</label>
+                                @Html.TextBoxFor(m => m.FormaPago, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Descuento:</label>
+                                @Html.TextBoxFor(m => m.Descuento, new { @readonly = "readonly", Value = $"{Model.Descuento:C}" })
+                            </div>
+                            @*<div>
+                                    <label>Motivo:</label>
+                                    @Html.TextBoxFor(m => m.motivoDescuento, new { @readonly = "readonly" })
+                                </div>*@
+                        </div>
+                        <div class="cfd-data seals">
+                            <div class="section-title">
+                                Sellos y Folio Fiscal
+                            </div>
+                            <div>
+                                <label>Certificado:</label>
+                                @Html.TextAreaFor(m => m.Certificado, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Sello Digital CFDi:</label>
+                                @Html.TextAreaFor(m => m.Sello, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Folio Fiscal:</label>
+                                @Html.TextBoxFor(m => m.TimbreFiscalDigital.UUID, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Número de Sello del SAT</label>
+                                @Html.TextBoxFor(m => m.TimbreFiscalDigital.NoCertificadoSAT, new { @readonly = "readonly" })
+                            </div>
+                            <div>
+                                <label>Sello del SAT:</label>
+                                @Html.TextAreaFor(m => m.TimbreFiscalDigital.SelloSAT, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="cfd-data concepts">
+                            <div class="section-title">
+                                Conceptos
+                            </div>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Cantidad</th>
+                                    <th>Unidad</th>
+                                    <th>Valor Unitario</th>
+                                    <th>Descripción</th>
+                                    <th>No. de ID</th>
+                                    <th>Importe</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var concept in Model.Conceptos)
+                                {
+                                    <tr>
+                                        <td>@concept.Cantidad</td>
+                                        <td>@concept.Unidad</td>
+                                        <td>@concept.ValorUnitario.ToString("C2")</td>
+                                        <td>@concept.Descripcion</td>
+                                        <td>@concept.NoIdentificacion</td>
+                                        <td>@concept.Importe.ToString("C2")</td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                        @if (Model.Impuestos?.Traslados != null)
+                        {
+                            <div class="cfd-data taxes">
+                                <div class="section-title">
+                                    Impuestos
+                                </div>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Impuesto</th>
+                                        <th>Tasa</th>
+                                        <th>Importe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach (var tax in Model.Impuestos.Traslados)
+                                    {
+                                        <tr>
+                                            <td>@tax.Impuesto</td>
+                                            <td>@tax.TasaOCuota</td>
+                                            <td>@tax.Importe.ToString("C2")</td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </div>
+                    <div id="pdfViewer" style="display: none">
+                        <iframe id="viewerFrame"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden" id="overlayContainer"></div>
+    </div>
+
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+    @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript">
+
+    if (!String.prototype.format) {
+        String.prototype.format = function () {
+            var args = arguments;
+            return this.replace(/{(\d+)}/g,
+                function (match, number) {
+                    return typeof args[number] != 'undefined'
+                        ? args[number]
+                        : match;
+                });
+        };
+    }
+
+    var Resources = {};
+
+    @foreach (DictionaryEntry res in resourceSet)
+    {
+        @:Resources.@res.Key = '@Html.Raw(HttpUtility.JavaScriptStringEncode(res.Value.ToString()))';
+    }
+
+
+    var documentFiles = @Html.Raw(Json.Encode(ViewBag.DocumentFiles));
+
+    var collectionId = '@ViewBag.CollectionId';
+
+    var documentId = '@ViewBag.DocumentId';
+
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    @if (ViewBag.ShowCustomPanel)
+    {
+        <script type="text/javascript" src=@Url.Content("~/Plugins/Scripts/CfdiViewerPlugins.js")></script>
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Viewer/XML/CfdiViewer.js")"></script>
+</body>
+</html>

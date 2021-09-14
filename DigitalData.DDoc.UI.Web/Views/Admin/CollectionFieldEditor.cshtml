@@ -1,0 +1,73 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocField
+
+@{
+    var action = Model.IsNew ? "CreateCollectionField" : "EditCollectionField";
+    var fieldTypes = new List<string> { "BIT", "INT", "DECIMAL", "MONEY", "DATETIME", "CHAR", "VARCHAR" };
+}
+
+@using (Html.BeginForm(action, "Admin", FormMethod.Post, new { id = "frmCollectionFieldEdit" }))
+{
+    @Html.HiddenFor(m => m.IsNew)
+    if (!Model.IsNew)
+    {
+        @Html.HiddenFor(m => m.Id)
+    }
+    <fieldset>
+        <legend>Datos del campo</legend>
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TypeString)
+            @Html.DropDownListFor(m => m.TypeString, new SelectList(fieldTypes))
+            @Html.LabelFor(m => m.TypeLength)
+            @Html.TextBoxFor(m => m.TypeLength)
+            @Html.LabelFor(m => m.TypePrecision)
+            @Html.TextBoxFor(m => m.TypePrecision)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.InMask)
+            @Html.TextBoxFor(m => m.InMask)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.OutMask)
+            @Html.TextBoxFor(m => m.OutMask)
+        </div>
+        <div>
+            @Html.CheckBoxFor(m => m.Inheritable)
+            @Html.LabelFor(m => m.Inheritable)
+            @Html.CheckBoxFor(m => m.Nullable)
+            @Html.LabelFor(m => m.Nullable)
+            @Html.CheckBoxFor(m => m.Unique)
+            @Html.LabelFor(m => m.Unique)
+            @Html.CheckBoxFor(m => m.Hidden)
+            @Html.LabelFor(m => m.Hidden)
+            @Html.CheckBoxFor(m => m.IncludeInGlobalSearch)
+            @Html.LabelFor(m => m.IncludeInGlobalSearch)
+            @Html.CheckBoxFor(m => m.CreateRule)
+            @Html.LabelFor(m => m.CreateRule)
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>@Html.LabelFor(m => m.AllowedValues)</legend>
+        <div class="listbox-field">
+            @Html.ListBoxFor(m => m.AllowedValues, new MultiSelectList(Model.AllowedValues ?? new List<string>(), Model.AllowedValues))
+        </div>
+        <div class="listbox-actions">
+            <div id="addAllowedValue" class="listbox-action">
+                <span class="image-button add-icon"></span>
+                <label>Agregar valor</label>
+            </div>
+            <div id="removeAllowedValue" class="listbox-action">
+                <span class="image-button remove-icon"></span>
+                <label>Eliminar valor</label>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button id="cancelCollectionFieldEdit" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button id="saveCollectionField" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

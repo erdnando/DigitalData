@@ -1,0 +1,228 @@
+/* DatePicker Control */
+.dtp-button { background: transparent url(../../Images/ddoc_graphics.png) no-repeat scroll -50px -192px; }
+
+.dtp-button:hover { background-position: -66px -192px; }
+
+/* Calendar control */
+
+.klendar {
+    -moz-box-shadow: 1px 1px 3px #4c4c4c;
+    -webkit-box-shadow: 1px 1px 3px #4c4c4c;
+    box-shadow: 1px 1px 3px #4c4c4c;
+}
+
+.k-container {
+    background: #49647D;
+    border: 1px solid #777;
+}
+
+.k-table-container {
+    background-color: #8BA6BF;
+    border: 1px #fff;
+    border-style: solid none none solid;
+}
+
+.k-table-days th {
+    border: 1px;
+    border-color: #bbb transparent #fff;
+    border-style: solid none;
+}
+
+.k-month-selector { font-size: 90%; }
+
+.k-button { background: url(../../Images/Controls/EControls-1.0.png) no-repeat scroll 0 0 transparent; }
+
+.k-prev { background-position: 0 -100px; }
+
+.k-next { background-position: 2px -82px; }
+
+.k-day,
+.k-day-label {
+    border: 1px solid transparent;
+    color: #000;
+}
+
+.k-day:hover {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #767670;
+    border-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+.k-day-weekend { color: #f00; }
+
+.k-today {
+    -moz-border-radius: 3px;
+    -o-border-raduis: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #184E7F;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Control Tabs */
+
+.tab {
+    background: linear-gradient(#e4e5e5, #c4c4c4);
+    border: 1px #000;
+    border-radius: 3px 3px 0 0;
+    border-style: none solid none none;
+    cursor: pointer;
+}
+
+.tab-active {
+    background: linear-gradient(#237486, #06515c);
+    color: #fff;
+    cursor: default;
+    font-weight: bold;
+}
+
+.tabs-container {
+    border: solid #06515c;
+    border-width: 4px 1px 1px;
+}
+
+/* Accordion Control */
+
+.acc-title {
+    background: rgb(158, 158, 158) url(../../Images/bar.png) repeat-x;
+    color: white;
+    cursor: default;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.acc-item-handler {
+    background: transparent url(../../Images/ddoc_graphics.png) no-repeat scroll 0 -168px;
+    cursor: pointer;
+}
+
+.acc-item-handler.expanded { background-position: 0 -144px; }
+
+/* Grid Control  */
+
+.grid { background: white; }
+
+.grid-title {
+    color: white;
+    font: bold 13px Verdana;
+    background: rgb(76, 127, 181) url('../../Images/bar.png') repeat-x;
+}
+
+.grid-title-label {
+    color: white;
+    font: bold 13px Verdana;
+}
+
+.grid-header,
+.grid-footer,
+.grid-table-detail thead tr:first-child { background: rgb(76, 127, 181) url('../../Images/bar.png') repeat-x; }
+
+.grid-content { background-color: rgba(255, 255, 255, 0.3) }
+
+.grid-table-content tr:nth-child(odd),
+.grid-table-detail tr:nth-child(odd) { background: rgb(235, 239, 242); }
+
+.grid-table-content tr:nth-child(even),
+.grid-table-detail tr:nth-child(even) { background: rgb(244, 246, 248); }
+
+.grid-table-header td,
+.grid-table-detail th {
+    border: 1px solid;
+    border-color: white rgb(187, 187, 187) rgb(187, 187, 187) white;
+    color: #090909;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.grid-table-content td,
+.grid-table-detail td {
+    border: 1px solid;
+    border-color: rgb(242, 242, 242) rgb(213, 213, 213) rgb(213, 213, 213) rgb(242, 242, 242);
+    color: #000;
+}
+
+.grid-table-content tr.row-selected { background: linear-gradient(to bottom, #426d9f 0, #75bcf9 100%); }
+
+.grid-table-content tr.row-selected > td {
+    color: white;
+    font-weight: bold;
+}
+
+.grid-table-content tr:hover:not(:nth-child(2)) { background: rgb(21, 166, 255) url('../../Images/bar.png'); background-size: contain; }
+
+    .grid-table-content tr:hover:not(:nth-child(2)) > td {
+        color: white;
+    }
+
+.grid-cell-control,
+.grid-action,
+.cell-hider,
+.grid-button-pager,
+.grid-seek-icon { background: transparent url(../../Images/ddoc_graphics.png) no-repeat scroll 0 0; }
+
+.grid-handler-detail {
+    background-position: -18px 0;
+    cursor: pointer;
+}
+
+.grid-detail-expanded { background-position: -18px -20px; }
+
+.cell-content:hover { background: linear-gradient(to top, rgb(241, 241, 241) 0, rgb(222, 222, 222) 100%); }
+
+.cell-hider { background-position: -24px -112px; }
+
+.sort-cell-flag {
+    background-position: -56px -144px;
+    opacity: 0.3;
+}
+
+.column-sorted-asc {
+    background-position: -24px -128px;
+    opacity: 1;
+}
+
+.column-sorted-desc {
+    background-position: -24px -144px;
+    opacity: 1;
+}
+
+.columns-menu {
+    background-position: 0 -24px;
+    cursor: pointer;
+}
+
+.menu-columns {
+    background-attachment: scroll;
+    background-size: 100% 30px;
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 12px;
+    text-shadow: 1px 1px black;
+}
+
+.menu-columns li { border: 1px solid rgb(77, 77, 77); }
+
+.grid-button-pager {
+    color: #000;
+    cursor: pointer;
+}
+
+.grid-button-last { background-position: 0 -96px; }
+
+.grid-button-next { background-position: 0 -48px; }
+
+.grid-button-prev { background-position: 0 -72px; }
+
+.grid-button-first { background-position: 0 -120px; }
+
+.grid-button-disabled {
+    cursor: default !important;
+    opacity: 0.3;
+}
+
+.grid-page-label { font-size: 0.7em; }

@@ -1,0 +1,93 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DigitalData.DDoc.Common.Entities.DdocFolder
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">@ViewBag.CollectionName</span>
+    </div>
+    @if (!Model.IsNew)
+    {
+        var permissions = (Permissions)ViewBag.SecurityPermissions;
+
+        if (permissions.HasFlag(Permissions.Write))
+        {
+            <li id="editData">Editar Propiedades</li>
+        }
+        if (permissions.HasFlag(Permissions.Export))
+        {
+            <li id="sendMail">Enviar por correo</li>
+        }
+        if (permissions.HasFlag(Permissions.Delete))
+        {
+            <li id="deleteFolder" class="right-set red-item no-margin">Eliminar Folder</li>
+        }
+    }
+</menu>
+
+@{ var count = 0;}
+@using (Html.BeginForm("Save", "Folder", FormMethod.Post, new { Id = "frmEditFolder" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.IsNew)
+    @Html.HiddenFor(m => m.CollectionId)
+    @Html.HiddenFor(m => m.Name)
+    @Html.HiddenFor(m => m.SecurityGroupId)
+    <div class="fields-container">
+        @for (var i = 0; i < Model.Data.Count; i++)
+        {
+            var field = Model.Data[i];
+
+            if (field.Hidden || field.Computed)
+            {
+                continue;
+            }
+
+            <div>
+                @Html.LabelFor(m => m.Data[i].Value, field.Name)
+            </div>
+            <div>
+                @Html.Hidden($"Data[{count}].Id", field.Id)
+                @Html.Hidden($"Data[{count}].InMask", field.InMask)
+                @Html.Hidden($"Data[{count}].OutMask", field.OutMask)
+                @Html.Hidden($"Data[{count}].Name", field.Name)
+                @Html.Hidden($"Data[{count}].Format", field.Format)
+                @Html.Hidden($"Data[{count}].Nullable", field.Nullable)
+                @Html.Hidden($"Data[{count}].TypeString", field.TypeString)
+                @switch ((int)field.Type)
+                {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 4:
+                        if (field.AllowedValues != null && field.AllowedValues.Any())
+                        {
+                            @Html.DropDownListFor(m => m.Data[i].Value, new SelectList(field.AllowedValues, field.Value), new { disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(m => m.Data[i].Value, new { disabled = "disabled" })
+                        }
+                        break;
+                    case 3:
+                        @Html.CheckBox("Data[" + i + "].Value", bool.Parse(field.Value ?? bool.FalseString), new { disabled = "disabled" })
+                        break;
+                }
+            </div>
+
+            count++;
+        }
+    </div>
+
+    <div class="dialog-button-panel">
+        @if (Model.IsNew)
+        {
+            <button id="cancelNewFolder" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        }
+        else
+        {
+            <button id="closeEditFolder" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cerrar</button>
+            <button id="cancelEditFolder" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        }
+        <button id="saveFolder" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

@@ -1,0 +1,26 @@
+﻿@{
+    var tabindex = (int)ViewBag.tabindex;
+}
+
+<div class="group-header">
+    <span class="image-button remove-group"></span>
+    <select class="groupOperator">
+        <option value="0">Y los elementos que cumplan con</option>
+        <option value="1">O los elementos que cumplan con</option>
+    </select>
+    <select class="clausesOperator">
+        <option value="0">Todas las siguientes condiciones</option>
+        <option value="1">Cualquiera de las siguientes condiciones</option>
+    </select>
+</div>
+<div class="group-clauses">
+    <div class="clause">
+        <div class="actions-column"><span class="image-button add-clause"></span></div>
+        <div class="actions-column"></div>
+        <div class="field-column"><select class="clauseField" disabled="disabled" tabindex="@(tabindex++)"></select></div>
+        <div class="comparison-column"><select class="clauseComparison" disabled="disabled" tabindex="@(tabindex++)"></select></div>
+        <div class="value-column"><input class="clauseValue" disabled="disabled" type="text" placeholder="Valor" tabindex="@(tabindex++)"/></div>
+        <div class="value-between-column"><span class="between-separator" style="display: none"> y </span></div>
+        <div class="value-column"><input class="clauseValue2" disabled="disabled" style="display: none" type="text" placeholder="Valor" tabindex="@(tabindex++)"/></div>
+    </div>
+</div>

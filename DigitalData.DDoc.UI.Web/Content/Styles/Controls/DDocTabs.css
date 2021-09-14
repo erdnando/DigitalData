@@ -1,0 +1,18 @@
+﻿.tabs-zone { margin: 4px 0 0; }
+
+.tabs-area { overflow: hidden; }
+
+.tab {
+    float: left;
+    margin: 0 1px 0 0;
+    padding: 7px;
+}
+
+.tabs-container { overflow: hidden; }
+
+.tab-content {
+    display: none;
+    padding: 5px;
+}
+
+.tab-content-active { display: block; }

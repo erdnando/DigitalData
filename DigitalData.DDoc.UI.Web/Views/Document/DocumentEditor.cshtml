@@ -1,0 +1,98 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DigitalData.DDoc.Common.Entities.DdocDocument
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">@ViewBag.CollectionName</span>
+    </div>
+
+    @{ var permissions = (Permissions)ViewBag.SecurityPermissions; }
+
+    @if (permissions.HasFlag(Permissions.Read))
+    {
+        <li>
+            <a id="viewDocument" href="@Url.RouteUrl(ViewBag.UseNativeViewer ? "NativePdfViewer" : "DDocViewer", new { documentId = Model.Id })?file=0" target="_blank">Ver contenido</a>
+        </li>
+    }
+    @if (permissions.HasFlag(Permissions.Write))
+    {
+        <li id="editData">Editar Propiedades</li>
+        <li id="editPages">Editar Páginas</li>
+    }
+    @if (permissions.HasFlag(Permissions.Delete))
+    {
+        <li class="right-set red-item no-margin" id="deleteDocument">Eliminar Documento</li>
+    }
+
+</menu>
+
+@{ var count = 0;}
+@using (Html.BeginForm("Save", "Document", FormMethod.Post, new { Id = "frmEditDocument" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.CollectionId)
+    @Html.HiddenFor(m => m.Name)
+    <div class="fields-container">
+        @for (var i = 0; i < Model.Data.Count; i++)
+        {
+            var field = Model.Data[i];
+
+            if (field.Hidden || field.Computed)
+            {
+                continue;
+            }
+
+            <div>
+                @Html.Label("Data[" + count + "].Value", field.Name)
+            </div>
+            <div>
+                @Html.Hidden($"Data[{count}].Id", field.Id)
+                @Html.Hidden($"Data[{count}].InMask", field.InMask)
+                @Html.Hidden($"Data[{count}].OutMask", field.OutMask)
+                @Html.Hidden($"Data[{count}].Name", field.Name)
+                @Html.Hidden($"Data[{count}].Format", field.Format)
+                @Html.Hidden($"Data[{count}].Nullable", field.Nullable)
+                @Html.Hidden($"Data[{count}].TypeString", field.TypeString)
+                @switch ((int)field.Type)
+                {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 4:
+                        if (field.AllowedValues != null && field.AllowedValues.Any())
+                        {
+                            @Html.DropDownList($"Data[{count}].Value", new SelectList(field.AllowedValues, field.Value), new { @class = "editableField", disabled = "disabled" })
+                        }
+                        else
+                        {
+                            @Html.TextBox($"Data[{count}].Value", field.Value, new { @class = "editableField", disabled = "disabled" })
+                        }
+                        break;
+                    case 3:
+                        @Html.CheckBox($"Data[{count}].Value", !string.IsNullOrEmpty(field.Value) && bool.Parse(field.Value), new { @class = "editableField", disabled = "disabled" })
+                        break;
+                }
+            </div>
+
+            count++;
+        }
+        <div>
+            @Html.LabelFor(m => m.CreationDate, "Fecha de Creación")
+        </div>
+        <div>
+            @Html.TextBox("CDate", Model.CreationDate?.ToString("dd/MM/yyyy HH:mm:ss"), new { disabled = "disabled" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.SecurityGroupId, "Seguridad")
+        </div>
+        <div>
+            @Html.DropDownListFor(m => m.SecurityGroupId, new SelectList(ViewBag.SecurityGroups, "Id", "Name", Model.SecurityGroupId), new { @class = "editableField", disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="dialog-button-panel">
+        <button class="dialog-button right-set" id="closeEditDocument"><span class="button-icon cancel-icon"></span>Cerrar</button>
+        <button class="dialog-button right-set" id="cancelEditDocument"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button class="dialog-button right-set" id="updateDocument"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

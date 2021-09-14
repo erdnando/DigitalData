@@ -1,0 +1,93 @@
+#xmlViewer {
+    background-color: rgb(26, 82, 136);
+    color: white;
+    font: bold 12px Tahoma;
+    text-align: center;
+}
+
+.cfd-data {
+    background-color: slategray;
+    border: darkgray 2px ridge;
+    display: inline-block;
+    margin: 10px;
+    padding: 0 0 10px;
+    vertical-align: text-top;
+    width: 48%;
+    text-align: center;
+}
+
+.cfd-data > div { margin: 5px 0 5px; }
+
+.cfd-data label {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: right;
+    vertical-align: middle;
+    width: 20%;
+}
+
+    .cfd-data input,
+    .cfd-data textarea {
+        font: bold 12px Arial;
+        padding: 0 0 0 5px;
+        width: 70%;
+        resize: none;
+        vertical-align: middle;
+    }
+
+    .cfd-data textarea {
+        height: 43px;
+    }
+
+.cfd-data .section-title {
+    background-color: #118e64;
+    border-bottom: darkgray 2px ridge;
+    font-size: 16px;
+    margin: 0;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+table { width: 100%; }
+
+thead { background-color: darkslategrey; }
+
+table {
+    background-color: darkgrey;
+    border: black 1px solid;
+}
+
+td {
+    background-color: white;
+    border: black 1px ridge;
+    color: black;
+    padding: 5px;
+    text-align: center;
+}
+
+th {
+    border: black 1px ridge;
+    padding: 5px;
+}
+
+.cfd-data.concepts {
+    width: 98%;
+}
+
+.cfd-data.concepts td:first-child {
+    width: 55px;
+}
+
+.cfd-data.concepts td:nth-child(3) {
+    width: 83px;
+}
+
+.cfd-data.concepts td:nth-child(5) {
+    width: 150px;
+    text-align: center;
+}
+
+.cfd-title {
+    font-size: xx-large;
+}

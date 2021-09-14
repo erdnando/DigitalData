@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="attachments_label" xml:space="preserve">
+    <value>Adjuntos</value>
+  </data>
+  <data name="attachments_title" xml:space="preserve">
+    <value>Mostrar adjuntos</value>
+  </data>
+  <data name="bookmark_label" xml:space="preserve">
+    <value>Vista actual</value>
+  </data>
+  <data name="bookmark_title" xml:space="preserve">
+    <value>Vista actual (copiar o abrir en una nueva ventana)</value>
+  </data>
+  <data name="ddoc_first_title" xml:space="preserve">
+    <value>Primer archivo del documento</value>
+  </data>
+  <data name="ddoc_last_title" xml:space="preserve">
+    <value>Último archivo del documento</value>
+  </data>
+  <data name="ddoc_next_title" xml:space="preserve">
+    <value>Siguiente archivo</value>
+  </data>
+  <data name="ddoc_prev_title" xml:space="preserve">
+    <value>Archivo anterior</value>
+  </data>
+  <data name="document_colors_disabled" xml:space="preserve">
+    <value>Los documentos PDF no tienen permiso de usar sus propios colores: 'Permitir que las páginas elijan sus propios colores' esta desactivada en el navegador.</value>
+  </data>
+  <data name="document_properties_author" xml:space="preserve">
+    <value>Autor:</value>
+  </data>
+  <data name="document_properties_close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="document_properties_creation_date" xml:space="preserve">
+    <value>Fecha de creación:</value>
+  </data>
+  <data name="document_properties_creator" xml:space="preserve">
+    <value>Creador:</value>
+  </data>
+  <data name="document_properties_date_string" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="document_properties_file_name" xml:space="preserve">
+    <value>Nombre del archivo:</value>
+  </data>
+  <data name="document_properties_file_size" xml:space="preserve">
+    <value>Tamaño del archivo:</value>
+  </data>
+  <data name="document_properties_kb" xml:space="preserve">
+    <value>{0} KB ({1} bytes)</value>
+  </data>
+  <data name="document_properties_keywords" xml:space="preserve">
+    <value>Palabras claves:</value>
+  </data>
+  <data name="document_properties_label" xml:space="preserve">
+    <value>Propiedades del documento…</value>
+  </data>
+  <data name="document_properties_mb" xml:space="preserve">
+    <value>{0} MB ({1} bytes)</value>
+  </data>
+  <data name="document_properties_modification_date" xml:space="preserve">
+    <value>Fecha de modificación:</value>
+  </data>
+  <data name="document_properties_page_count" xml:space="preserve">
+    <value>Número de páginas:</value>
+  </data>
+  <data name="document_properties_producer" xml:space="preserve">
+    <value>Productor PDF:</value>
+  </data>
+  <data name="document_properties_subject" xml:space="preserve">
+    <value>Asunto:</value>
+  </data>
+  <data name="document_properties_title" xml:space="preserve">
+    <value>Propiedades del documento…</value>
+  </data>
+  <data name="document_properties_title1" xml:space="preserve">
+    <value>Título:</value>
+  </data>
+  <data name="document_properties_version" xml:space="preserve">
+    <value>Versión PDF:</value>
+  </data>
+  <data name="download_label" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="download_title" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="error_close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="error_file" xml:space="preserve">
+    <value>Archivo: {0}</value>
+  </data>
+  <data name="error_less_info" xml:space="preserve">
+    <value>Menos información</value>
+  </data>
+  <data name="error_line" xml:space="preserve">
+    <value>Línea: {0}</value>
+  </data>
+  <data name="error_message" xml:space="preserve">
+    <value>Mensaje: {0}</value>
+  </data>
+  <data name="error_more_info" xml:space="preserve">
+    <value>Más información</value>
+  </data>
+  <data name="error_stack" xml:space="preserve">
+    <value>Pila: {0}</value>
+  </data>
+  <data name="error_version_info" xml:space="preserve">
+    <value>PDF.js v{0} (build: {1})</value>
+  </data>
+  <data name="file_label" xml:space="preserve">
+    <value>Archivo:</value>
+  </data>
+  <data name="file_of" xml:space="preserve">
+    <value>de {0}</value>
+  </data>
+  <data name="findbar_label" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="findbar_title" xml:space="preserve">
+    <value>Buscar en el documento</value>
+  </data>
+  <data name="find_highlight_label" xml:space="preserve">
+    <value>Resaltar todo</value>
+  </data>
+  <data name="find_label" xml:space="preserve">
+    <value>Encontrar:</value>
+  </data>
+  <data name="find_match_case_label" xml:space="preserve">
+    <value>Coincidir con mayúsculas y minúsculas</value>
+  </data>
+  <data name="find_next_label" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="find_next_title" xml:space="preserve">
+    <value>Ir a la siguiente frase encontrada</value>
+  </data>
+  <data name="find_not_found" xml:space="preserve">
+    <value>No se encontró la frase</value>
+  </data>
+  <data name="find_previous_label" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="find_previous_title" xml:space="preserve">
+    <value>Ir a la anterior frase encontrada</value>
+  </data>
+  <data name="find_reached_bottom" xml:space="preserve">
+    <value>Se alcanzó el final del documento, se buscará al inicio</value>
+  </data>
+  <data name="find_reached_top" xml:space="preserve">
+    <value>Se alcanzó el inicio del documento, se buscará al final</value>
+  </data>
+  <data name="first_page_label" xml:space="preserve">
+    <value>Ir a la primera página</value>
+  </data>
+  <data name="first_page_label1" xml:space="preserve">
+    <value>Ir a la primera página</value>
+  </data>
+  <data name="first_page_title" xml:space="preserve">
+    <value>Ir a la primera página</value>
+  </data>
+  <data name="goBack_title" xml:space="preserve">
+    <value>Volver</value>
+  </data>
+  <data name="hand_tool_disable_label" xml:space="preserve">
+    <value>Desactivar herramienta mano</value>
+  </data>
+  <data name="hand_tool_disable_title" xml:space="preserve">
+    <value>Desactivar herramienta mano</value>
+  </data>
+  <data name="hand_tool_enable_label" xml:space="preserve">
+    <value>Activar herramienta mano</value>
+  </data>
+  <data name="hand_tool_enable_title" xml:space="preserve">
+    <value>Activar herramienta mano</value>
+  </data>
+  <data name="invalid_file_error" xml:space="preserve">
+    <value>Archivo PDF invalido o dañado.</value>
+  </data>
+  <data name="last_page_label" xml:space="preserve">
+    <value>Ir a la última página</value>
+  </data>
+  <data name="last_page_label1" xml:space="preserve">
+    <value>Ir a la última página</value>
+  </data>
+  <data name="last_page_title" xml:space="preserve">
+    <value>Ir a la última página</value>
+  </data>
+  <data name="loading_error" xml:space="preserve">
+    <value>Un error ocurrió al cargar el PDF.</value>
+  </data>
+  <data name="loading_error_indicator" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="missing_file_error" xml:space="preserve">
+    <value>Archivo PDF no encontrado.</value>
+  </data>
+  <data name="next_label" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="next_title" xml:space="preserve">
+    <value>Página siguiente</value>
+  </data>
+  <data name="open_file_label" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
+  <data name="open_file_title" xml:space="preserve">
+    <value>Abrir archivo</value>
+  </data>
+  <data name="outline_label" xml:space="preserve">
+    <value>Esquema del documento</value>
+  </data>
+  <data name="outline_title" xml:space="preserve">
+    <value>Mostrar esquema del documento</value>
+  </data>
+  <data name="page_label" xml:space="preserve">
+    <value>Página:</value>
+  </data>
+  <data name="page_of" xml:space="preserve">
+    <value>de {0}</value>
+  </data>
+  <data name="page_rotate_ccw_label" xml:space="preserve">
+    <value>Girar a la izquierda</value>
+  </data>
+  <data name="page_rotate_ccw_label1" xml:space="preserve">
+    <value>Girar a la izquierda</value>
+  </data>
+  <data name="page_rotate_ccw_title" xml:space="preserve">
+    <value>Girar a la izquierda</value>
+  </data>
+  <data name="page_rotate_cw_label" xml:space="preserve">
+    <value>Girar a la derecha</value>
+  </data>
+  <data name="page_rotate_cw_label1" xml:space="preserve">
+    <value>Girar a la derecha</value>
+  </data>
+  <data name="page_rotate_cw_title" xml:space="preserve">
+    <value>Girar a la derecha</value>
+  </data>
+  <data name="page_scale_actual" xml:space="preserve">
+    <value>Tamaño real</value>
+  </data>
+  <data name="page_scale_auto" xml:space="preserve">
+    <value>Zoom automático</value>
+  </data>
+  <data name="page_scale_fit" xml:space="preserve">
+    <value>Ajustar página</value>
+  </data>
+  <data name="page_scale_percent" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="page_scale_width" xml:space="preserve">
+    <value>Ancho de página</value>
+  </data>
+  <data name="password_cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="password_invalid" xml:space="preserve">
+    <value>Contraseña inválida. Por favor intenta de nuevo.</value>
+  </data>
+  <data name="password_label" xml:space="preserve">
+    <value>Ingresa la contraseña para abrir este archivo PDF.</value>
+  </data>
+  <data name="password_ok" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="presentation_mode_label" xml:space="preserve">
+    <value>Modo presentación</value>
+  </data>
+  <data name="presentation_mode_title" xml:space="preserve">
+    <value>Cambiar al modo presentación</value>
+  </data>
+  <data name="previous_label" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="previous_title" xml:space="preserve">
+    <value>Página anterior</value>
+  </data>
+  <data name="printing_cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="printing_label" xml:space="preserve">
+    <value>Preparando el documento para la impresión...</value>
+  </data>
+  <data name="printing_not_ready" xml:space="preserve">
+    <value>Advertencia: El PDF no cargo completamente para impresión.</value>
+  </data>
+  <data name="printing_not_supported" xml:space="preserve">
+    <value>Advertencia: La impresión no esta completamente soportada por este navegador.</value>
+  </data>
+  <data name="print_label" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="print_title" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="rendering_error" xml:space="preserve">
+    <value>Un error ocurrió al renderizar la página.</value>
+  </data>
+  <data name="text_annotation_type_alt" xml:space="preserve">
+    <value>[{0} anotación]</value>
+  </data>
+  <data name="thumbs_label" xml:space="preserve">
+    <value>Miniaturas</value>
+  </data>
+  <data name="thumbs_title" xml:space="preserve">
+    <value>Mostrar miniaturas</value>
+  </data>
+  <data name="thumb_page_canvas" xml:space="preserve">
+    <value>Miniatura de la página {0}</value>
+  </data>
+  <data name="thumb_page_title" xml:space="preserve">
+    <value>Página {0}</value>
+  </data>
+  <data name="toggle_sidebar_label" xml:space="preserve">
+    <value>Cambiar barra lateral</value>
+  </data>
+  <data name="toggle_sidebar_title" xml:space="preserve">
+    <value>Cambiar barra lateral</value>
+  </data>
+  <data name="tools_label" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="tools_title" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="unexpected_response_error" xml:space="preserve">
+    <value>Respuesta inesperada del servidor.</value>
+  </data>
+  <data name="web_fonts_disabled" xml:space="preserve">
+    <value>Las fuentes web están desactivadas: es imposible usar las fuentes PDF embebidas.</value>
+  </data>
+  <data name="zoom_in_label" xml:space="preserve">
+    <value>Aumentar</value>
+  </data>
+  <data name="zoom_in_title" xml:space="preserve">
+    <value>Aumentar</value>
+  </data>
+  <data name="zoom_out_label" xml:space="preserve">
+    <value>Reducir</value>
+  </data>
+  <data name="zoom_out_title" xml:space="preserve">
+    <value>Reducir</value>
+  </data>
+  <data name="zoom_title" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+</root>

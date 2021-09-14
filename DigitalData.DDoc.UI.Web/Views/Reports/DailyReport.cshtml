@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/DDocReports.cshtml";
+}
+
+@section ReportFilters {
+    <div>
+        <label>Ingrese un rango de fechas: </label>
+        <input id="startDate" name="startDate" type="date" />
+        <label> y </label>
+        <input id="endDate" name="endDate" type="date" />
+    </div>
+    <div>
+        <Label>Tipo de Reporte: </Label>
+        @Html.DropDownList("CollectionPage")
+        <button id="btnGetData">Buscar</button>
+    </div>
+}
+
+@section ReportContainer {
+    <div style="vertical-align: top; width: 80%;">
+        <label id="reportTitle">Migrado a @ViewBag.ProductName desde <span id="lblFromDate"></span> hasta <span id="lblToDate"></span></label>
+        <canvas id="report"></canvas>
+    </div>
+    <div style="margin-top: 26px;">
+        <table id="legendTable" class="legend-table"></table>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Reports/DailyReport.js")"></script>
+}

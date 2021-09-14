@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Admin/SecurityManagement.css")" rel="stylesheet" />
+}
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">Administración de Seguridad</span>
+    </div>
+    <li id="newUserGroup">Nuevo Grupo de Usuarios</li>
+    <li id="newSecurityGroup">Nuevo Grupo de Seguridad</li>
+    <li><a href="@Url.Action("PermissionManagement", "Admin")">Editar Permisos</a></li>
+</menu>
+
+<div id="grdUserGroups"></div>
+<div id="grdSecurityGroups"></div>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/SecurityManagement.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/GroupEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/GroupPermissionManagement.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/PermissionEditor.js")"></script>
+}

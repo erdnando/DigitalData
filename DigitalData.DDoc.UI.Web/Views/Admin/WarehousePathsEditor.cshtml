@@ -1,0 +1,28 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@using (Html.BeginForm("SaveWarehouse", "Admin", FormMethod.Post, new { id = "frmWarehousePathsEdit" }))
+{
+    <fieldset>
+        <legend>Rutas</legend>
+        <div class="listbox-field">
+            @Html.ListBox("Paths", new SelectList(new List<DdocPath>()))
+        </div>
+        <div class="listbox-actions">
+            <div id="addPath" class="listbox-action">
+                <span class="image-button add-icon"></span>
+                <label>Agregar ruta</label>
+            </div>
+            <div id="removePath" class="listbox-action">
+                <span class="image-button remove-icon"></span>
+                <label>Eliminar ruta</label>
+            </div>
+            <div id="setActivePath" class="listbox-action">
+                <span class="image-button setActive-icon"></span>
+                <label>Marcar como ruta activa</label>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="dialog-button-panel">
+        <button id="closePathsEditor" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cerrar</button>
+    </div>
+}

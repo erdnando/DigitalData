@@ -1,0 +1,175 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocSearchParameters
+
+@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocDatePicker.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocCalendar.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Search/AdvancedSearch.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Folder/FolderEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/DocumentEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/DocumentPagesEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/ScannerUpload.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/FileUpload.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ListLayout.css")" title="listLayout" />
+    <link rel="alternate stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/TilesLayout.css")" title="tileLayout" />
+}
+
+@Html.Hidden("ViewerAnchorTarget", ViewData["ViewerAnchorTarget"])
+
+<div class="search-sections">
+    <div class="search-section-title">Buscar por Propiedades</div>
+    <div id="filterSearch" class="search-section no-select">
+        <div class="search-section-content">
+            <form id="frmFilterSearch">
+                <span class="image-button load-filters"></span><label> Cargar filtros de búsqueda</label>
+                <input type="file" id="filterDefinitionFile" style="display: none;" />
+                <div>
+                    @Html.LabelFor(model => model.CollectionId, "Buscar en colección: ")
+                    @Html.DropDownListFor(model => model.CollectionId, new SelectList(ViewBag.AdvancedSearchableCollections, "Id", "Name"), "Seleccione una colección...", new { tabindex = 1 })
+                    <button id="btnSearch">Buscar</button>
+                    <select id="SortDirection" name="SortDirection" disabled="disabled">
+                        <option value="1">Ascendiente</option>
+                        <option value="-1">Descendiene</option>
+                    </select>
+                    <select id="SortResultsBy" name="SortResultsBy" disabled="disabled"></select>
+                    @Html.Label("Ordenar resultados por: ", new { @for = "SortResultsBy" })
+                </div>
+                <div class="group-container">
+                    <div class="group">
+                        <div class="group-header">
+                            <label>Buscar los elementos que cumplan con: </label>
+                            <select class="clausesOperator">
+                                <option value="0">Todas las siguientes condiciones</option>
+                                <option value="1">Cualquiera de las siguientes condiciones</option>
+                            </select>
+                        </div>
+                        <div class="group-clauses">
+                            <div class="clause">
+                                <div class="actions-column">
+                                    <span class="image-button add-clause"></span>
+                                </div>
+                                <div class="actions-column"></div>
+                                <div class="field-column">
+                                    <select class="clauseField" disabled="disabled" tabindex="2"></select>
+                                </div>
+                                <div class="comparison-column">
+                                    <select class="clauseComparison" disabled="disabled" tabindex="3"></select>
+                                </div>
+                                <div class="value-column">
+                                    <input class="clauseValue" disabled="disabled" type="text" placeholder="Valor" tabindex="4" />
+                                </div>
+                                <div class="value-between-column">
+                                    <span class="between-separator" style="display: none"> y </span>
+                                </div>
+                                <div class="value-column">
+                                    <input class="clauseValue2" disabled="disabled" style="display: none" type="text" placeholder="Valor" tabindex="5" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-controls">
+                        <span class="image-button add-group"></span><label> Agregar nuevo grupo de condiciones</label>
+                        <div class="right-set" style="display: none;">
+                            <span class="image-button save-filters"></span><label> Guardar filtros de búsqueda</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="filter-search-results" style="display: none">
+                <menu class="menu-bar">
+                    <div class="menu-title">
+                        <span class="menu-title-content">@ViewBag.CollectionName</span>
+                    </div>
+                    <li id="exportResults">Exportar</li>
+                    <li id="exportMassiveDocument">Descarga masiva</li>
+                    <button id="tileLayout" class="style-changer"><span class="button-icon tiles-icon"></span>Mosaico</button>
+                    <button id="listLayout" class="style-changer"><span class="button-icon list-icon"></span>Lista</button>
+                </menu>
+            </div>
+        </div>
+    </div>
+    @if (ViewBag.EnableTextSearch)
+    {
+        <div class="search-section-title">Búsqueda por Texto</div>
+        <div id="textSearch" class="search-section no-select" style="display: none">
+            <div class="search-section-content">
+                <form id="frmTextSearch">
+                    <div>
+                        @Html.LabelFor(model => model.CollectionId, "Buscar en colección: ")
+                        @Html.DropDownListFor(model => model.CollectionId, new SelectList(ViewBag.OcrSearchableCollections, "Id", "Name"), "Buscar en todas las colecciones")
+                        <select id="SortDirection" name="SortDirection" disabled="disabled">
+                            <option value="1">Ascendiente</option>
+                            <option value="-1">Descendiene</option>
+                        </select>
+                        <select id="SortResultsBy" name="SortResultsBy" disabled="disabled"></select>
+                        @Html.Label("Ordenar resultados por: ", new { @for = "SortResultsBy" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.SearchType, "Tipo de búsqueda: ")
+                        @Html.DropDownListFor(model => model.SearchType, new SelectList(ViewBag.SearchTypeList, "Key", "Value"), "Seleccione un tipo de búsqueda...")
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.TextQuery)
+                        <button id="btnSearchText">Buscar</button>
+                        <label>Nota: Si desea buscar una palabra incompleta, utilice el caracter:<strong>*</strong> al final de la palabra.</label>
+                    </div>
+                </form>
+            </div>
+            <div class="text-search-results"></div>
+        </div>
+    }
+</div>
+
+
+
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        parent.$('#tree').fancytree('getTree').clearFilter();
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.setSelected(false); });
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.setExpanded(false); });
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.unselectable = true });
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.setActive(false); });
+        parent.ddoc.Navigate = true;
+
+        var textComparisons = @Html.Raw(Json.Encode(ViewBag.TextComparisons));
+        var numericComparisons = @Html.Raw(Json.Encode(ViewBag.NumericComparisons));
+        var dateComparisons = @Html.Raw(Json.Encode(ViewBag.DateComparisons));
+        var booleanComparisons = @Html.Raw(Json.Encode(ViewBag.BooleanComparisons));
+    </script>
+    @if (ViewBag.CustomGridActions != null)
+    {
+        <script type="text/javascript">
+            var customActions = @Html.Raw(Json.Encode(ViewBag.CustomGridActions))
+        </script>
+    }
+    @if (ViewBag.IncludeCustomListActions)
+    {
+        <script type="text/javascript" src="@Url.Content("~/Plugins/Scripts/CustomListActions.js")"></script>
+    }
+    @if (ViewBag.IncludeCustomGridEvents)
+    {
+        <script type="text/javascript" src="@Url.Content("~/Plugins/Scripts/CustomGridEvents.js")"></script>
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/tinysort.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.scrollbox.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/html.sortable.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.ba-jqmq.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocDatePicker.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocCalendar.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Search/AdvancedSearch.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Folder/FolderEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/DocumentEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/DocumentPagesEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/ScannerUpload.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Document/FileUpload.js")"></script>
+}

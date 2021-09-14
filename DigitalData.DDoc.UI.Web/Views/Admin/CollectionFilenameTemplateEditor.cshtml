@@ -1,0 +1,13 @@
+﻿@model dynamic
+
+@using (Html.BeginForm("SaveCollectionFilenameTemplate", "Admin", FormMethod.Post, new { id = "frmFilenameTemplateEdit" }))
+{
+    @Html.TextBox("Template")
+
+    <div id="grdTemplateFields"></div>
+
+    <div class="dialog-button-panel">
+        <button id="cancelEditTemplate" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cancelar</button>
+        <button id="saveTemplate" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+    </div>
+}

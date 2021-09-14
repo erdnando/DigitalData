@@ -1,0 +1,165 @@
+﻿@using DigitalData.DDoc.Common.Entities
+@model DdocDocument
+
+
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Reset.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Layout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/Skin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalLayout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Common/ModalSkin.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocDatePicker.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocCalendar.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/NewDocumentEditor.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/ScannerUpload.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Document/FileUpload.css")" />
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+</head>
+<body style="padding: 10px">
+    <div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front modal-dialog no-select no-close whole-screen ui-draggable" aria-describedby="newDocumentEditor" aria-labelledby="ui-id-1" style="height: auto; width: 300px; top: 0px; left: 10.49px; z-index: 101;">
+        <div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Nuevo Documento</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div>
+        <div id="newDocumentEditor" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 0px; max-height: none; height: auto;">
+
+            <div id="newFileSelector">
+                <input id="newFiles" name="files[]" type="file" multiple />
+                <div id="newFileDrop">
+                    <label>Arrastre y suelte los archivos</label>
+                </div>
+            </div>
+
+            <div class="button-panel">
+                @if ((bool)ViewBag.EnableWebTwain)
+                {
+                    <button id="addFilesFromScanner" class="panel-button"><span class="button-icon add-page-icon"></span>Escanear Documento</button>
+                }
+                <button id="replaceFile" class="panel-button"><span class="button-icon replace-page-icon"></span>Reemplazar archivo</button>
+                <button id="removeFile" class="panel-button"><span class="button-icon remove-page-icon"></span>Eliminar archivo</button>
+                <button id="sortFiles" class="panel-button"><span class="button-icon sorting-icon"></span>Ordenar archivos</button>
+                <button id="undoSort" class="panel-button"><span class="button-icon undo-icon"></span>Deshacer</button>
+                <button id="saveSort" class="panel-button"><span class="button-icon save-icon"></span>Aplicar</button>
+            </div>
+
+            <div>
+                <span id="scrollBackward" class="scroll-control left-scroll"></span>
+                <div class="pages-scroller">
+                    <ul class="pages-dragger" data-enabled="0"></ul>
+                </div>
+                <span id="scrollForward" class="scroll-control right-scroll"></span>
+            </div>
+
+            @{ var count = 0;}
+            @using (Html.BeginForm("Save", "Document", FormMethod.Post, new { Id = "frmNewDocument" }))
+            {
+                @Html.Hidden("DocumentId", (string)ViewBag.DocumentId)
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.CollectionId)
+                @Html.HiddenFor(m => m.Name)
+                <div class="preview-container">
+                    <div class="viewer-viewport"></div>
+                </div>
+                <div class="fields-container">
+                    @for (var i = 0; i < Model.Data.Count; i++)
+                    {
+                        var field = Model.Data[i];
+
+                        if (field.Hidden || field.Computed)
+                        {
+                            continue;
+                        }
+
+                        <div>
+                            @Html.Label("Data[" + count + "].Value", field.Name)
+                        </div>
+                        <div>
+                            @Html.Hidden($"Data[{count}].Id", field.Id)
+                            @Html.Hidden($"Data[{count}].InMask", field.InMask)
+                            @Html.Hidden($"Data[{count}].OutMask", field.OutMask)
+                            @Html.Hidden($"Data[{count}].Name", field.Name)
+                            @Html.Hidden($"Data[{count}].Format", field.Format)
+                            @Html.Hidden($"Data[{count}].Nullable", field.Nullable)
+
+                            @{
+                                var type = (int)field.Type;
+                            }
+                            @Html.Hidden($"Data[{count}].Type", type)
+                            @switch (type)
+                            {
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 4:
+                                    if (field.AllowedValues != null && field.AllowedValues.Any())
+                                    {
+                                        @Html.DropDownList($"Data[{count}].Value", new SelectList(field.AllowedValues, field.Value), new { @class = "editableField", disabled = "disabled" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBox($"Data[{count}].Value", field.Value, new { @class = "editableField", disabled = "disabled" })
+                                    }
+                                    break;
+                                case 3:
+                                    @Html.CheckBox($"Data[{count}].Value", !string.IsNullOrEmpty(field.Value) && bool.Parse(field.Value), new { @class = "editableField", disabled = "disabled" })
+                                    break;
+                            }
+                        </div>
+
+                        count++;
+                    }
+                    <div>
+                        @Html.LabelFor(m => m.SecurityGroupId, "Seguridad")
+                    </div>
+                    <div>
+                        @Html.DropDownListFor(m => m.SecurityGroupId, new SelectList(ViewBag.SecurityGroups, "Id", "Name", Model.SecurityGroupId), new { @class = "editableField", disabled = "disabled" })
+                    </div>
+                </div>
+
+                <div class="dialog-button-panel">
+                    <button class="dialog-button right-set" id="cancel"><span class="button-icon cancel-icon"></span>Cancelar</button>
+                    <button class="right-set" id="saveDocument"><span class="button-icon save-icon"></span>Guardar</button>
+                </div>
+            }
+
+
+            @Html.Hidden("UrlBase", Request.ApplicationPath)
+            @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+            @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+            @if (ViewBag.Username != null)
+            {
+                @Html.Hidden("Username", (string)ViewBag.Username)
+            }
+        </div>
+
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/tinysort.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.scrollbox.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/html.sortable.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.ba-jqmq.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocDatePicker.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocCalendar.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Document/NewDocumentEditor.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Document/ScannerUpload.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/Document/FileUpload.js")"></script>
+        <script type="text/javascript">
+            var ddoc = new DDocUi();
+            ddoc.ApiToken = '@Url.Encode(ViewBag.ApiToken)';
+            ddoc.document = { Id: $('#DocumentId').val(), CollectionId: $('#CollectionId').val(), Name: $('#Name').val(), IsNew: true };
+            ddoc.InitNewDocumentEditor();
+            ddoc.StandaloneWindow = true;
+        </script>
+</body>
+</html>

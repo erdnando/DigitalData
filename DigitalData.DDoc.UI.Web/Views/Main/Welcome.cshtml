@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Main/Welcome.css")"/>
+}
+
+@using (Html.BeginForm("GlobalSearchResults", "Search", FormMethod.Post, new { Id = "frmSearch" }))
+{
+    <div class="welcome-panel no-select">
+        <div class="logo"></div>
+        <input type="text" name="TextQuery" placeholder="Escriba su búsqueda"/>
+        <button type="submit" id="search">Buscar</button>
+        <a href="@Url.Action("AdvancedSearch", "Search")" id="advSearch" class="button-like">Búsqueda Avanzada</a>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        parent.$('#tree').fancytree('getTree').clearFilter();
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.setSelected(false); });
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.setExpanded(false); });
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.unselectable = true });
+        parent.$('#tree').fancytree('getTree').visit(function (node) { node.setActive(false); });
+        parent.ddoc.Navigate = true;
+    </script>
+}

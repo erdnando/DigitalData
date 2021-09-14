@@ -1,0 +1,27 @@
+﻿@model DigitalData.DDoc.Common.Entities.DdocDocument
+
+@Html.Hidden("EnableWebTwain", (bool)ViewBag.EnableWebTwain)
+<span id="scrollBackward" class="scroll-control left-scroll"></span>
+<div class="pages-scroller">
+    <ul class="pages-dragger" data-enabled="0"></ul>
+</div>
+<span id="scrollForward" class="scroll-control right-scroll"></span>
+<div>
+    <button id="addNewPage" class="action-button"><span class="button-icon add-page-icon"></span>Añadir página</button>
+    <button id="replacePage" class="action-button"><span class="button-icon replace-page-icon"></span>Reemplazar página</button>
+    <button id="removePage" class="action-button"><span class="button-icon remove-page-icon"></span>Eliminar página</button>
+    <button id="sortPages" class="action-button right-set"><span class="button-icon sorting-icon"></span>Ordenar páginas</button>
+    <button id="undoSort" class="action-button right-set"><span class="button-icon undo-icon"></span>Deshacer</button>
+    <button id="saveSort" class="action-button right-set"><span class="button-icon save-icon"></span>Aplicar</button>
+</div>
+<div class="dialog-button-panel">
+    @if (Model.IsNew)
+    {
+        <button id="finishNewDocument" class="dialog-button right-set"><span class="button-icon save-icon"></span>Guardar</button>
+        <button id="prevPage" class="dialog-button right-set"><span class="button-icon prev-icon"></span>Anterior</button>
+    }
+    else
+    {
+        <button id="closeEditPages" class="dialog-button right-set"><span class="button-icon cancel-icon"></span>Cerrar</button>
+    }
+</div>

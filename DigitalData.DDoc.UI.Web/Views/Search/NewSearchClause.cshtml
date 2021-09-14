@@ -1,0 +1,25 @@
+﻿@{ 
+    var tabindex = (int)ViewBag.tabindex;
+}
+
+<div class="actions-column">
+    <span class="image-button add-clause"></span>
+</div>
+<div class="actions-column">
+    <span class="image-button remove-clause"></span>
+</div>
+<div class="field-column">
+    <select class="clauseField" disabled="disabled" tabindex="@(tabindex++)"></select>
+</div>
+<div class="comparison-column">
+    <select class="clauseComparison" disabled="disabled" tabindex="@(tabindex++)"></select>
+</div>
+<div class="value-column">
+    <input class="clauseValue" disabled="disabled" placeholder="Valor" type="text" tabindex="@(tabindex++)"/>
+</div>
+<div class="value-between-column">
+    <span class="between-separator" style="display: none"> y </span>
+</div>
+<div class="value-column">
+    <input class="clauseValue2" disabled="disabled" placeholder="Valor" style="display: none" type="text" tabindex="@tabindex"/>
+</div>

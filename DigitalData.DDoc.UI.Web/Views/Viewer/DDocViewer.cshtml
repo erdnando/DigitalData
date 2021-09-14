@@ -1,0 +1,324 @@
+﻿@using System.Collections
+@using System.Globalization
+@using DigitalData.DDoc.Common.Extensions
+@*@using DigitalData.DDoc.UI.Web.Views.Viewer.Resources*@
+@using DigitalData.DDoc.WebUI.Views.Viewer.Resources 
+     
+@model DigitalData.DDoc.Common.Entities.DdocDocument
+
+@{
+    var resourceSet = ViewerResource.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+}
+
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html mozDisallowSelectionPrint mozNoMarginBoxes>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google" content="notranslate">
+    <title>@ViewBag.ProductName - Ver Documento</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jqueryui.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/Viewer.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/fileicon.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/Viewer/imgareaselect-default.css")" />
+    @if (ViewBag.IncludeCustomStyles)
+    {
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Plugins/Styles/Custom.css")" />
+    }
+</head>
+<body class="loadingInProgress">
+    @if (ViewBag.ShowCustomPanel)
+    {
+        @Html.Hidden("ShowCustomPanel", ViewData["ShowCustomPanel"])
+    }
+
+    @if (ViewBag.FileIndex != null)
+    {
+        @Html.Hidden("fileIndex", ViewData["FileIndex"])
+    }
+    @if (ViewBag.NoPermission != null && (bool)ViewBag.NoPermission)
+    {
+        @Html.Hidden("NoPermission", 1)
+    }
+
+    @Html.Hidden("enablePrint", ViewData["EnablePrint"])
+    @Html.Hidden("enableDownload", ViewData["EnableDownload"])
+
+    @Html.Hidden("CanRead", (bool)ViewBag.CanRead)
+    @Html.Hidden("CanWrite", (bool)ViewBag.CanWrite)
+    @Html.Hidden("CanComment", (bool)ViewBag.CanComment)
+    @Html.Hidden("CanExport", (bool)ViewBag.CanExport)
+    @Html.Hidden("CanPrint", (bool)ViewBag.CanPrint)
+    @Html.Hidden("CanDelete", (bool)ViewBag.CanDelete)
+
+    <div id="outerContainer">
+        <div class="toolbar">
+            <span class="logo"></span>
+            <div class="ddocSidebarToggle">
+                <button id="sidebarToggle" class="toolbarButton" title="Mostrar barra lateral"></button>
+            </div>
+            <div class="ddocDocumentNavigation">
+                <div class="splitToolbarButton">
+                    <button id="firstDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_first_title")"></button>
+                    <button id="prevDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_prev_title")"></button>
+                    <button id="nextDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_next_title")"></button>
+                    <button id="lastDdocPage" class="toolbarButton" title="@resourceSet.GetString("ddoc_last_title")"></button>
+                </div>
+                <label id="fileNumberLabel" class="toolbarLabel" for="fileNumber">@resourceSet.GetString("file_label")</label>
+                <input id="fileNumber" type="text" class="toolbarField fileNumber" value="1" size="4" min="1">
+                <span id="numFiles" class="toolbarLabel"></span>
+            </div>
+            <div class="toolbarViewerLeft">
+                <div class="splitToolbarButton">
+                    <button id="firstPage" class="toolbarButton firstPage" title="@resourceSet.GetString("first_page_title")"></button>
+                    <button id="previous" class="toolbarButton pageUp" title="@resourceSet.GetString("previous_title")"></button>
+                    <button id="next" class="toolbarButton pageDown" title="@resourceSet.GetString("next_title")"></button>
+                    <button id="lastPage" class="toolbarButton lastPage" title="@resourceSet.GetString("last_page_title")"></button>
+                </div>
+                <label id="pageNumberLabel" class="toolbarLabel" for="pageNumber">@resourceSet.GetString("page_label")</label>
+                <input id="pageNumber" type="text" class="toolbarField pageNumber" value="1" size="4" min="1">
+                <span id="numPages" class="toolbarLabel"></span>
+                <button id="toggleHandTool" class="toolbarButton handTool hiddenLargeView" title="@resourceSet.GetString("hand_tool_enable_title")"></button>
+            </div>
+            <div class="toolbarViewerMiddle">
+                <button id="viewFind" class="toolbarButton group hiddenSmallView" title="@resourceSet.GetString("findbar_title")"></button>
+                <div class="splitToolbarButton">
+                    <button id="zoomOut" class="toolbarButton zoomOut" title="@resourceSet.GetString("zoom_out_title")"></button>
+                    <button id="zoomIn" class="toolbarButton zoomIn" title="@resourceSet.GetString("zoom_in_title")"></button>
+                </div>
+                <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                    <select id="scaleSelect" title="@resourceSet.GetString("zoom_title")">
+                        <option id="pageAutoOption" title="" value="auto" selected="selected">@resourceSet.GetString("page_scale_auto")</option>
+                        <option id="pageActualOption" title="" value="page-actual">@resourceSet.GetString("page_scale_actual")</option>
+                        <option id="pageFitOption" title="" value="page-fit">@resourceSet.GetString("page_scale_fit")</option>
+                        <option id="pageWidthOption" title="" value="page-width">@resourceSet.GetString("page_scale_width")</option>
+                        <option id="customScaleOption" title="" value="custom"></option>
+                        <option title="" value="0.5">@string.Format(resourceSet.GetString("page_scale_percent"), 50)</option>
+                        <option title="" value="0.75">@string.Format(resourceSet.GetString("page_scale_percent"), 75)</option>
+                        <option title="" value="1">@string.Format(resourceSet.GetString("page_scale_percent"), 100)</option>
+                        <option title="" value="1.25">@string.Format(resourceSet.GetString("page_scale_percent"), 125)</option>
+                        <option title="" value="1.5">@string.Format(resourceSet.GetString("page_scale_percent"), 150)</option>
+                        <option title="" value="2">@string.Format(resourceSet.GetString("page_scale_percent"), 200)</option>
+                        <option title="" value="3">@string.Format(resourceSet.GetString("page_scale_percent"), 300)</option>
+                        <option title="" value="4">@string.Format(resourceSet.GetString("page_scale_percent"), 400)</option>
+                    </select>
+                </span>
+                <button id="pageRotateCw" class="toolbarButton rotateCw" title="@resourceSet.GetString("page_rotate_cw_title")"></button>
+                <button id="pageRotateCcw" class="toolbarButton rotateCcw" title="@resourceSet.GetString("page_rotate_ccw_title")"></button>
+                @*<button onclick="Iniciar();" id="getOCR" class="toolbarButton" style="width: 90px;" title="Obtener OCR de imagen seleccionada">OCR</button>
+                    <input id="OCRText" type="text" class="toolbarField pageNumber" style="background-color: white; color: black; display: none; width: 200px;">
+                    <button id="ShowOCR" class="toolbarButton" style="display: none; width: 100px;" onclick="ShowOCR();">Obtener texto</button>*@
+            </div>
+            <div class="toolbarViewerRight">
+                <button id="print" class="toolbarButton print" title="@resourceSet.GetString("print_title")"></button>
+                <button id="download" class="toolbarButton download" title="@resourceSet.GetString("download_title")"></button>
+                <a id="viewBookmark" href="#" class="toolbarButton bookmark" title="@resourceSet.GetString("bookmark_title")"></a>
+                @if (ViewBag.ShowCustomPanel)
+                {
+                    <button id="customPanelActivator" class="toolbarButton custom" title="@resourceSet.GetString("customPanel_title")"></button>
+                }
+            </div>
+        </div>
+        <div class="findbar hidden doorHanger" id="findbar">
+            <label for="findInput" class="toolbarLabel">@resourceSet.GetString("find_label")</label>
+            <input id="findInput" class="toolbarField">
+            <div class="splitToolbarButton">
+                <button id="findPrevious" class="toolbarButton" title="@resourceSet.GetString("find_previous_title")"></button>
+                <button id="findNext" class="toolbarButton" title="@resourceSet.GetString("find_next_title")"></button>
+            </div>
+            <input id="findHighlightAll" type="checkbox" class="toolbarField">
+            <label for="findHighlightAll" class="toolbarLabel">@resourceSet.GetString("find_highlight_label")</label>
+            <input id="findMatchCase" type="checkbox" class="toolbarField">
+            <label for="findMatchCase" class="toolbarLabel">@resourceSet.GetString("find_match_case_label")</label>
+            <span id="findMsg" class="toolbarLabel"></span>
+        </div>
+        @if (ViewBag.ShowCustomPanel)
+        {
+            <div class="customPanel hidden doorHangerRight" id="customPanel">
+                @if (ViewBag.CustomViewerActions != null)
+                {
+                    foreach (var customAction in (IEnumerable<DdocCustomAction>)ViewBag.CustomViewerActions)
+                    {
+                        if (customAction.CollectionId == ViewBag.CollectionId)
+                        {
+                            <a href="@Url.Action(customAction.Action, customAction.Controller, new
+                             {
+                                 documentId = ViewBag.DocumentId
+                             })" title="@customAction.Tooltip" class="custom-action @customAction.ImageClass">@customAction.Command</a>
+                        }
+                    }
+                }
+            </div>
+        }
+        <div id="sidebarContainer">
+            <div id="toolbarSidebar">
+                <div class="splitToolbarButton toggled">
+                    <button id="viewData" class="toolbarButton group toggled" title="Mostrar datos del documento">Datos</button>
+                    <button id="viewThumbnail" class="toolbarButton group" title="Mostrar miniaturas"></button>
+                </div>
+            </div>
+            <div id="dataView">
+                <table id="documentData">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </table>
+            </div>
+            <div id="thumbnailView" class="hidden">
+            </div>
+        </div>
+        <div id="mainContainer">
+            <div id="viewerContainer">
+                <div id="viewer"></div>
+            </div>
+            <div id="errorWrapper" hidden="true">
+                <div id="errorMessageLeft">
+                    <span id="errorMessage"></span>
+                    <button id="errorShowMore">
+                        @resourceSet.GetString("error_more_info")
+                    </button>
+                    <button id="errorShowLess" hidden="true">
+                        @resourceSet.GetString("error_less_info")
+                    </button>
+                </div>
+                <div id="errorMessageRight">
+                    <button id="errorClose">
+                        @resourceSet.GetString("error_close")
+                    </button>
+                </div>
+                <div class="clearBoth"></div>
+                <textarea id="errorMoreInfo" hidden="true" readonly="readonly"></textarea>
+            </div>
+        </div>
+        <div id="overlayContainer" class="hidden"></div>
+    </div>
+    <div id="printContainer"></div>
+    <div id="mozPrintCallback-shim" hidden>
+        <div class="mozPrintCallback-dialog-box">
+            @resourceSet.GetString("printing_label")
+            <div class="progress-row">
+                <progress value="0" max="100"></progress>
+                <span class="relative-progress">0%</span>
+            </div>
+            <div class="progress-actions">
+                <input type="button" value="@resourceSet.GetString("printing_cancel")" class="mozPrintCallback-cancel">
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="x1" value="">
+    <input type="hidden" id="y1" value="">
+    <input type="hidden" id="x2" value="">
+    <input type="hidden" id="y2" value="">
+
+    @Html.Hidden("UrlBase", Request.ApplicationPath)
+    @Html.Hidden("ProductName", (string)ViewBag.ProductName)
+    @Html.Hidden("CompanyName", (string)ViewBag.CompanyName)
+    @if (ViewBag.Username != null)
+    {
+        @Html.Hidden("Username", (string)ViewBag.Username)
+    }
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Common/DDocMain.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.imgareaselect.pack.js")"></script>
+
+    <script type="text/javascript">
+
+        if (!String.prototype.format) {
+            String.prototype.format = function () {
+                var args = arguments;
+                return this.replace(/{(\d+)}/g, function (match, number) {
+                    return typeof args[number] != 'undefined'
+                        ? args[number]
+                        : match;
+                });
+            };
+        }
+
+        var Resources = {};
+
+        @foreach (DictionaryEntry res in resourceSet)
+        {
+            @:Resources.@res.Key = '@Html.Raw(HttpUtility.JavaScriptStringEncode(res.Value.ToString()))';
+        }
+
+    </script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Viewer/DDocViewer/pdf.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Viewer/DDocViewer/compatibility.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Viewer/DDocViewer/PdfViewerApplication.js")"></script>
+
+    <script type="text/javascript">
+
+        function ShowOCR() {
+
+            var X1 = document.getElementById('x1');
+            var Y1 = document.getElementById('y1');
+            var X2 = document.getElementById('x2');
+            var Y2 = document.getElementById('y2');
+
+            var tempCanvas = document.getElementById('page1');
+            var tCtx = tempCanvas.getContext("2d");
+            var imgData = tCtx.getImageData(X1.value, Y1.value, X2.value - X1.value, Y2.value - Y1.value);
+
+            var canvaocr = document.createElement('canvas');
+            canvaocr.width = X2.value - X1.value;
+            canvaocr.height = Y2.value - Y1.value;
+            var ctx = canvaocr.getContext("2d");
+            ctx.putImageData(imgData, 0, 0);
+
+            //tCtx.putImageData(imgData, 0, 0);
+            var image = canvaocr.toDataURL("image/png");
+            image = image.replace('data:image/png;base64,', '');
+            $.ajax({
+                type: 'POST',
+                url: '/Viewer/GetOCR',
+                data: '{ "img" : "' + image + '" }',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (response) {
+                    CallReturn(response.TextResult);
+                }
+            });
+
+            function CallReturn(msg) {
+                var texto = document.getElementById('OCRText');
+                texto.value = msg;
+            }
+        }
+
+        function Iniciar() {
+            var divoc = document.getElementById('TXTLayer');
+            var btnShowOCR = document.getElementById('ShowOCR');
+            var txtOCR = document.getElementById('OCRText');
+            if (divoc.style.display == 'none') {
+                txtOCR.style.display = 'none';
+                btnShowOCR.style.display = 'none';
+                divoc.style.display = 'block';
+            } else {
+                txtOCR.style.display = 'block';
+                btnShowOCR.style.display = 'block';
+                divoc.style.display = 'none';
+            }
+
+        }
+
+    </script>
+
+
+    <script type="text/javascript">
+        var ddocDocument = @Html.Raw(Json.Encode(Model));
+        var documentFiles = ddocDocument.Pages;
+    </script>
+    @if (ViewBag.ShowCustomPanel)
+    {
+        <script type="text/javascript" src="@Url.Content("~/Plugins/Scripts/CustomViewerScripts.js")"></script>
+    }
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Viewer/DDocViewer/DDocViewer.js")"></script>
+</body>
+</html>

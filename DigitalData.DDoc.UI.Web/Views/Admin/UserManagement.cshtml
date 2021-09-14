@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/DdocModule.cshtml";
+}
+
+@section Styles {
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocSkinControls.css")" rel="stylesheet"/>
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Controls/DDocGrid.css")" rel="stylesheet"/>
+    <link type="text/css" href="@Url.Content("~/Content/Styles/Admin/UserManagement.css")" rel="stylesheet"/>
+}
+
+<menu class="menu-bar">
+    <div class="menu-title">
+        <span class="menu-title-content">Administración de Usuarios</span>
+    </div>
+    <li id="newUser">Agregar Nuevo Usuario</li>
+    <li id="editPasswordConfiguration">Configuración de Contraseñas</li>
+</menu>
+
+<div id="grdUsers"></div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocControls.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Controls/DDocGrid.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/UserManagement.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/PasswordConfiguration.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/UserEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/PasswordEditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/ProfileEditor.js")"></script>
+}
