@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EC5EB01E-438C-4879-9F9E-1331E1616A26}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DigitalData.DDoc.Modules.Storage.FileSystem</AssemblyName>
+    <AssemblyName>DigitalData.Open.Modules.Storage.FileSystem</AssemblyName>
     <ApplicationVersion>4.210.0.0</ApplicationVersion>
-    <RootNamespace>DigitalData.DDoc.Modules.Storage</RootNamespace>
+    <RootNamespace>DigitalData.Open.Modules.Storage</RootNamespace>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

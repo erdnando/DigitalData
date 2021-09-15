@@ -12,7 +12,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Modules.Storage
+namespace DigitalData.Open.Modules.Storage
 {
   public class FileSystemStorage : IDdocStorage
   {

@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Modules.DataAccess
+namespace DigitalData.Open.Modules.DataAccess
 {
   public class ReportsDAL : SqlServerDAL, IReportsDAL, ICommonDAL
   {

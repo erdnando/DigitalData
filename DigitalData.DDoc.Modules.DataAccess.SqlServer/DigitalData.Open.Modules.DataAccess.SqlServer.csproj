@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2816317A-17E2-4106-B144-3C9B2165632A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DigitalData.DDoc.Modules.DataAccess.SqlServer</AssemblyName>
+    <AssemblyName>DigitalData.Open.Modules.DataAccess.SqlServer</AssemblyName>
     <ApplicationVersion>4.210.0.0</ApplicationVersion>
-    <RootNamespace>DigitalData.DDoc.Modules.DataAccess</RootNamespace>
+    <RootNamespace>DigitalData.Open.Modules.DataAccess</RootNamespace>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

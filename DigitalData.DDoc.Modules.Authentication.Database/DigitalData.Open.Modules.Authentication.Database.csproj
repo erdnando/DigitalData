@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DigitalData.DDoc.Modules.Authentication.Database</AssemblyName>
+    <AssemblyName>DigitalData.Open.Modules.Authentication.Database</AssemblyName>
     <ApplicationVersion>4.210.0.0</ApplicationVersion>
-    <RootNamespace>DigitalData.DDoc.Modules.Authentication</RootNamespace>
+    <RootNamespace>DigitalData.Open.Modules.Authentication</RootNamespace>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

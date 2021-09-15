@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Modules.Authentication
+namespace DigitalData.Open.Modules.Authentication
 {
   public class DatabaseAuthentication : IDdocAuthentication
   {

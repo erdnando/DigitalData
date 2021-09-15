@@ -1,9 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: DigitalData.DDoc.Core.BLL.DDocService
-// Assembly: DigitalData.DDoc.Core.BLL, Version=4.210.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: F8FBFB51-6338-4AAD-883A-A8703848A9C0
-// Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Core.BLL.dll
-
+﻿
 using DigitalData.Common.Cfdi;
 using DigitalData.Common.Conversions;
 using DigitalData.Common.Cryptography.MD5;

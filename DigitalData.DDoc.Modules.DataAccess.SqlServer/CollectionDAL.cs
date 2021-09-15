@@ -19,7 +19,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Modules.DataAccess
+namespace DigitalData.Open.Modules.DataAccess
 {
   public class CollectionDAL : SqlServerDAL, ICollectionDAL, ICommonDAL
   {

@@ -85,7 +85,7 @@ namespace DigitalData.Open.UI.Web
 
     private static void ConfigureExtensions(DiDaSettings settings)
     {
-            List<Assembly> assemblies = AssemblyScanner.GetAssemblies(searchPattern: "DigitalData.DDoc.Plugins.*.dll");
+            List<Assembly> assemblies = AssemblyScanner.GetAssemblies(searchPattern: "DigitalData.Open.Plugins.*.dll");
             IoCContainer.RegisterMultipleTransients<IController>((IEnumerable<Assembly>)assemblies);
             IoCContainer.RegisterMultipleTransients<IHttpController>((IEnumerable<Assembly>)assemblies);
             IoCContainer.RegisterMultipleTransients<IHub>((IEnumerable<Assembly>)assemblies);
@@ -102,7 +102,7 @@ namespace DigitalData.Open.UI.Web
             IoCContainer.AddSingleton<DdocFeatures>();
             IoCContainer.AddTransient<IDdocService, DDocService>();
 
-            List<Assembly> assemblies = AssemblyScanner.GetAssemblies(searchPattern: "DigitalData.DDoc.Modules.*.dll");
+            List<Assembly> assemblies = AssemblyScanner.GetAssemblies(searchPattern: "DigitalData.Open.Modules.*.dll");
 
             IoCContainer.RegisterSingletonAs<IDdocAuthentication>((IEnumerable<Assembly>)assemblies, typeof(NullAuthenticationModule));
             IoCContainer.RegisterTransientAs<IDdocDAL>((IEnumerable<Assembly>)assemblies);

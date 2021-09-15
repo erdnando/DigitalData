@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DigitalData.DDoc.Modules.DataAccess
+namespace DigitalData.Open.Modules.DataAccess
 {
   public class DdocDAL : SqlServerDAL, IDdocDAL, IDisposable
   {
