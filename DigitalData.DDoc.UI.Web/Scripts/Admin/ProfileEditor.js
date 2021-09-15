@@ -36,25 +36,45 @@ DDocUi.prototype.InitUserProfileEditor = function() {
         }
 
         function onDrop(e) {
-            e.preventDefault();
-            var groupId = e.originalEvent.dataTransfer.getData('text');
-            e.originalEvent.dataTransfer.dropEffect = 'move';
-            $(this).append($('#' + groupId));
+           // console.log("onDrop");
+            try {
+                e.preventDefault();
+   
+                var groupId = e.originalEvent.dataTransfer.getData('text');
+                e.originalEvent.dataTransfer.dropEffect = 'move';
+
+
+                $(this).append($('#' + groupId));
+            } catch (error) {
+                console.log(error);
+            }
+            
         };
 
         function onDragStart(e) {
-            e.originalEvent.dataTransfer.setData('text', e.target.id);
-            e.originalEvent.dataTransfer.effectAllowed = 'move';
+
+           // console.log("onDragStart");
+ 
+                e.originalEvent.dataTransfer.setData('text', e.target.id);
+                e.originalEvent.dataTransfer.effectAllowed = 'move';
+            
+           
         };
 
         function onDragOver(e) {
+           // console.log("onDragOver");
             e.preventDefault();
+   
         };
 
         $('#frmUserProfile').on('click', 'button', onFormButtonClick);
 
         $('.group-selector').on('drop', onDrop).on('dragover', onDragOver);
+     
+
         $('#groupList, #userProfile').on('dragstart', 'li', onDragStart);
+      
+
     })();
 
     ddoc.LoadGroups();
@@ -62,14 +82,20 @@ DDocUi.prototype.InitUserProfileEditor = function() {
 
 DDocUi.prototype.LoadGroups = function() {
 
-    ddoc.GET('/Admin/GetDDocGroups', { groupType: 1 }, function(response) {
+    ddoc.GET('/Admin/GetDDocGroups', { groupType: 1 }, function (response) {
+
         $.each(response.List, function(i, profile) {
             $('#groupList').append($('<li>').append($('<span class="group-icon">')).append($('<label>').html(profile.Name)).attr('id', profile.Id).attr('draggable', 'true'));
         });
+
         ddoc.POST('/Admin/GetUserProfile', ddoc.user, function(resp) {
             $.each(resp.List, function(i, userProfile) {
                 $('#userProfile').append($('li[id="' + userProfile.Id + '"]', '#groupList'));
             });
+
+          
         });
+
+
     });
 };
