@@ -2,10 +2,10 @@
 using DigitalData.Common.DataAccess;
 using DigitalData.Common.DataAccess.QueryExecution;
 using DigitalData.Common.DataAccess.SqlServer;
-using DigitalData.DDoc.Common;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Api.DataAccess;
-using DigitalData.DDoc.Common.Entities;
+using DigitalData.Open.Common;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Api.DataAccess;
+using DigitalData.Open.Common.Entities;
 using Microsoft.CSharp.RuntimeBinder;
 using SqlKata;
 using System;

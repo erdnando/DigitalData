@@ -6,7 +6,7 @@
 
 using System;
 
-namespace DigitalData.DDoc.Common.Entities.Security
+namespace DigitalData.Open.Common.Entities.Security
 {
   public class DdocLoginData
   {

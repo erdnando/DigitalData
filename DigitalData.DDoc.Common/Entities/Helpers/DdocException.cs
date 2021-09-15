@@ -6,7 +6,7 @@
 
 using DigitalData.Common.Entities;
 
-namespace DigitalData.DDoc.Common.Entities.Helpers
+namespace DigitalData.Open.Common.Entities.Helpers
 {
   public class DdocException : BLLException
   {

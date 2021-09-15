@@ -8,7 +8,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace DigitalData.DDoc.Common.Entities
+namespace DigitalData.Open.Common.Entities
 {
   [DataContract]
   [KnownType(typeof (DdocChildEntity))]

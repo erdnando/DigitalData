@@ -1,14 +1,9 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: DigitalData.DDoc.UI.Web.Controllers.ReportsController
-// Assembly: DigitalData.DDoc.UI.Web, Version=4.210.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1482FEFA-CA2F-44DF-981C-51EA2DF7CBB5
-// Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.UI.Web.dll
-
+﻿
 using DigitalData.Common.Entities;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities;
-using DigitalData.DDoc.Common.Extensions;
-using DigitalData.DDoc.Common.WebExtensions;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities;
+using DigitalData.Open.Common.Extensions;
+using DigitalData.Open.Common.WebExtensions;
 using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.Extensions.Options;
 using System;

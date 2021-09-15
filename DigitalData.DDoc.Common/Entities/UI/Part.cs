@@ -6,13 +6,13 @@
 
 using System;
 
-namespace DigitalData.DDoc.Common.Entities.UI
+namespace DigitalData.Open.Common.Entities.UI
 {
   public class Part
   {
     public Decimal Amount { get; set; }
 
-    public DigitalData.DDoc.Common.Entities.UI.CustomsInformation[] CustomsInformation { get; set; }
+    public DigitalData.Open.Common.Entities.UI.CustomsInformation[] CustomsInformation { get; set; }
 
     public string Description { get; set; }
 

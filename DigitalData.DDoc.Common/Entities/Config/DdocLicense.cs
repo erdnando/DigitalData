@@ -6,7 +6,7 @@
 
 using System.Xml.Serialization;
 
-namespace DigitalData.DDoc.Common.Entities.Config
+namespace DigitalData.Open.Common.Entities.Config
 {
   [XmlRoot]
   public class DDocLicense

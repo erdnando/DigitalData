@@ -4,7 +4,7 @@
 // MVID: 37D7F3E1-2CA5-48B0-AB22-FE81D67009C0
 // Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll
 
-using DigitalData.DDoc.Common.Entities.Helpers;
+using DigitalData.Open.Common.Entities.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace DigitalData.DDoc.Common.Entities
+namespace DigitalData.Open.Common.Entities
 {
   [DataContract]
   public class DdocField : IEquatable<DdocField>

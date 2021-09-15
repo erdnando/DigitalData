@@ -7,7 +7,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Common.Api
+namespace DigitalData.Open.Common.Api
 {
   public interface IDdocStorage
   {

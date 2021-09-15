@@ -12,8 +12,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DigitalData.DDoc.WebUI</RootNamespace>
-    <AssemblyName>DigitalData.DDoc.WebUI</AssemblyName>
+    <RootNamespace>DigitalData.Open.WebUI</RootNamespace>
+    <AssemblyName>DigitalData.Open.WebUI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -120,10 +120,6 @@
     <Reference Include="DigitalData.Common.Reflection, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\DigitalData.Common.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="DigitalData.DDoc.Common.WebExtensions, Version=4.210.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\DigitalData.DDoc.Common.WebExtensions.dll</HintPath>
     </Reference>
     <Reference Include="itext.barcodes">
       <HintPath>lib\itext.barcodes.dll</HintPath>
@@ -1031,29 +1027,33 @@
       <Project>{fb72f7f1-270f-4640-a2d5-eeec8513c43d}</Project>
       <Name>DigitalData.Common.WebUtils.AspNet4</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.DDoc.Common.csproj">
+    <ProjectReference Include="..\DigitalData.DDoc.Common.WebExtensions\DigitalData.Open.Common.WebExtensions.csproj">
+      <Project>{07b2495d-19cf-4640-a145-3a433164e8cd}</Project>
+      <Name>DigitalData.Open.Common.WebExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.Open.Common.csproj">
       <Project>{8a9fa058-2324-4c38-96f3-480246c19611}</Project>
-      <Name>DigitalData.DDoc.Common</Name>
+      <Name>DigitalData.Open.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Core.BLL\DigitalData.DDoc.Core.BLL.csproj">
+    <ProjectReference Include="..\DigitalData.DDoc.Core.BLL\DigitalData.Open.Core.BLL.csproj">
       <Project>{90a9e0f4-fe24-4477-a8e3-11ffa5a5b46b}</Project>
-      <Name>DigitalData.DDoc.Core.BLL</Name>
+      <Name>DigitalData.Open.Core.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Modules.Authentication.Database\DigitalData.DDoc.Modules.Authentication.Database.csproj">
+    <ProjectReference Include="..\DigitalData.DDoc.Modules.Authentication.Database\DigitalData.Open.Modules.Authentication.Database.csproj">
       <Project>{7cb53d02-2bbd-4994-81bd-5fe2c0984d78}</Project>
-      <Name>DigitalData.DDoc.Modules.Authentication.Database</Name>
+      <Name>DigitalData.Open.Modules.Authentication.Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Modules.DataAccess.SqlServer\DigitalData.DDoc.Modules.DataAccess.SqlServer.csproj">
+    <ProjectReference Include="..\DigitalData.DDoc.Modules.DataAccess.SqlServer\DigitalData.Open.Modules.DataAccess.SqlServer.csproj">
       <Project>{2816317a-17e2-4106-b144-3c9b2165632a}</Project>
-      <Name>DigitalData.DDoc.Modules.DataAccess.SqlServer</Name>
+      <Name>DigitalData.Open.Modules.DataAccess.SqlServer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Modules.Storage.FileSystem\DigitalData.DDoc.Modules.Storage.FileSystem.csproj">
+    <ProjectReference Include="..\DigitalData.DDoc.Modules.Storage.FileSystem\DigitalData.Open.Modules.Storage.FileSystem.csproj">
       <Project>{ec5eb01e-438c-4879-9f9e-1331e1616a26}</Project>
-      <Name>DigitalData.DDoc.Modules.Storage.FileSystem</Name>
+      <Name>DigitalData.Open.Modules.Storage.FileSystem</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.Ddoc.Plugins.BRADESCARD\DigitalData.Ddoc.Plugins.BRADESCARD.csproj">
+    <ProjectReference Include="..\DigitalData.Ddoc.Plugins.BRADESCARD\DigitalData.Open.Plugins.BRADESCARD.csproj">
       <Project>{b729b6ed-7b29-465c-b39b-1b02ce21e1fa}</Project>
-      <Name>DigitalData.Ddoc.Plugins.BRADESCARD</Name>
+      <Name>DigitalData.Open.Plugins.BRADESCARD</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

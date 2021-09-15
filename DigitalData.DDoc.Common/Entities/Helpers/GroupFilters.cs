@@ -4,7 +4,7 @@
 // MVID: 37D7F3E1-2CA5-48B0-AB22-FE81D67009C0
 // Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll
 
-namespace DigitalData.DDoc.Common.Entities.Helpers
+namespace DigitalData.Open.Common.Entities.Helpers
 {
   public class GroupFilters
   {

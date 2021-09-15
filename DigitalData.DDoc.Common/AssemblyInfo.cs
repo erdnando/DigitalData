@@ -7,5 +7,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyCompany("Digital Data S.A. de C.V.")]
 [assembly: AssemblyProduct("DDoc 4.0")]
 [assembly: AssemblyCopyright("Copyright © Open code 2021")]
-[assembly: AssemblyTitle("DigitalData.DDoc.Common")]
+[assembly: AssemblyTitle("DigitalData.Open.Common")]
 [assembly: AssemblyVersion("4.210.0.0")]

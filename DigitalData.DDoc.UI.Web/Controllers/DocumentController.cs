@@ -7,11 +7,11 @@
 using DigitalData.Common.Entities;
 using DigitalData.Common.IO;
 using DigitalData.Common.WebUtils.AspNet4;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities;
-using DigitalData.DDoc.Common.Entities.Helpers;
-using DigitalData.DDoc.Common.Extensions;
-using DigitalData.DDoc.Common.WebExtensions;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities;
+using DigitalData.Open.Common.Entities.Helpers;
+using DigitalData.Open.Common.Extensions;
+using DigitalData.Open.Common.WebExtensions;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;

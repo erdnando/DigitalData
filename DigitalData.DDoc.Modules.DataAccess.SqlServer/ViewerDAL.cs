@@ -7,7 +7,7 @@
 using DigitalData.Common.DataAccess;
 using DigitalData.Common.DataAccess.QueryExecution;
 using DigitalData.Common.DataAccess.SqlServer;
-using DigitalData.DDoc.Common.Api.DataAccess;
+using DigitalData.Open.Common.Api.DataAccess;
 using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;

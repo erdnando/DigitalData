@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace DigitalData.DDoc.WebUI
+namespace DigitalData.Open.WebUI
 {
     public class BundleConfig
     {

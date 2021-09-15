@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-namespace DigitalData.DDoc.Common.Entities.UI
+namespace DigitalData.Open.Common.Entities.UI
 {
   public class UiTreeNode
   {

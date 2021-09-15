@@ -6,16 +6,16 @@
 
 using DigitalData.Common.Cfdi;
 using DigitalData.Common.Entities;
-using DigitalData.DDoc.Common.Entities;
-using DigitalData.DDoc.Common.Entities.Config;
-using DigitalData.DDoc.Common.Entities.Helpers;
-using DigitalData.DDoc.Common.Entities.Security;
+using DigitalData.Open.Common.Entities;
+using DigitalData.Open.Common.Entities.Config;
+using DigitalData.Open.Common.Entities.Helpers;
+using DigitalData.Open.Common.Entities.Security;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Common.Api
+namespace DigitalData.Open.Common.Api
 {
   public interface IDdocService : IDisposable
   {

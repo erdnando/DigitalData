@@ -4,12 +4,12 @@
 // MVID: 37D7F3E1-2CA5-48B0-AB22-FE81D67009C0
 // Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll
 
-using DigitalData.DDoc.Common.Entities;
+using DigitalData.Open.Common.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Common.Extensions
+namespace DigitalData.Open.Common.Extensions
 {
   public interface IDocumentPreProcessor
   {

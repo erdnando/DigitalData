@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8A9FA058-2324-4C38-96F3-480246C19611}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DigitalData.DDoc.Common</AssemblyName>
+    <AssemblyName>DigitalData.Open.Common</AssemblyName>
     <ApplicationVersion>4.210.0.0</ApplicationVersion>
-    <RootNamespace>DigitalData.DDoc.Common</RootNamespace>
+    <RootNamespace>DigitalData.Open.Common</RootNamespace>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>

@@ -6,9 +6,9 @@
 
 using DigitalData.Common.Cryptography.MD5;
 using DigitalData.Common.IoC;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities.Helpers;
-using DigitalData.DDoc.Common.Entities.Security;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities.Helpers;
+using DigitalData.Open.Common.Entities.Security;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

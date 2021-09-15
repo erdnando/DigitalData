@@ -5,13 +5,13 @@
 // Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll
 
 using DigitalData.Common.Entities;
-using DigitalData.DDoc.Common.Entities;
+using DigitalData.Open.Common.Entities;
 using SqlKata;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace DigitalData.DDoc.Common.Api
+namespace DigitalData.Open.Common.Api
 {
   public static class DALHelpers
   {

@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DigitalData.DDoc.Core.BLL</AssemblyName>
+    <AssemblyName>DigitalData.Open.Core.BLL</AssemblyName>
     <ApplicationVersion>4.210.0.0</ApplicationVersion>
-    <RootNamespace>DigitalData.DDoc.Core.BLL</RootNamespace>
+    <RootNamespace>DigitalData.Open.Core.BLL</RootNamespace>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -100,9 +100,9 @@
       <Project>{fd84fdeb-1a32-41fd-8ea2-d3dd1a6e798b}</Project>
       <Name>DigitalData.Common.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.DDoc.Common.csproj">
+    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.Open.Common.csproj">
       <Project>{8a9fa058-2324-4c38-96f3-480246c19611}</Project>
-      <Name>DigitalData.DDoc.Common</Name>
+      <Name>DigitalData.Open.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

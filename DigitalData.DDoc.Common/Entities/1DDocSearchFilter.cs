@@ -8,7 +8,7 @@ using DigitalData.Common.Entities;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace DigitalData.DDoc.Common.Entities
+namespace DigitalData.Open.Common.Entities
 {
   [DataContract]
   public class DdocSearchFilter

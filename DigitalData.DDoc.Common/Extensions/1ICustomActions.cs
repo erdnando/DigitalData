@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-namespace DigitalData.DDoc.Common.Extensions
+namespace DigitalData.Open.Common.Extensions
 {
   public interface ICustomActions
   {

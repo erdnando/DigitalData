@@ -7,7 +7,7 @@
 using System;
 using System.IO;
 
-namespace DigitalData.DDoc.Common.Entities
+namespace DigitalData.Open.Common.Entities
 {
   public class DDocFileResponse : IDisposable
   {

@@ -4,11 +4,11 @@
 // MVID: 37D7F3E1-2CA5-48B0-AB22-FE81D67009C0
 // Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll
 
-using DigitalData.DDoc.Common.Api.DataAccess;
+using DigitalData.Open.Common.Api.DataAccess;
 using System;
 using System.Collections.Generic;
 
-namespace DigitalData.DDoc.Common.Api
+namespace DigitalData.Open.Common.Api
 {
   public interface IDdocDAL : IDisposable
   {

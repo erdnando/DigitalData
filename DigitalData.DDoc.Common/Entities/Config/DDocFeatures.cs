@@ -7,7 +7,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace DigitalData.DDoc.Common.Entities.Config
+namespace DigitalData.Open.Common.Entities.Config
 {
   [DataContract]
   [Serializable]

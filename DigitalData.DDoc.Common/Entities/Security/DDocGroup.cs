@@ -7,7 +7,7 @@
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace DigitalData.DDoc.Common.Entities.Security
+namespace DigitalData.Open.Common.Entities.Security
 {
   [DataContract]
   public class DdocGroup

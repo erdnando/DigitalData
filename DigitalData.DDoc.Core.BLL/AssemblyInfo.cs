@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("DigitalData.DDoc.BLL")]
+[assembly: AssemblyTitle("DigitalData.Open.BLL")]
 [assembly: AssemblyFileVersion("4.210.0.21085")]
 [assembly: AssemblyInformationalVersion("4.210")]
 [assembly: AssemblyCompany("Digital Data S.A. de C.V.")]

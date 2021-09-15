@@ -6,7 +6,7 @@
 
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Common.Api.DataAccess
+namespace DigitalData.Open.Common.Api.DataAccess
 {
   public interface IViewerDAL : ICommonDAL
   {

@@ -7,7 +7,7 @@
 using System.ComponentModel;
 using System.Web.Mvc;
 
-namespace DigitalData.DDoc.UI.Web
+namespace DigitalData.Open.UI.Web
 {
   public class NoGetterModelBinder : DefaultModelBinder
   {

@@ -12,12 +12,12 @@ using DigitalData.Common.IoC;
 using DigitalData.Common.Logging;
 using DigitalData.Common.PdfUtils;
 using DigitalData.Common.PdfUtils.Interop;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Api.DataAccess;
-using DigitalData.DDoc.Common.Entities;
-using DigitalData.DDoc.Common.Entities.Config;
-using DigitalData.DDoc.Common.Entities.Helpers;
-using DigitalData.DDoc.Common.Entities.Security;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Api.DataAccess;
+using DigitalData.Open.Common.Entities;
+using DigitalData.Open.Common.Entities.Config;
+using DigitalData.Open.Common.Entities.Helpers;
+using DigitalData.Open.Common.Entities.Security;
 using iText.IO.Image;
 using iText.Kernel.Pdf;
 using iText.Layout;
@@ -40,7 +40,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace DigitalData.DDoc.Core.BLL
+namespace DigitalData.Open.Core.BLL
 {
   public class DDocService : IDdocService, IDisposable
   {

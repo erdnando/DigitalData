@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-namespace DigitalData.DDoc.Common.Entities
+namespace DigitalData.Open.Common.Entities
 {
   public class SourceData : List<string>
   {

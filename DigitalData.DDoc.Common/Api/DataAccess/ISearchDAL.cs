@@ -5,11 +5,11 @@
 // Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.Common.dll
 
 using DigitalData.Common.Entities;
-using DigitalData.DDoc.Common.Entities;
+using DigitalData.Open.Common.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Common.Api.DataAccess
+namespace DigitalData.Open.Common.Api.DataAccess
 {
   public interface ISearchDAL : ICommonDAL
   {

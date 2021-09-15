@@ -1,9 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: DigitalData.DDoc.UI.Web.JsonFormatter
-// Assembly: DigitalData.DDoc.UI.Web, Version=4.210.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1482FEFA-CA2F-44DF-981C-51EA2DF7CBB5
-// Assembly location: C:\Users\herna\Downloads\ss\BradesCard_DEV\bin\DigitalData.DDoc.UI.Web.dll
-
+﻿
 using System;
 using System.IO;
 using System.Net;
@@ -14,7 +9,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.UI.Web
+namespace DigitalData.Open.UI.Web
 {
   public class JsonFormatter : MediaTypeFormatter
   {

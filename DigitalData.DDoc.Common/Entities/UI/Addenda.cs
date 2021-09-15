@@ -6,7 +6,7 @@
 
 using System.Xml;
 
-namespace DigitalData.DDoc.Common.Entities.UI
+namespace DigitalData.Open.Common.Entities.UI
 {
   public class Addenda
   {

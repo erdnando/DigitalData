@@ -12,7 +12,7 @@ using System.Runtime.Serialization;
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace DigitalData.DDoc.Common.Entities.Security
+namespace DigitalData.Open.Common.Entities.Security
 {
   [DataContract]
   [Serializable]

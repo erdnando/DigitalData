@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using DigitalData.DDoc.UI.Web;
+using DigitalData.Open.UI.Web;
 using Microsoft.Owin;
 using WebActivatorEx;
 using System.Web;
@@ -9,7 +9,7 @@ using System.Web;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DigitalData.DDoc.WebUI")]
+[assembly: AssemblyTitle("DigitalData.Open.WebUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]

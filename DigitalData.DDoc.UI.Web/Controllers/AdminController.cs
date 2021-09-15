@@ -6,11 +6,11 @@
 
 using DigitalData.Common.Entities;
 using DigitalData.Common.WebUtils.AspNet4;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities;
-using DigitalData.DDoc.Common.Entities.Security;
-using DigitalData.DDoc.Common.Entities.UI;
-using DigitalData.DDoc.Common.WebExtensions;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities;
+using DigitalData.Open.Common.Entities.Security;
+using DigitalData.Open.Common.Entities.UI;
+using DigitalData.Open.Common.WebExtensions;
 using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;

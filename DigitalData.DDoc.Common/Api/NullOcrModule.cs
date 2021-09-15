@@ -6,7 +6,7 @@
 
 using System.Threading.Tasks;
 
-namespace DigitalData.DDoc.Common.Api
+namespace DigitalData.Open.Common.Api
 {
   public class NullOcrModule : IDdocOcr
   {

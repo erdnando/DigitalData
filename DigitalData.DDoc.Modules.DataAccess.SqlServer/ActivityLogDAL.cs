@@ -7,8 +7,8 @@
 using DigitalData.Common.DataAccess;
 using DigitalData.Common.DataAccess.QueryExecution;
 using DigitalData.Common.DataAccess.SqlServer;
-using DigitalData.DDoc.Common.Api.DataAccess;
-using DigitalData.DDoc.Common.Entities.Helpers;
+using DigitalData.Open.Common.Api.DataAccess;
+using DigitalData.Open.Common.Entities.Helpers;
 using SqlKata;
 using System.Collections.Generic;
 using System.Data;

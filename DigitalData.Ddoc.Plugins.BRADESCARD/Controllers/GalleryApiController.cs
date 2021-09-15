@@ -6,11 +6,11 @@
 
 using DigitalData.Common.Conversions;
 using DigitalData.Common.IoC;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities;
-using DigitalData.DDoc.Common.Entities.Api;
-using DigitalData.DDoc.Common.Entities.Security;
-using DigitalData.DDoc.Common.WebExtensions;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities;
+using DigitalData.Open.Common.Entities.Api;
+using DigitalData.Open.Common.Entities.Security;
+using DigitalData.Open.Common.WebExtensions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

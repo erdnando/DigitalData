@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DigitalData.DDoc.WebUI.Views.Viewer.Resources {
+namespace DigitalData.Open.WebUI.Views.Viewer.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DigitalData.DDoc.WebUI.Views.Viewer.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DigitalData.DDoc.WebUI.Views.Viewer.Resources.ViewerResource", typeof(ViewerResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DigitalData.Open.WebUI.Views.Viewer.Resources.ViewerResource", typeof(ViewerResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

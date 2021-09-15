@@ -5,8 +5,8 @@
 // Assembly location: D:\proyectos\ddocx\DigitalData.DDoc.UI.Webx\DigitalData.DDoc.UI.Web\bin\DigitalData.DDoc.Modules.Storage.FileSystem.dll
 
 using DigitalData.Common.IoC;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;

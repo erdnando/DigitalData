@@ -8,7 +8,7 @@ using System.Web.Routing;
 using System.Web.Http;
 
 
-namespace DigitalData.DDoc.WebUI
+namespace DigitalData.Open.WebUI
 {
     public class MvcApplication : System.Web.HttpApplication
     {

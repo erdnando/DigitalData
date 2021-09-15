@@ -10,12 +10,13 @@ using DigitalData.Common.IoC;
 using DigitalData.Common.Logging;
 using DigitalData.Common.Reflection;
 using DigitalData.Common.WebUtils.AspNet4;
-using DigitalData.DDoc.Common.Api;
-using DigitalData.DDoc.Common.Entities.Config;
-using DigitalData.DDoc.Common.Extensions;
-using DigitalData.DDoc.Core.BLL;
 using DigitalData.DDoc.UI.Web.Modules;
-using DigitalData.DDoc.WebUI;
+using DigitalData.Open.WebUI;
+using DigitalData.Open.Common.Api;
+using DigitalData.Open.Common.Entities.Config;
+using DigitalData.Open.Common.Extensions;
+using DigitalData.Open.Core.BLL;
+//using DigitalData.Open.UI.Web.Modules;
 using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Owin;
@@ -30,7 +31,7 @@ using System.Web.Http.Controllers;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace DigitalData.DDoc.UI.Web
+namespace DigitalData.Open.UI.Web
 {
   public class Startup
   {

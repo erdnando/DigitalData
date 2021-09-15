@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace DigitalData.DDoc.WebUI
+namespace DigitalData.Open.WebUI
 {
     public class RouteConfig
     {

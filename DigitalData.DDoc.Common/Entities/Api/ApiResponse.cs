@@ -6,7 +6,7 @@
 
 using System;
 
-namespace DigitalData.DDoc.Common.Entities.Api
+namespace DigitalData.Open.Common.Entities.Api
 {
   public class ApiResponse
   {
