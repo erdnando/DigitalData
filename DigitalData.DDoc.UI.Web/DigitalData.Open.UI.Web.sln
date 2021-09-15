@@ -10,19 +10,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Common.IoC", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Common.WebUtils.AspNet4", "..\DigitalData.Common.WebUtils.AspNet4\DigitalData.Common.WebUtils.AspNet4.csproj", "{FB72F7F1-270F-4640-A2D5-EEEC8513C43D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Common", "..\DigitalData.DDoc.Common\DigitalData.Open.Common.csproj", "{8A9FA058-2324-4C38-96F3-480246C19611}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Common", "..\DigitalData.Open.Common\DigitalData.Open.Common.csproj", "{8A9FA058-2324-4C38-96F3-480246C19611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Modules.Authentication.Database", "..\DigitalData.DDoc.Modules.Authentication.Database\DigitalData.Open.Modules.Authentication.Database.csproj", "{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Common.WebExtensions", "..\DigitalData.Open.Common.WebExtensions\DigitalData.Open.Common.WebExtensions.csproj", "{07B2495D-19CF-4640-A145-3A433164E8CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Modules.DataAccess.SqlServer", "..\DigitalData.DDoc.Modules.DataAccess.SqlServer\DigitalData.Open.Modules.DataAccess.SqlServer.csproj", "{2816317A-17E2-4106-B144-3C9B2165632A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Core.BLL", "..\DigitalData.Open.Core.BLL\DigitalData.Open.Core.BLL.csproj", "{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Modules.Storage.FileSystem", "..\DigitalData.DDoc.Modules.Storage.FileSystem\DigitalData.Open.Modules.Storage.FileSystem.csproj", "{EC5EB01E-438C-4879-9F9E-1331E1616A26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Modules.Authentication.Database", "..\DigitalData.Open.Modules.Authentication.Database\DigitalData.Open.Modules.Authentication.Database.csproj", "{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Plugins.BRADESCARD", "..\DigitalData.Ddoc.Plugins.BRADESCARD\DigitalData.Open.Plugins.BRADESCARD.csproj", "{B729B6ED-7B29-465C-B39B-1B02CE21E1FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Modules.DataAccess.SqlServer", "..\DigitalData.Open.Modules.DataAccess.SqlServer\DigitalData.Open.Modules.DataAccess.SqlServer.csproj", "{2816317A-17E2-4106-B144-3C9B2165632A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Core.BLL", "..\DigitalData.DDoc.Core.BLL\DigitalData.Open.Core.BLL.csproj", "{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Modules.Storage.FileSystem", "..\DigitalData.Open.Modules.Storage.FileSystem\DigitalData.Open.Modules.Storage.FileSystem.csproj", "{EC5EB01E-438C-4879-9F9E-1331E1616A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Common.WebExtensions", "..\DigitalData.DDoc.Common.WebExtensions\DigitalData.Open.Common.WebExtensions.csproj", "{07B2495D-19CF-4640-A145-3A433164E8CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalData.Open.Plugins.BRADESCARD", "..\DigitalData.Open.Plugins.BRADESCARD\DigitalData.Open.Plugins.BRADESCARD.csproj", "{B729B6ED-7B29-465C-B39B-1B02CE21E1FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +50,14 @@ Global
 		{8A9FA058-2324-4C38-96F3-480246C19611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A9FA058-2324-4C38-96F3-480246C19611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A9FA058-2324-4C38-96F3-480246C19611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B2495D-19CF-4640-A145-3A433164E8CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B2495D-19CF-4640-A145-3A433164E8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B2495D-19CF-4640-A145-3A433164E8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B2495D-19CF-4640-A145-3A433164E8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,14 +74,6 @@ Global
 		{B729B6ED-7B29-465C-B39B-1B02CE21E1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B729B6ED-7B29-465C-B39B-1B02CE21E1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B729B6ED-7B29-465C-B39B-1B02CE21E1FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90A9E0F4-FE24-4477-A8E3-11FFA5A5B46B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07B2495D-19CF-4640-A145-3A433164E8CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07B2495D-19CF-4640-A145-3A433164E8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07B2495D-19CF-4640-A145-3A433164E8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07B2495D-19CF-4640-A145-3A433164E8CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

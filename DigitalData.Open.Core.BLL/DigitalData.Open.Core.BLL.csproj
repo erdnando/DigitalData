@@ -100,7 +100,7 @@
       <Project>{fd84fdeb-1a32-41fd-8ea2-d3dd1a6e798b}</Project>
       <Name>DigitalData.Common.Logging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.Open.Common.csproj">
+    <ProjectReference Include="..\DigitalData.Open.Common\DigitalData.Open.Common.csproj">
       <Project>{8a9fa058-2324-4c38-96f3-480246c19611}</Project>
       <Name>DigitalData.Open.Common</Name>
     </ProjectReference>

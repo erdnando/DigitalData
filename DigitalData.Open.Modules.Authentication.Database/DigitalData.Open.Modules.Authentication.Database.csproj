@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
-  <!--Project was exported from assembly: D:\proyectos\ddocx\DigitalData.DDoc.UI.Webx\DigitalData.DDoc.UI.Web\bin\DigitalData.DDoc.Modules.Storage.FileSystem.dll-->
+  <!--Project was exported from assembly: D:\proyectos\ddocx\DigitalData.DDoc.UI.Webx\DigitalData.DDoc.UI.Web\bin\DigitalData.DDoc.Modules.Authentication.Database.dll-->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC5EB01E-438C-4879-9F9E-1331E1616A26}</ProjectGuid>
+    <ProjectGuid>{7CB53D02-2BBD-4994-81BD-5FE2C0984D78}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>DigitalData.Open.Modules.Storage.FileSystem</AssemblyName>
+    <AssemblyName>DigitalData.Open.Modules.Authentication.Database</AssemblyName>
     <ApplicationVersion>4.210.0.0</ApplicationVersion>
-    <RootNamespace>DigitalData.Open.Modules.Storage</RootNamespace>
+    <RootNamespace>DigitalData.Open.Modules.Authentication</RootNamespace>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -39,13 +39,16 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>lib\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    <Reference Include="DigitalData.Common">
+      <HintPath>..\DigitalData.DDoc.UI.Web\lib\DigitalData.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalData.Common.Cryptography">
+      <HintPath>lib\DigitalData.Common.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSystemStorage.cs" />
+    <Compile Include="DBAuthentication.cs" />
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,7 +56,7 @@
       <Project>{0f2ae329-3819-48cc-a90d-db8737fd16e3}</Project>
       <Name>DigitalData.Common.IoC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DigitalData.DDoc.Common\DigitalData.Open.Common.csproj">
+    <ProjectReference Include="..\DigitalData.Open.Common\DigitalData.Open.Common.csproj">
       <Project>{8a9fa058-2324-4c38-96f3-480246c19611}</Project>
       <Name>DigitalData.Open.Common</Name>
     </ProjectReference>
