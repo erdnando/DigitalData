@@ -36,43 +36,39 @@ DDocUi.prototype.InitUserProfileEditor = function() {
         }
 
         function onDrop(e) {
-           // console.log("onDrop");
-            try {
                 e.preventDefault();
-   
                 var groupId = e.originalEvent.dataTransfer.getData('text');
                 e.originalEvent.dataTransfer.dropEffect = 'move';
-
-
                 $(this).append($('#' + groupId));
-            } catch (error) {
-                console.log(error);
-            }
-            
+        };
+
+        function moveToPerfiles(e) {
+            console.log('moveTo...');
+            console.log(e);
+            $('#userProfile').append($('li[id="' + e.currentTarget.id + '"]', '#groupList'));
+        };
+
+        function moveToGrupos(e) {
+            console.log('moveTo...');
+            console.log(e);
+            $('#groupList').append($('li[id="' + e.currentTarget.id + '"]', '#userProfile'));
         };
 
         function onDragStart(e) {
-
-           // console.log("onDragStart");
- 
                 e.originalEvent.dataTransfer.setData('text', e.target.id);
                 e.originalEvent.dataTransfer.effectAllowed = 'move';
-            
-           
         };
 
         function onDragOver(e) {
-           // console.log("onDragOver");
             e.preventDefault();
-   
         };
 
         $('#frmUserProfile').on('click', 'button', onFormButtonClick);
-
         $('.group-selector').on('drop', onDrop).on('dragover', onDragOver);
-     
-
         $('#groupList, #userProfile').on('dragstart', 'li', onDragStart);
+
+        $('#groupList').on('click', 'li', moveToPerfiles);
+        $('#userProfile').on('click', 'li', moveToGrupos);
       
 
     })();
@@ -84,10 +80,13 @@ DDocUi.prototype.LoadGroups = function() {
 
     ddoc.GET('/Admin/GetDDocGroups', { groupType: 1 }, function (response) {
 
+        //grupod disponibles lado derecho
         $.each(response.List, function(i, profile) {
             $('#groupList').append($('<li>').append($('<span class="group-icon">')).append($('<label>').html(profile.Name)).attr('id', profile.Id).attr('draggable', 'true'));
         });
 
+
+        //perfil de usuario, lado izq
         ddoc.POST('/Admin/GetUserProfile', ddoc.user, function(resp) {
             $.each(resp.List, function(i, userProfile) {
                 $('#userProfile').append($('li[id="' + userProfile.Id + '"]', '#groupList'));

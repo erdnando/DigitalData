@@ -14,7 +14,7 @@
 		"FrameOrigin" : "http://localhost/"
     },
     "AppConfig": {
-		"DdocServiceUrl": "https://localhost:44316",
+		"DdocServiceUrl": "http://localhost:82",
         "UseNewJsonSerializer": false
     },
     "DbConnections": [
