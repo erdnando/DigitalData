@@ -78,7 +78,7 @@ DDocUi.prototype.InitGrid = function (grid, contentType, collectionFields) {
 };
 
 DDocUi.prototype.InitGlobalSearchResults = function () {
-
+	console.log("buscando...."+$('#TextSearchQuery').val());
 	ddoc.ViewerAnchorTarget = $('#ViewerAnchorTarget').val();
 	parent.ddoc.Navigate = false;
 	ddoc.NavigationTree = parent.$('#tree').fancytree('getTree');

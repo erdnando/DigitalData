@@ -418,6 +418,7 @@ DDocUi.prototype.InitAdvancedSearchScreen = function () {
         }
 
         function validateSearchType() {
+            console.log("validando validateSearchType");
             var searchType = $('#SearchType').val();
             if (searchType == '' || searchType == null) {
                 ddoc.ShowAlert('Debe definir el tipo de búsqueda');

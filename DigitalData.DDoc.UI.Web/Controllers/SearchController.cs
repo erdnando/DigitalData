@@ -260,7 +260,16 @@ namespace DigitalData.DDoc.UI.Web.Controllers
       else
         ddocCollectionList = await searchController.Ddoc.GlobalSearch(parameters);
       searchController.ViewData["GlobalSearchMaxHits"] = (object) searchController.Settings.GetSetting<int>("GlobalSearchMaxHits");
-      searchController.ViewData["SearchableCollections"] = (object) ddocCollectionList;
+      
+
+      if (ddocCollectionList.Count == 0)
+      {
+          ddocCollectionList.Add(dummyExpediente());
+          ddocCollectionList.Add(dummydocument());
+      }
+
+      searchController.ViewData["SearchableCollections"] = (object)ddocCollectionList;
+
       await searchController.Ddoc.ActivityLog(new DdocActionLogEntry()
       {
         Action = "GlobalSearch",
@@ -271,7 +280,184 @@ namespace DigitalData.DDoc.UI.Web.Controllers
       return (ActionResult) searchController.PartialView((object) parameters);
     }
 
-    [HttpPost]
+    private DdocCollection dummyExpediente()
+        {
+            List<DdocField> auxListField = new List<DdocField>
+            {
+                new DdocField
+                {
+                    AllowedValuesString="",
+                    Computed=false,
+                    CreateRule=false,
+                    ForceStructChange=false,
+                    Hidden=false,
+                    InMask="",
+                    IncludeInGlobalSearch=true,
+                    Inheritable=true,
+                    IsNew=false,
+                    Nullable=false,
+                    OutMask="",
+                    Unique=false,
+                    Id = 0,//149
+                    Name = "",//idExpediente
+                    Sequence = 1,
+                    Type = FieldType.Text,
+                    TypeLength = 50,
+                    TypeString = "VARCHAR(50)",
+                }
+            };
+
+
+            List<DdocField> auxListFieldData = new List<DdocField>
+            {
+                new DdocField
+                {
+                    AllowedValuesString="",
+                    Computed=false,
+                    CreateRule=false,
+                    ForceStructChange=false,
+                    Hidden=false,
+                    InMask="",
+                    IncludeInGlobalSearch=true,
+                    Inheritable=false,
+                    IsNew=false,
+                    Nullable=false,
+                    OutMask="",
+                    Unique=false,
+                    Id = 0,//149
+                    Name = "",//idExpedientex
+                    Sequence = 0,
+                    Type = FieldType.Text,
+                    TypeLength = 50,
+                    TypeString = "VARCHAR(50)",
+                }
+            };
+
+            List<DdocChildEntity> auxSearchResult = new List<DdocChildEntity>
+            {
+                new DdocChildEntity
+                {
+                    CollectionId = "",  //01C000001G
+                    CreationDate=new DateTime(),
+                    Id="",//01F00001TI
+                    IsNew=false,
+                    Name="",
+                    SecurityGroupId=0,//45
+                    Data=auxListFieldData
+                }
+            };
+
+            //main object
+            return new DdocCollection
+            {
+                Cfdi = false,
+                Description = null,
+                Fields = auxListField,
+                FieldCount = 1,
+                HasChildren=true,
+                HasData=false,
+                HasDataTable=true,
+                Id = "01C000001G",//ok  --> Expediente (UNAM)
+                Name = "",//Expediente (UNAM*)
+                ParentId = "",//01C000001F ok --> UNAM (D)
+                SecurityGroupId = 0,//45
+                TotalSearchResults = 1,
+                Type = CollectionType.F,
+                WarehouseId=1,
+                SearchResults = auxSearchResult
+            };
+        }
+
+    private DdocCollection dummydocument()
+        {
+            List<DdocField> auxListField = new List<DdocField>
+            {
+                new DdocField
+                {
+                    AllowedValuesString="",
+                    Computed=false,
+                    CreateRule=false,
+                    ForceStructChange=false,
+                    Hidden=false,
+                    InMask="",
+                    IncludeInGlobalSearch=true,
+                    Inheritable=true,
+                    IsNew=false,
+                    Nullable=false,
+                    OutMask="",
+                    Unique=false,
+                    Id = 0,//154
+                    Name = "Folio expediente",//titulo col
+                    Sequence = 1,
+                    Type = FieldType.Text,
+                    TypeLength = 50,
+                    TypeString = "VARCHAR(50)",
+                }
+            };
+
+            List<DdocField> auxListFieldData = new List<DdocField>
+            {
+                new DdocField
+                {
+                    AllowedValuesString="",
+                    Computed=false,
+                    CreateRule=false,
+                    ForceStructChange=false,
+                    Hidden=false,
+                    InMask="",
+                    IncludeInGlobalSearch=true,
+                    Inheritable=false,
+                    IsNew=false,
+                    Nullable=false,
+                    OutMask="",
+                    Unique=false,
+                    Id = 0,//154
+                    Name = "",//idExpediente
+                    Sequence = 0,
+                    Value="sex on fire...............................",//valor del folio encontrado o descripcion corta d elo buscado
+                    Type = FieldType.Text,
+                    TypeLength = 50,
+                    TypeString = "VARCHAR(50)",
+                }
+            };
+
+            List<DdocChildEntity> auxSearchResult = new List<DdocChildEntity>
+            {
+                new DdocChildEntity
+                {
+                    CollectionId = "",//01C000001I
+                    CreationDate=new DateTime(),
+                    Id= "01D00004IB",//id del documento q abrira en el icono d elupita,
+                    IsNew=false,
+                    Name="",
+                    SecurityGroupId=0,//44
+                     Data=auxListFieldData
+                }
+            };
+
+            //main object
+            return new DdocCollection
+            {
+                Cfdi = false,
+                HasChildren=false,
+                HasData=false,
+                HasDataTable=true,
+                Description = null,
+                Fields = auxListField,
+                FieldCount = 1,
+                Id = "01C000001H",//tipo documento en el treeview, en este caso, es contrato
+                Name = "Documento digital",//titulo encabezado dle doc encontrado
+                IsNew=false,
+                ParentId = "",//01C000001G
+                SecurityGroupId = 0,//44
+                TotalSearchResults = 1,
+                Type = CollectionType.D,
+                WarehouseId=2,
+                SearchResults= auxSearchResult
+            };
+        }
+
+        [HttpPost]
     public async Task<ActionResult> GlobalSearch2Results(
       DdocSearchParameters parameters)
     {
