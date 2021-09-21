@@ -1703,6 +1703,11 @@ label_14:
       this.Storage = storage;
       this.InstanceFeatures = features;
       this.Authentication = authentication;
+
+      //new
+      this.InstanceFeatures.TextIndexing = true;
+      this.InstanceFeatures.Ocr = true;
+
       if (this.InstanceFeatures.TextIndexing)
         this.Indexing = IoCContainer.GetService<IDdocTextSearch>();
       if (!this.InstanceFeatures.Ocr)
@@ -1960,23 +1965,18 @@ label_14:
       return this.UploadPage(documentId, fileExt, File.ReadAllBytes(filePath), pageId, sequence, user);
     }
 
-    public async Task<(string newPageId, int imageCount)> UploadPage(
-      string documentId,
-      string fileExt,
-      byte[] byteSource,
-      string pageId = null,
-      int sequence = 0,
-      string user = null)
+    public async Task<(string newPageId, int imageCount)> UploadPage(string documentId, string fileExt, byte[] byteSource, string pageId = null, int sequence = 0, string user = null)
     {
       string newPageId;
       int imageCount;
+
       try
       {
         using (IDdocDAL dataAccess = IoCContainer.GetService<IDdocDAL>())
         {
           DdocDocument document = await dataAccess.Documents.GetDocument(documentId);
-          if (document == null)
-            throw new DdocException("El documento no existe");
+          if (document == null) throw new DdocException("El documento no existe");
+
           if (!string.IsNullOrEmpty(pageId))
           {
             sequence = await dataAccess.Documents.GetPageSequence(pageId);

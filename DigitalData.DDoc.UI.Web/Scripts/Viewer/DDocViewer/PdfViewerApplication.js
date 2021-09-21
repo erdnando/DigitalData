@@ -1694,7 +1694,12 @@ DDocUi.prototype.InitializeViewer = function() {
 				textDiv.style.fontSize = fontHeight + 'px';
 				textDiv.style.fontFamily = style.fontFamily;
 
-				textDiv.textContent = geom.str;
+				textDiv.textContent = geom.str
+
+				//code to detect some coincidence and mark it
+				if (textDiv.textContent == "NOMBRE") {
+					textDiv.style.backgroundColor = 'yellow';
+                }
 
 				if (angle !== 0) {
 					textDiv.dataset.angle = angle * (180 / Math.PI);

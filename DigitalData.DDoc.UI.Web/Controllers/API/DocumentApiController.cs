@@ -9,10 +9,12 @@ using DigitalData.Open.Common.Entities.Security;
 using DigitalData.Open.Common.Extensions;
 using DigitalData.Open.Common.WebExtensions;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -249,20 +251,50 @@ namespace DigitalData.DDoc.UI.Web.Controllers.API
       DocumentApiController documentApiController = this;
       HttpRequest httpRequest = HttpContext.Current.Request;
       UserSession userSession;
-      if (!documentApiController.ValidateToken(out userSession))
-        return documentApiController.Unauthorized();
-      if (string.IsNullOrEmpty(documentId) || string.IsNullOrEmpty(fileExt) || httpRequest.Files.Count != 1)
-        return documentApiController.BadRequest();
-      if (!await documentApiController.Ddoc.DocumentIdExists(documentId))
-        return documentApiController.NotFound();
+
+      if (!documentApiController.ValidateToken(out userSession))return documentApiController.Unauthorized();
+
+      if (string.IsNullOrEmpty(documentId) || string.IsNullOrEmpty(fileExt) || httpRequest.Files.Count != 1) return documentApiController.BadRequest();
+
+      if (!await documentApiController.Ddoc.DocumentIdExists(documentId)) return documentApiController.NotFound();
+
       HttpPostedFile file = httpRequest.Files[0];
       string itemGid;
       int num;
+
       try
       {
-        (itemGid, num) = await documentApiController.Ddoc.UploadPage(documentId, fileExt, file.InputStream.QuickReadToEnd(), pageId, sequence, userSession.Username);
-      }
-      catch (Exception ex)
+                var arrAux = file.InputStream.QuickReadToEnd();
+        (itemGid, num) = await documentApiController.Ddoc.UploadPage(documentId, fileExt, arrAux, pageId, sequence, userSession.Username);
+                //add file with name itemGrid into solr
+                //http://localhost/Digital.Docs.Service/Service1.svc?wsdl
+                //http://localhost:59103/Service1.svc
+
+
+                var data =new
+                {
+                     pImgS64= arrAux,
+                     idTramite= itemGid,
+                    categoria="1",
+                     nombre = itemGid+".pdf"
+                };
+                string resultado = "ok";
+                using (var httpClient = new System.Net.Http.HttpClient())
+                {
+                    System.Net.Http.StringContent content = new System.Net.Http.StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+                    using (var response = await httpClient.PostAsync("http://localhost/Digital.Docs.Service/Service1.svc/loadBase64ToCM", content))
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        resultado = JsonConvert.DeserializeObject<string>(apiResponse);
+                    }
+                }
+
+                string dd = "";
+                
+
+            }
+            catch (Exception ex)
       {
         return documentApiController.DDocErrorMessage(ex, (object) new
         {

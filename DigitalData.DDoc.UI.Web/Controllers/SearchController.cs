@@ -261,11 +261,11 @@ namespace DigitalData.DDoc.UI.Web.Controllers
         ddocCollectionList = await searchController.Ddoc.GlobalSearch(parameters);
       searchController.ViewData["GlobalSearchMaxHits"] = (object) searchController.Settings.GetSetting<int>("GlobalSearchMaxHits");
       
-
+      //new, just to include pdf metadata from solr
       if (ddocCollectionList.Count == 0)
       {
-          ddocCollectionList.Add(dummyExpediente());
-          ddocCollectionList.Add(dummydocument());
+          ddocCollectionList.Add(dummyExpediente(parameters.TextQuery));
+          ddocCollectionList.Add(dummydocument(parameters.TextQuery));
       }
 
       searchController.ViewData["SearchableCollections"] = (object)ddocCollectionList;
@@ -280,7 +280,7 @@ namespace DigitalData.DDoc.UI.Web.Controllers
       return (ActionResult) searchController.PartialView((object) parameters);
     }
 
-    private DdocCollection dummyExpediente()
+    private DdocCollection dummyExpediente(string txtQuery)
         {
             List<DdocField> auxListField = new List<DdocField>
             {
@@ -306,7 +306,6 @@ namespace DigitalData.DDoc.UI.Web.Controllers
                     TypeString = "VARCHAR(50)",
                 }
             };
-
 
             List<DdocField> auxListFieldData = new List<DdocField>
             {
@@ -368,7 +367,7 @@ namespace DigitalData.DDoc.UI.Web.Controllers
             };
         }
 
-    private DdocCollection dummydocument()
+    private DdocCollection dummydocument(string txtQuery)
         {
             List<DdocField> auxListField = new List<DdocField>
             {
@@ -414,7 +413,7 @@ namespace DigitalData.DDoc.UI.Web.Controllers
                     Id = 0,//154
                     Name = "",//idExpediente
                     Sequence = 0,
-                    Value="sex on fire...............................",//valor del folio encontrado o descripcion corta d elo buscado
+                    Value= txtQuery,//valor  encontrado o descripcion corta de lo buscado
                     Type = FieldType.Text,
                     TypeLength = 50,
                     TypeString = "VARCHAR(50)",
@@ -427,7 +426,7 @@ namespace DigitalData.DDoc.UI.Web.Controllers
                 {
                     CollectionId = "",//01C000001I
                     CreationDate=new DateTime(),
-                    Id= "01D00004IB",//id del documento q abrira en el icono d elupita,
+                    Id= "01D00004IB",//01P000043B   id del documento q abrira en el icono d elupita,
                     IsNew=false,
                     Name="",
                     SecurityGroupId=0,//44
@@ -446,7 +445,7 @@ namespace DigitalData.DDoc.UI.Web.Controllers
                 Fields = auxListField,
                 FieldCount = 1,
                 Id = "01C000001H",//tipo documento en el treeview, en este caso, es contrato
-                Name = "Documento digital",//titulo encabezado dle doc encontrado
+                Name = "Documento digital",//titulo encabezado del doc encontrado
                 IsNew=false,
                 ParentId = "",//01C000001G
                 SecurityGroupId = 0,//44
