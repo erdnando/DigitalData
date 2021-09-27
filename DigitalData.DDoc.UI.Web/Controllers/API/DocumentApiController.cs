@@ -265,33 +265,35 @@ namespace DigitalData.DDoc.UI.Web.Controllers.API
       try
       {
                 var arrAux = file.InputStream.QuickReadToEnd();
-        (itemGid, num) = await documentApiController.Ddoc.UploadPage(documentId, fileExt, arrAux, pageId, sequence, userSession.Username);
+                (itemGid, num) = await documentApiController.Ddoc.UploadPage(documentId, fileExt, arrAux, pageId, sequence, userSession.Username);
                 //add file with name itemGrid into solr
                 //http://localhost/Digital.Docs.Service/Service1.svc?wsdl
                 //http://localhost:59103/Service1.svc
 
-
-                var data =new
+                if (fileExt.Trim().ToUpper().Equals("PDF"))
                 {
-                     pImgS64= arrAux,
-                     idTramite= itemGid,
-                    categoria="1",
-                     nombre = itemGid+".pdf"
-                };
-                string resultado = "ok";
-                using (var httpClient = new System.Net.Http.HttpClient())
-                {
-                    System.Net.Http.StringContent content = new System.Net.Http.StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
-
-                    using (var response = await httpClient.PostAsync("http://localhost/Digital.Docs.Service/Service1.svc/loadBase64ToCM", content))
+                    //inject searchable pdf to solr
+                    var data =new
                     {
-                        string apiResponse = await response.Content.ReadAsStringAsync();
-                        resultado = JsonConvert.DeserializeObject<string>(apiResponse);
+                         pImgS64= arrAux,
+                         idTramite= itemGid,
+                        categoria="1",
+                         nombre = itemGid+".pdf"
+                    };
+                    string resultado = "ok";
+                    using (var httpClient = new System.Net.Http.HttpClient())
+                    {
+                        System.Net.Http.StringContent content = new System.Net.Http.StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+                        using (var response = await httpClient.PostAsync("http://localhost/Digital.Docs.Service/Service1.svc/loadBase64ToCM", content))
+                        {
+                            string apiResponse = await response.Content.ReadAsStringAsync();
+                            resultado = JsonConvert.DeserializeObject<string>(apiResponse);
+                        }
                     }
+
                 }
 
-                string dd = "";
-                
 
             }
             catch (Exception ex)

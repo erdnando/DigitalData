@@ -8,10 +8,12 @@ using DigitalData.Open.Common.Entities.Helpers;
 using DigitalData.Open.Common.Extensions;
 using DigitalData.Open.Common.WebExtensions;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Xml;
@@ -264,6 +266,12 @@ namespace DigitalData.DDoc.UI.Web.Controllers
       //new, just to include pdf metadata from solr
       if (ddocCollectionList.Count == 0)
       {
+                //go solr and try to get coincidences
+                var respon= await goSolrAsync(parameters.TextQuery);
+
+
+
+          //generate formmated output 
           ddocCollectionList.Add(dummyExpediente(parameters.TextQuery));
           ddocCollectionList.Add(dummydocument(parameters.TextQuery));
       }
@@ -279,6 +287,23 @@ namespace DigitalData.DDoc.UI.Web.Controllers
       });
       return (ActionResult) searchController.PartialView((object) parameters);
     }
+   private async Task<Open.WebUI.Controllers.API.ResponseSearch> goSolrAsync(string textQuery)
+   {
+
+            Open.WebUI.Controllers.API.ResponseSearch resultado =null;
+            using (var httpClient = new System.Net.Http.HttpClient())
+            {
+                //System.Net.Http.StringContent content = new System.Net.Http.StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+                using (var response = await httpClient.GetAsync("http://localhost/Digital.Docs.Service/Service1.svc/API/select/"+ textQuery.Trim()))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    resultado = JsonConvert.DeserializeObject<Open.WebUI.Controllers.API.ResponseSearch>(apiResponse);
+                }
+            }
+
+            return resultado;
+        }
 
     private DdocCollection dummyExpediente(string txtQuery)
         {

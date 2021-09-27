@@ -456,6 +456,7 @@
     <Compile Include="Controllers\API\DocumentApiController.cs" />
     <Compile Include="Controllers\API\FilesApiController.cs" />
     <Compile Include="Controllers\API\FolderApiController.cs" />
+    <Compile Include="Controllers\API\ResponseSearch.cs" />
     <Compile Include="Controllers\API\SearchApiController.cs" />
     <Compile Include="Controllers\API\SecurityApiController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
